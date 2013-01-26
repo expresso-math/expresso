@@ -1,0 +1,97 @@
+% THIS IS SIGPROC-SP.TEX - VERSION 3.1
+% WORKS WITH V3.2SP OF ACM_PROC_ARTICLE-SP.CLS
+% APRIL 2009
+
+
+\documentclass{acm_proc_article-sp}
+
+\begin{document}
+
+\title{ Expresso: Typesetting Handwritten Mathematical Expressions in LaTeX }
+\subtitle{[Project Proposal]}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{1} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Josef Lange\\
+       \affaddr{University of Puget Sound}\\
+       \affaddr{1500 N. Warner St.}\\
+       \affaddr{Tacoma, WA 98416}\\
+       \email{jlange@pugetsound.edu}
+       }
+\date{25 January, 2013}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+
+\begin{abstract}
+This paper sets forth to describe and outline plans for the undergraduate Computer Science capstone project of the aforementioned author. The project is to research, design, and implement a tablet-based software solution for the capture of hand-written mathematical expressions and create the appropriate LaTeX source code from which to compile nicely-typeset versions of the aforementioned expressions.The objective of the project is considerably challenging for an undergraduate Computer Science student to undertake. This proposal will explain how the process will be segmented incrementally in phases of research, design, and implementation so as to produce tangible results regardless of how rigorous the subject matter becomes.The context of this project will include image processing, artificial intelligence, application development for the Apple iOS platform (particularly in the tablet form factor), as well as the adherence to a highly disciplined development cycle. The author will attempt to most accurately and most briefly explain any uncommon concepts described hereafter.\end{abstract}
+
+\section{Introduction}
+Throughout modern history, the tablet form factor of computing has come, gone, and come again. In the late 19th Century, inventors worked to create devices that could take input and return output on the same slate surface. From Isaac Asimov's novel Foundation (1951) to Gene Roddenberry's Star Trek television series (premiered 1966) to Arthur Clarke's and Stanley Kubrick's film 2001: A Space Odyssey (1968), tablet computers have been prominent in science fiction for for over fifty years. Computer manufacturers and software developers have prototyped, designed, and implemented numerous iterations of the concept, historically with little success.The utility of such a form factor of computing has only been recently fully realized, with the nascence of the "Post-PC" tablet, migrating away from the standard desktop usage paradigm commonly associated with computing. The modern tablet focuses on media consumption and so-called "basic" computing. In today's reality, most "Post-PC" tablet devices are incredibly powerful both in hardware and in software, supporting complex and challenging computations including the decoding of video, image processing, interpretation of multiple inputs, managing several network connections, and displaying high-resolution two- and three-dimensional graphics.The modern tablet has proven to be a preferable for several functions, most of which rely upon the user's direct interaction with the screen. This, of course, is the distinct difference (and advantage) of the tablet form factor over the conventional keyboard-mouse-monitor paradigm. Over the years, manufacturers and developers alike have struggled with a complex problem: handwriting recognition.A relatively unexplored context of handwriting recognition is that of recognizing mathematical equations. The existing solutions appear to utilize full-scale handwriting recognition heuristics to recognize equations. 
+
+\section{Conclusions}
+
+%\end{document}  % This is where a 'short' article might terminate
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+
+
+\balancecolumns
+
+% That's all folks!
+\end{document}
