@@ -7,49 +7,12 @@
 
 \begin{document}
 
-\title{ Expresso: Typesetting Handwritten Mathematical Expressions in LaTeX }
+\title{ Expresso: Typesetting Handwritten Mathematical Expressions on the Post-PC Tablet Computer }
 \subtitle{[Project Proposal]}
-%
-% You need the command \numberofauthors to handle the 'placement
-% and alignment' of the authors beneath the title.
-%
-% For aesthetic reasons, we recommend 'three authors at a time'
-% i.e. three 'name/affiliation blocks' be placed beneath the title.
-%
-% NOTE: You are NOT restricted in how many 'rows' of
-% "name/affiliations" may appear. We just ask that you restrict
-% the number of 'columns' to three.
-%
-% Because of the available 'opening page real-estate'
-% we ask you to refrain from putting more than six authors
-% (two rows with three columns) beneath the article title.
-% More than six makes the first-page appear very cluttered indeed.
-%
-% Use the \alignauthor commands to handle the names
-% and affiliations for an 'aesthetic maximum' of six authors.
-% Add names, affiliations, addresses for
-% the seventh etc. author(s) as the argument for the
-% \additionalauthors command.
-% These 'additional authors' will be output/set for you
-% without further effort on your part as the last section in
-% the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{1} %  in this sample file, there are a *total*
-% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-% reasons) and the remaining two appear in the \additionalauthors section.
-%
+\numberofauthors{1} 
+
 \author{
-% You can go ahead and credit any number of authors here,
-% e.g. one 'row of three' or two rows (consisting of one row of three
-% and a second row of one, two or three).
-%
-% The command \alignauthor (no curly braces needed) should
-% precede each author name, affiliation/snail-mail address and
-% e-mail address. Additionally, tag each line of
-% affiliation/address with \affaddr, and tag the
-% e-mail address with \email.
-%
-% 1st. author
 \alignauthor
 Josef Lange\\
        \affaddr{University of Puget Sound}\\
@@ -57,29 +20,69 @@ Josef Lange\\
        \affaddr{Tacoma, WA 98416}\\
        \email{jlange@pugetsound.edu}
        }
+       
 \date{25 January, 2013}
-% Just remember to make sure that the TOTAL number of authors
-% is the number that will appear on the first page PLUS the
-% number that will appear in the \additionalauthors section.
 
 \maketitle
 
 \begin{abstract}
-This paper sets forth to describe and outline plans for the undergraduate Computer Science capstone project of the aforementioned author. The project is to research, design, and implement a tablet-based software solution for the capture of hand-written mathematical expressions and create the appropriate LaTeX source code from which to compile nicely-typeset versions of the aforementioned expressions.The objective of the project is considerably challenging for an undergraduate Computer Science student to undertake. This proposal will explain how the process will be segmented incrementally in phases of research, design, and implementation so as to produce tangible results regardless of how rigorous the subject matter becomes.The context of this project will include image processing, artificial intelligence, application development for the Apple iOS platform (particularly in the tablet form factor), as well as the adherence to a highly disciplined development cycle. The author will attempt to most accurately and most briefly explain any uncommon concepts described hereafter.\end{abstract}
+This paper sets forth to describe plans for the undergraduate Computer Science capstone project of the aforementioned author. The project is to research, design, and implement a tablet-based software solution for the capture of handwritten mathematical expressions and compile the appropriate mathematical representation in an appropriate representative language (such as \LaTeX or MathML).
+
+The objective of the project is considerably challenging for an undergraduate Computer Science student to undertake. This proposal will explain how the process will be segmented incrementally in phases of research, design, and implementation so as to produce tangible results regardless of how rigorous the subject matter becomes.
+
+Subjects tackled in this project include image processing, artificial intelligence, application development for the Apple iOS platform (particularly in the tablet form factor), as well as the adherence to a highly disciplined development cycle. The author will attempt to most accurately and most briefly explain any uncommon concepts described hereafter.
+\end{abstract}
 
 \section{Introduction}
-Throughout modern history, the tablet form factor of computing has come, gone, and come again. In the late 19th Century, inventors worked to create devices that could take input and return output on the same slate surface. From Isaac Asimov's novel Foundation (1951) to Gene Roddenberry's Star Trek television series (premiered 1966) to Arthur Clarke's and Stanley Kubrick's film 2001: A Space Odyssey (1968), tablet computers have been prominent in science fiction for for over fifty years. Computer manufacturers and software developers have prototyped, designed, and implemented numerous iterations of the concept, historically with little success.The utility of such a form factor of computing has only been recently fully realized, with the nascence of the "Post-PC" tablet, migrating away from the standard desktop usage paradigm commonly associated with computing. The modern tablet focuses on media consumption and so-called "basic" computing. In today's reality, most "Post-PC" tablet devices are incredibly powerful both in hardware and in software, supporting complex and challenging computations including the decoding of video, image processing, interpretation of multiple inputs, managing several network connections, and displaying high-resolution two- and three-dimensional graphics.The modern tablet has proven to be a preferable for several functions, most of which rely upon the user's direct interaction with the screen. This, of course, is the distinct difference (and advantage) of the tablet form factor over the conventional keyboard-mouse-monitor paradigm. Over the years, manufacturers and developers alike have struggled with a complex problem: handwriting recognition.A relatively unexplored context of handwriting recognition is that of recognizing mathematical equations. The existing solutions appear to utilize full-scale handwriting recognition heuristics to recognize equations. 
+Throughout computing history, the tablet form factor of computing has come, gone, and come again. In the late 19th Century, inventors worked to create devices that could take input and return output on the same slate surface. From Isaac Asimov's novel \emph{Foundation} (1951) to Gene Roddenberry's \emph{Star Trek} television series (premiered 1966) to Arthur Clarke's and Stanley Kubrick's film \emph{2001: A Space Odyssey} (1968), tablet computers have been prominent in science fiction for for over fifty years.
 
-\section{Conclusions}
+The utility of such a form factor of computing has only been recently fully realized, with the nascence of the ``Post-PC'' tablet, migrating away from the standard desktop usage paradigm commonly associated with computing. The modern tablet focuses on media consumption and so-called ``basic'' computing. In today's reality, most ``Post-PC'' tablets are incredibly powerful both in hardware and in software, supporting complex and challenging computations including the decoding of video, image processing, interpretation of multiple inputs, managing several network connections, and displaying high-resolution two- and three-dimensional graphics.
+
+The modern tablet has proven to be a preferable for several functions, most of which rely upon the user's direct interaction with the screen. This, of course, is the distinct difference (and advantage) of the tablet form factor over the conventional keyboard-mouse-monitor paradigm. Over the years, manufacturers and developers alike have struggled with a complex problem: handwriting recognition.
+
+This project hopes to efficiently solve the problem of handwriting recognition in the context of inputting mathematical expressions into computing systems. Though there have been solutions proposed and implemented prior, these solutions require more work than is truly required in the small context of this mode of operation, nor have they taken advantage of the tablet form factor. This project hopes to successfully implement a system with which to capture handwritten mathematical expressions from the digitizer of a tablet computer and convert it to useable mathematical representative language.
+
+\section{Existing Solutions}
+
+\subsection{General Handwriting Recognition} 
+This project hopes to solve a significant segment of the handwriting recognition problem, and in an ultimately useful way. Existing solutions to handwriting recognition exist, and some even perform at a useable level. Frequently, these systems require a period of ``training'' before any recognition can be achieved. Others use incredibly smart artificial intelligence to conclude what a sequence of handwriting is meant to be. In the sub-context of full-on text recognition, this is useful and almost required for any success. Commercial products exist, including but not limited to software built into Microsoft's Windows and Apple's Mac OS X Operating Systems. Additionally, many third-party companies have produced software for a similar purpose.
+
+\subsection{Mathematical Expression Capture}
+Previously-mentioned solutions are frequently overpowered for the sub-context of mathematical expressions, in which there are fewer possible logical constructs, all of which follow a fairly standard form. Because of this, the subset of things needing recognition, and possibilities for what they could be, is significantly smaller. Academic projects, including those by Matsakis\cite{matsakis_recognition_1999}, Smithies et. al.\cite{smithies_handwriting-based_1999}, and Levin\cite{levin_cellwriter:_2007} exhibit valid solutions for the desktop model of usage, though are not implemented in a way that is ultimately accessible for the common user.
+
+\section{Proposed Solution}
+This project will, if successfully carried out, produce a feature-complete, useable piece of software for the Apple iOS platform. This piece of software will have a singular function: to capture handwritten mathematical expressions via the digitizing screen, and compile the interpreted characters into the appropriate mathematical representational language (namely \LaTeX or MathML). 
+
+There are numerous components to such a system: capturing the digitized drawing done by the user, separating individual glyphs, identifying said glyphs, comparing the size and location of said glyphs, deducing an intended mathematical representation, and compiling that representation into useable code. In addition to working software, a strong focus on useful and good-looking user interface will be applied. 
+
+The proposed implementation has several optional system features (not apparent to the end user), including but not yet limited to distributed learning-based artificial intelligence, which if successfully implemented, could stand to improve accuracy of the software over time. These optional features will be researched and implemented if time and skill allows.
+
+\section{Motivation \& Importance}
+The ``Post-PC'' era is no longer a myth. Commercial sales and institutional interest in keyboard-mouse-screen computing systems is decreasing while interest in tablet devices continues to grow. Implementing useful and elegant solutions--which take advantage of this radically different device's usage paradigm--to significant computer science problems is of utmost importance both for the sake of the field and for computing itself. 
+
+Tablet computing is quickly becoming the primary form of computing for many users, at home, at work, and at school. Shouldn't the devices be more useful than the systems they've replaced?
+
+In addition to this project's aforementioned idealistic importance, a practical importance exists: previous solutions to this problem have surely been successful but not widely available or useful for the common user or educational institution. The shortcoming of prior solutions, in one way, is the availability and ubiquity of handwritten input. 
+
+On a desktop or even a notebook system, a graphics tablet is nearly a required resource for any such work. On a modern tablet device, similar algorithms can be implemented utilizing the built-in digitizer to create a solution with little to no additional equipment necessary. 
+
+With the growing ubiquity of the Post-PC tablet (particularly the Apple iPad) in education, a solution such as this can really make an impact in bringing the classroom fully into the digital age.
+
+\section{Project Roadmap}
+
+\subsection{Research}
+First and foremost, additional heavy research is required. Each small piece of information leads to additional sources of information and additional projects that have attempted to achieve (with varying levels of success) the same goal. There is much to be learned from each general field from which this project draws. It will be helpful to carefully analyze previous projects of this nature to find commonly-used methodologies when approaching this context. Research may also help to steer this project from any abysses of hard work. The best implementation is frequently the simplest one, and as such this project aims to avoid overly-complex solutions.
+
+\subsection{Design}
+A great deal of design must be done on such a big and complex project. The first task is to intelligently segment the project into smaller, possible-to-implement pieces that can be connected to create a whole system. This will require a strong knowledge of design patterns and general software engineering concepts. It is this project's intention to be comprised of several software components that may be useful on their own, and when combined properly, efficiently and elegantly solve the intended problem.
+
+\subsection{Implementation}
+This project, as mentioned before, will need to be segmented, with each segment well-designed, in order for implementation to be manageable. The will be implemented on the Apple iOS platform using the Cocoa Touch framework. Cocoa Touch is developed primarily in Objective-C, which is compatible at compilation with C and C++. The intention is to compile and distribute for the iPad device, though the iPhone and iPod touch devices are equally capable, albeit slightly more difficult to use with such a small screen and digitizer. Apple provides a Development Program for institutions of higher education, which will negate any costs of development that Apple normally charges (namely the annual \$99 membership) for developers to be able to compile their code to devices for testing and usage.
 
 %\end{document}  % This is where a 'short' article might terminate
 
-%
-% The following two commands are all you need in the
-% initial runs of your .tex file to
-% produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+\bibliography{proposal_citations}  
 % You must have a proper ".bib" file
 %  and remember to run:
 % latex bibtex latex latex
