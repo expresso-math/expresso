@@ -27,8 +27,8 @@
                                     <action selector="strokeWidthChanged:" destination="2" eventType="valueChanged" id="72Q-SR-Vkw"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Width: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l3f-Ar-pSc">
-                                <rect key="frame" x="20" y="675" width="107" height="23"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Width: 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l3f-Ar-pSc">
+                                <rect key="frame" x="20" y="675" width="255" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,23 +46,26 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="x8b-gV-dvH">
-                                <rect key="frame" x="865" y="697" width="18" height="19"/>
+                            <view contentMode="scaleToFill" id="uA4-Sz-m4C" customClass="EXDrawingInterpretationView">
+                                <rect key="frame" x="20" y="98" width="984" height="569"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VfZ-pR-aaq">
+                                <rect key="frame" x="770" y="685" width="113" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearDrawing:" destination="2" eventType="touchUpInside" id="cBT-3T-5Dh"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="uA4-Sz-m4C" customClass="EXDrawingInterpretationView">
-                                <rect key="frame" x="20" y="98" width="984" height="569"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -71,6 +74,7 @@
                     <connections>
                         <outlet property="drawingView" destination="uA4-Sz-m4C" id="G6I-yj-W8i"/>
                         <outlet property="mainView" destination="5" id="GQa-8b-abP"/>
+                        <outlet property="strokeWidthLabel" destination="l3f-Ar-pSc" id="cqF-Qw-Sel"/>
                         <outlet property="strokeWidthSlider" destination="gQ2-es-szy" id="pT4-uu-fRA"/>
                     </connections>
                 </viewController>
@@ -86,9 +90,11 @@
         <class className="EXViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EXViewController.h"/>
             <relationships>
+                <relationship kind="action" name="clearDrawing:"/>
                 <relationship kind="action" name="strokeWidthChanged:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingInterpretationView"/>
                 <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="strokeWidthLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="strokeWidthSlider" candidateClass="UISlider"/>
             </relationships>
         </class>

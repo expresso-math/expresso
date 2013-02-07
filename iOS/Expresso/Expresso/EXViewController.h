@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet EXDrawingInterpretationView *drawingView;
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
+@property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
 
 @end

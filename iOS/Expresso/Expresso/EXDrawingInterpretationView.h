@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSNumber *strokeWidth;
 
+- (void)eraseView;
+
 @end

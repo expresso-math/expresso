@@ -156,4 +156,15 @@
     // Close down the UIGraphicsImageContext.
     UIGraphicsEndImageContext();
 }
+
+- (void)eraseView {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
+    UIBezierPath *rectpath = [UIBezierPath bezierPathWithRect:self.bounds];
+    [[UIColor whiteColor] setFill];
+    [rectpath fill];
+    incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self drawBitmap];
+    [self setNeedsDisplay];
+}
 @end

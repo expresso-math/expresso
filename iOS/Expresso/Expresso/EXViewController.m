@@ -23,6 +23,8 @@
     [super viewDidLoad];
     self.strokeWidthSlider.minimumValue = 1.0;
     self.strokeWidthSlider.maximumValue = 10.0;
+    self.strokeWidthSlider.value = 1.0;
+    self.strokeWidthLabel.text = @"Stroke Width: 1";
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -34,12 +36,19 @@
 
 - (void)viewDidUnload {
     [self setMainView:nil];
-    //[self setDrawingView:nil];
+    [self setDrawingView:nil];
     [self setStrokeWidthSlider:nil];
+    [self setStrokeWidthLabel:nil];
     [super viewDidUnload];
 }
 - (IBAction)strokeWidthChanged:(UISlider *)sender {
-    self.drawingView.stroke = [NSNumber numberWithFloat:sender.value];
-    [self.mainView bringSubviewToFront:self.drawingView];
+    NSNumber *newValue = [NSNumber numberWithFloat:sender.value];
+    NSNumber *newValueInt = [NSNumber numberWithInt:[newValue intValue]];
+    self.drawingView.strokeWidth = newValueInt;
+    self.strokeWidthLabel.text = [NSString stringWithFormat:@"Stroke Width: %d",
+                             [newValueInt intValue]];
+}
+- (IBAction)clearDrawing:(id)sender {
+    [self.drawingView eraseView];
 }
 @end
