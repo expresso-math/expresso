@@ -10,6 +10,6 @@
 
 @interface EXDrawingInterpretationView : UIView
 
-@property (strong, nonatomic) NSNumber *stroke;
+@property (strong, nonatomic) NSNumber *strokeWidth;
 
 @end
