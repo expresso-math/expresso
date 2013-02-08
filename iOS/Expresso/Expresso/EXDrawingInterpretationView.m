@@ -7,6 +7,8 @@
 //
 
 #import "EXDrawingInterpretationView.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation EXDrawingInterpretationView {
     UIBezierPath *path;
@@ -28,10 +30,7 @@
     // drawing it.
     if (self = [super initWithCoder:aDecoder])
     {
-        [self setMultipleTouchEnabled:NO];
-        [self setBackgroundColor:[UIColor whiteColor]];
-        path = [UIBezierPath bezierPath];
-        [path setLineWidth:[self.strokeWidth floatValue]];
+        [self drawingSetup];
     }
     return self;
 }
@@ -42,12 +41,21 @@
     // drawing it.
     self = [super initWithFrame:frame];
     if (self) {
-        [self setMultipleTouchEnabled:NO];
-        path = [UIBezierPath bezierPath];
-        [path setLineWidth:[self.strokeWidth floatValue]];
+        [self drawingSetup];
     }
     return self;
 }
+
+// Essentially a macro for the init overrides.
+- (void)drawingSetup {
+    [self setMultipleTouchEnabled:NO];
+    [self setBackgroundColor:[UIColor whiteColor]];
+    path = [UIBezierPath bezierPath];
+    [path setLineWidth:[self.strokeWidth floatValue]];
+    [[self layer] setCornerRadius:5.0];
+    [[self layer] setMasksToBounds:YES];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     // Override so we can set the line width given the current value of our
@@ -113,7 +121,7 @@
     }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+{    
     // We finished scribbling. Handle the previously-drawn path caching.
     [self drawBitmap];
     [self setNeedsDisplay];
