@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
 
+-(IBAction)showPopoverFromButton:(id)sender;
+
 @end

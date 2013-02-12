@@ -10,6 +10,8 @@
 
 @interface EXViewController ()
 
+@property (nonatomic, strong) UIPopoverController *settingsPopoverController;
+
 @end
 
 @implementation EXViewController
@@ -25,6 +27,9 @@
     self.strokeWidthSlider.maximumValue = 10.0;
     self.strokeWidthSlider.value = 1.0;
     self.strokeWidthLabel.text = @"Stroke Width: 1";
+    self.settingsPopoverController = [[UIPopoverController alloc] init];
+    self.settingsPopoverController.popoverContentSize = CGSizeMake(320., 320.);
+    //self.settingsPopoverController.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -50,5 +55,15 @@
 }
 - (IBAction)clearDrawing:(id)sender {
     [self.drawingView eraseView];
+}
+
+- (IBAction)showPopoverFromButton:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [self.settingsPopoverController presentPopoverFromRect:button.frame
+                                                    inView:self.view
+                                  permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                  animated:YES];
+    
+
 }
 @end

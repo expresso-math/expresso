@@ -16,6 +16,7 @@
     CGPoint pts[5]; // we now need to keep track of the four points of a Bezier
                     // segment and the first control point of the next segment.
     uint ctr;
+    BOOL drewDot;
 }
 
 - (NSNumber *)strokeWidth {
@@ -54,6 +55,7 @@
     [path setLineWidth:[self.strokeWidth floatValue]];
     [[self layer] setCornerRadius:5.0];
     [[self layer] setMasksToBounds:YES];
+    drewDot = NO;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -65,6 +67,11 @@
     [path setLineWidth:[self.strokeWidth floatValue]];
     [incrementalImage drawInRect:rect];
     [path stroke];
+    if(drewDot) {
+        [[UIColor blackColor] setFill];
+        [path fill];
+        drewDot = NO;
+    }
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -121,10 +128,36 @@
     }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{    
+{
+    
+    // Check if our bounding box is very small. If so, draw a pretty point.
+    
+    // Get our touchpoint.
+    UITouch *touch = [touches anyObject];
+    CGPoint p = [touch locationInView:self];
+    
+    // Making up an arbitrary point area to determine whether or not we
+    // drew something.
+    CGRect pointSize = CGRectMake(p.x-3, p.y-3, 6, 6);
+    
+    // If the bounds of our total drawing is smaller than that arbitrary
+    // bounding box, we most likely meant to draw a point.
+    if(CGRectContainsRect(pointSize, [path bounds])) {
+        // Add an arc (a 360-degree one, so a circle) to the path at the
+        // touchpoint.
+        [path addArcWithCenter:p
+                        radius:[self.strokeWidth floatValue] * 0.4
+                    startAngle:0.0
+                      endAngle:(3.141592*2.0)
+                     clockwise:YES];
+        // Let the class know we drew a dot.
+        drewDot = YES;
+      }
+    
     // We finished scribbling. Handle the previously-drawn path caching.
-    [self drawBitmap];
     [self setNeedsDisplay];
+    [self drawBitmap];
+
     
     // Clear path.
     [path removeAllPoints];
@@ -156,7 +189,15 @@
     [[UIColor blackColor] setStroke];
     
     // Stroke current path.
+    [path setLineWidth:[self.strokeWidth floatValue]];
     [path stroke];
+    
+    // If we detected we touched a dot, fill the arc we drew.
+    if(drewDot) {
+        [[UIColor blackColor] setFill];
+        [path fill];
+        drewDot = NO;
+    }
     
     // Cache newly-updated capture.
     incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
