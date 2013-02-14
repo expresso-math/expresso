@@ -21,6 +21,7 @@
 		CB41A4DF16C3141B008FDF27 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */; };
 		CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E116C3141B008FDF27 /* EXViewController.m */; };
 		CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */; };
+		CB85D2BD16CD926D005D8671 /* EXSettingsPopoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */; };
 		CBFD3DF816CC625500CA0058 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF716CC625500CA0058 /* MessageUI.framework */; };
 		CBFD3DFA16CC6BCF00CA0058 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */; };
 		CBFD3DFC16CC6BDB00CA0058 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DFB16CC6BDB00CA0058 /* Security.framework */; };
@@ -49,6 +50,8 @@
 		CB41A4E116C3141B008FDF27 /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawingInterpretationView.h; sourceTree = "<group>"; };
 		CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingInterpretationView.m; sourceTree = "<group>"; };
+		CB85D2BB16CD926D005D8671 /* EXSettingsPopoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXSettingsPopoverContentViewController.h; sourceTree = "<group>"; };
+		CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXSettingsPopoverContentViewController.m; sourceTree = "<group>"; };
 		CBFD3DF716CC625500CA0058 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		CBFD3DFB16CC6BDB00CA0058 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -116,12 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */,
-				CB26F1EE16CD44E900F29E89 /* EXProgressView.h */,
-				CB26F1EF16CD44E900F29E89 /* EXProgressView.m */,
-				CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */,
-				CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */,
-				CB41A4E016C3141B008FDF27 /* EXViewController.h */,
-				CB41A4E116C3141B008FDF27 /* EXViewController.m */,
+				CB85D2BF16CD9295005D8671 /* Controllers */,
+				CB85D2BE16CD928E005D8671 /* Views */,
 				CB41A4CC16C3141B008FDF27 /* Supporting Files */,
 			);
 			path = Expresso;
@@ -142,6 +141,28 @@
 				CB41A4DB16C3141B008FDF27 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB85D2BE16CD928E005D8671 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB26F1EE16CD44E900F29E89 /* EXProgressView.h */,
+				CB26F1EF16CD44E900F29E89 /* EXProgressView.m */,
+				CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */,
+				CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CB85D2BF16CD9295005D8671 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB85D2BB16CD926D005D8671 /* EXSettingsPopoverContentViewController.h */,
+				CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */,
+				CB41A4E016C3141B008FDF27 /* EXViewController.h */,
+				CB41A4E116C3141B008FDF27 /* EXViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +238,7 @@
 				CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */,
 				CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */,
 				CB26F1F016CD44E900F29E89 /* EXProgressView.m in Sources */,
+				CB85D2BD16CD926D005D8671 /* EXSettingsPopoverContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

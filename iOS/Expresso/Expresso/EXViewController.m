@@ -16,6 +16,7 @@
 @implementation EXViewController
 
 @synthesize restClient = _restClient; // Synth restClient into an instance variable.
+@synthesize settingsPopoverController = _settingsPopoverController;
 
 /*
  *  Help force landscape.
@@ -31,16 +32,21 @@
 {
     [super viewDidLoad];
     
+    NSNotificationCenter *n = [NSNotificationCenter defaultCenter];
+    [n addObserver:self selector:@selector(strokeWidthDidChange:) name:@"strokeWidthDidChange" object:nil];
+    
     [self.mainView setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1.0]];
-    self.strokeWidthSlider.minimumValue = 1.0;
-    self.strokeWidthSlider.maximumValue = 10.0;
+
     self.drawingView.strokeWidth = [NSNumber numberWithInt:3];
-    self.strokeWidthSlider.value = 3.0;
-    self.strokeWidthLabel.text = @"Stroke Width: 3";
     
     [[self.progressView layer] setCornerRadius:5.0];
     [[self.progressView layer] setMasksToBounds:YES];
 
+}
+
+- (void)strokeWidthDidChange:(NSNotification *)notification {
+    NSNumber *num = [[notification userInfo] valueForKey:@"newStrokeWidth"];
+    self.drawingView.strokeWidth = num;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,21 +61,9 @@
 - (void)viewDidUnload {
     [self setMainView:nil];
     [self setDrawingView:nil];
-    [self setStrokeWidthSlider:nil];
-    [self setStrokeWidthLabel:nil];
+    //[self setStrokeWidthSlider:nil];
+    //[self setStrokeWidthLabel:nil];
     [super viewDidUnload];
-}
-
-/*
- *  Respond to changing of the stroke width slider. Sets the property in the drawing
- *  view and updates the label next to the slider.
- */
-- (IBAction)strokeWidthChanged:(UISlider *)sender {
-    NSNumber *newValue = [NSNumber numberWithFloat:sender.value];
-    NSNumber *newValueInt = [NSNumber numberWithInt:[newValue intValue]];
-    self.drawingView.strokeWidth = newValueInt;
-    self.strokeWidthLabel.text = [NSString stringWithFormat:@"Stroke Width: %d",
-                                  [newValueInt intValue]];
 }
 
 /*
@@ -88,6 +82,25 @@
         _restClient.delegate = self;
     }
     return _restClient;
+}
+
+- (IBAction)showOptions:(UIButton *)sender {
+        EXSettingsPopoverContentViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsPopoverViewController"];
+    
+    
+    UIPopoverController *popController = [[UIPopoverController alloc] initWithContentViewController:settingsView];
+    
+    popController.delegate = self;
+    self.settingsPopoverController = popController;
+    
+    [self.settingsPopoverController presentPopoverFromRect:sender.frame
+                                            inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [settingsView updateStrokeWidthUI:self.drawingView.strokeWidth];
+
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+//    self.settingsPopoverController = nil;
 }
 
 /*
