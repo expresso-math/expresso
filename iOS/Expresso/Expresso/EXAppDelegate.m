@@ -7,20 +7,19 @@
 //
 
 #import "EXAppDelegate.h"
-#import <DropboxSDK/DropboxSDK.h>
+#import <DropboxSDK/DropboxSDK.h> // DropBox!
 
 
 @implementation EXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Set up our DropBox session.
     DBSession* dbSession =
-    [[DBSession alloc]
-      initWithAppKey:@"d4a7k2jd3z0szpw"
-      appSecret:@"xva2joc7r5v08ms"
-      root:kDBRootDropbox]; // either kDBRootAppFolder or kDBRootDropbox
-    [DBSession setSharedSession:dbSession];
+    [[DBSession alloc] initWithAppKey:@"d4a7k2jd3z0szpw"    // SEKRET!
+                            appSecret:@"xva2joc7r5v08ms"    // MORE SEKRET!
+                                 root:kDBRootDropbox];
+    [DBSession setSharedSession:dbSession]; // Set shared session.
     return YES;
 }
 							
@@ -51,6 +50,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/*
+ *  Capture the link activation from the DropBox app or website once the user has
+ *  OK'd our app's access.
+ *
+ */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
         if ([[DBSession sharedSession] isLinked]) {
@@ -60,6 +64,8 @@
         return YES;
     }
     // Add whatever other url handling code your app requires here
+    // DON'T FORGET: THERE'S A SETTING IN THE INFO.PLIST THAT SETS UP THIS APP FOR
+    // ACCEPTING A SPECIFIC URL. CLEAR IT WHEN DONE WITH DB STUFF.
     return NO;
 }
 

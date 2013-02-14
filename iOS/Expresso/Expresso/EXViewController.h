@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet EXDrawingInterpretationView *drawingView;
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
-@property (strong, nonatomic) DBRestClient *restClient;
+@property (strong, nonatomic) DBRestClient *restClient; // The DropBox REST client.
 
 @end
