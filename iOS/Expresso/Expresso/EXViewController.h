@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <DropboxSDK/DropboxSDK.h>
 #import "EXDrawingInterpretationView.h"
 
-@interface EXViewController : UIViewController
+@interface EXViewController : UIViewController <MFMailComposeViewControllerDelegate, DBRestClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet EXDrawingInterpretationView *drawingView;
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
-
--(IBAction)showPopoverFromButton:(id)sender;
+@property (strong, nonatomic) DBRestClient *restClient;
 
 @end

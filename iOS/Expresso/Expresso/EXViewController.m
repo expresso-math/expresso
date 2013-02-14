@@ -10,11 +10,11 @@
 
 @interface EXViewController ()
 
-@property (nonatomic, strong) UIPopoverController *settingsPopoverController;
-
 @end
 
 @implementation EXViewController
+
+@synthesize restClient = _restClient;
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation != UIInterfaceOrientationPortrait);
@@ -23,14 +23,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.mainView setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1.0]];
     self.strokeWidthSlider.minimumValue = 1.0;
     self.strokeWidthSlider.maximumValue = 10.0;
-    self.strokeWidthSlider.value = 1.0;
-    self.strokeWidthLabel.text = @"Stroke Width: 1";
-    self.settingsPopoverController = [[UIPopoverController alloc] init];
-    self.settingsPopoverController.popoverContentSize = CGSizeMake(320., 320.);
-    //self.settingsPopoverController.delegate = self;
-	// Do any additional setup after loading the view, typically from a nib.
+    self.drawingView.strokeWidth = [NSNumber numberWithInt:3];
+    self.strokeWidthSlider.value = 3.0;
+    self.strokeWidthLabel.text = @"Stroke Width: 3";
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,19 +50,42 @@
     NSNumber *newValueInt = [NSNumber numberWithInt:[newValue intValue]];
     self.drawingView.strokeWidth = newValueInt;
     self.strokeWidthLabel.text = [NSString stringWithFormat:@"Stroke Width: %d",
-                             [newValueInt intValue]];
+                                  [newValueInt intValue]];
 }
 - (IBAction)clearDrawing:(id)sender {
     [self.drawingView eraseView];
 }
 
-- (IBAction)showPopoverFromButton:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    [self.settingsPopoverController presentPopoverFromRect:button.frame
-                                                    inView:self.view
-                                  permittedArrowDirections:UIPopoverArrowDirectionAny
-                                                  animated:YES];
-    
-
+- (DBRestClient *)restClient {
+    if (!_restClient) {
+        _restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        _restClient.delegate = self;
+    }
+    return _restClient;
 }
+
+- (IBAction)uploadDrawing:(id)sender {
+    
+    NSData *imageData = [self.drawingView getImageData];
+
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
+    
+    [self.restClient createFolder:@"expresso"];
+    
+    
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dFormatter = [[NSDateFormatter alloc] init];
+    [dFormatter setDateFormat:@"yyyy-MM-dd-HH-mm-ss"];
+    NSString *fileName = [NSString stringWithFormat:@"%@-upload.png", [dFormatter stringFromDate:today]];
+    NSString *tempDir = NSTemporaryDirectory();
+    NSString *imagePath = [tempDir stringByAppendingPathComponent:fileName];
+    [imageData writeToFile:imagePath atomically:YES];
+    [self.restClient uploadFile:fileName toPath:@"/expresso" fromPath:imagePath];
+ 
+    [self clearDrawing:sender];
+    
+}
+
 @end

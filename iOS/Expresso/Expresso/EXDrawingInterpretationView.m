@@ -216,4 +216,8 @@
     [self drawBitmap];
     [self setNeedsDisplay];
 }
+
+- (NSData *)getImageData {
+    return UIImagePNGRepresentation(incrementalImage);
+}
 @end

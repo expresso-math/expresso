@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSNumber *strokeWidth;
 
 - (void)eraseView;
+- (NSData *)getImageData;
 
 @end

@@ -19,6 +19,10 @@
 		CB41A4DF16C3141B008FDF27 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */; };
 		CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E116C3141B008FDF27 /* EXViewController.m */; };
 		CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */; };
+		CBFD3DF816CC625500CA0058 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF716CC625500CA0058 /* MessageUI.framework */; };
+		CBFD3DFA16CC6BCF00CA0058 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */; };
+		CBFD3DFC16CC6BDB00CA0058 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DFB16CC6BDB00CA0058 /* Security.framework */; };
+		CBFD3DFE16CC6BE400CA0058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		CB41A4E116C3141B008FDF27 /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawingInterpretationView.h; sourceTree = "<group>"; };
 		CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingInterpretationView.m; sourceTree = "<group>"; };
+		CBFD3DF716CC625500CA0058 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		CBFD3DFB16CC6BDB00CA0058 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +55,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBFD3DFE16CC6BE400CA0058 /* QuartzCore.framework in Frameworks */,
+				CBFD3DFC16CC6BDB00CA0058 /* Security.framework in Frameworks */,
+				CBFD3DF816CC625500CA0058 /* MessageUI.framework in Frameworks */,
 				CB41A4C616C3141B008FDF27 /* UIKit.framework in Frameworks */,
 				CB41A4C816C3141B008FDF27 /* Foundation.framework in Frameworks */,
 				CB41A4CA16C3141B008FDF27 /* CoreGraphics.framework in Frameworks */,
+				CBFD3DFA16CC6BCF00CA0058 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +88,10 @@
 		CB41A4C416C3141B008FDF27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */,
+				CBFD3DFB16CC6BDB00CA0058 /* Security.framework */,
+				CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */,
+				CBFD3DF716CC625500CA0058 /* MessageUI.framework */,
 				CB41A4C516C3141B008FDF27 /* UIKit.framework */,
 				CB41A4C716C3141B008FDF27 /* Foundation.framework */,
 				CB41A4C916C3141B008FDF27 /* CoreGraphics.framework */,
@@ -269,6 +285,10 @@
 		CB41A4E616C3141B008FDF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
 				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
@@ -280,6 +300,10 @@
 		CB41A4E716C3141B008FDF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
 				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
