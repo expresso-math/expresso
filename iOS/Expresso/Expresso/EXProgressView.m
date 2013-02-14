@@ -37,7 +37,22 @@
  *  Stop it and update to show "Done!" for the last second.
  */
 - (void)stopGears {
+    
+    // Stop and hide activity spinner.
     [self.activityGlyph stopAnimating];
+    [self.activityGlyph setHidden:YES];
+
+    // Load our pretty checkmark into a UIImage, then put the
+    // UIImage in a UIImageView, and make that a subview ourself.
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"checkmark" ofType: @"png"];
+    NSLog(@"path: %@", path);
+    CGRect drawingFrame = self.activityGlyph.frame;
+    UIImage *checkMark = [UIImage imageWithContentsOfFile:path];
+    UIImageView *checkMarkView = [[UIImageView alloc] initWithFrame:drawingFrame];
+    [checkMarkView setImage:checkMark];
+    [self addSubview:checkMarkView];
+    
+    // Change label.
     [self.textLabel setText:@"Done!"];
 }
 
