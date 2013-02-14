@@ -10,11 +10,13 @@
 #import <MessageUI/MessageUI.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "EXDrawingInterpretationView.h"
+#import "EXProgressView.h"
 
 @interface EXViewController : UIViewController <MFMailComposeViewControllerDelegate, DBRestClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet EXDrawingInterpretationView *drawingView;
+@property (weak, nonatomic) IBOutlet EXProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
 @property (strong, nonatomic) DBRestClient *restClient; // The DropBox REST client.

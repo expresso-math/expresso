@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB26F1F016CD44E900F29E89 /* EXProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1EF16CD44E900F29E89 /* EXProgressView.m */; };
 		CB41A4C616C3141B008FDF27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C516C3141B008FDF27 /* UIKit.framework */; };
 		CB41A4C816C3141B008FDF27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C716C3141B008FDF27 /* Foundation.framework */; };
 		CB41A4CA16C3141B008FDF27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C916C3141B008FDF27 /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB26F1EE16CD44E900F29E89 /* EXProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXProgressView.h; sourceTree = "<group>"; };
+		CB26F1EF16CD44E900F29E89 /* EXProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXProgressView.m; sourceTree = "<group>"; };
 		CB41A4C216C3141B008FDF27 /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB41A4C516C3141B008FDF27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CB41A4C716C3141B008FDF27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */,
+				CB26F1EE16CD44E900F29E89 /* EXProgressView.h */,
+				CB26F1EF16CD44E900F29E89 /* EXProgressView.m */,
 				CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */,
 				CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */,
 				CB41A4E016C3141B008FDF27 /* EXViewController.h */,
@@ -199,6 +204,7 @@
 				CB41A4D616C3141B008FDF27 /* EXAppDelegate.m in Sources */,
 				CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */,
 				CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */,
+				CB26F1F016CD44E900F29E89 /* EXProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

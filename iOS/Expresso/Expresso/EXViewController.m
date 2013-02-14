@@ -7,6 +7,7 @@
 //
 
 #import "EXViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EXViewController ()
 
@@ -36,6 +37,10 @@
     self.drawingView.strokeWidth = [NSNumber numberWithInt:3];
     self.strokeWidthSlider.value = 3.0;
     self.strokeWidthLabel.text = @"Stroke Width: 3";
+    
+    [[self.progressView layer] setCornerRadius:5.0];
+    [[self.progressView layer] setMasksToBounds:YES];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,9 +122,52 @@
     // Upload image.
     [self.restClient uploadFile:fileName toPath:@"/expresso" withParentRev:@"" fromPath:imagePath];
     
-    // Clear drawing.
-    [self clearDrawing:sender];
+    [self showProgressView];
     
+}
+
+/*
+ *  Fade in the little progress view and animate it.
+ */
+- (void)showProgressView {
+    self.progressView.alpha = 0;
+    self.progressView.hidden = NO;
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [self.progressView turnGears];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.progressView.alpha = 1;
+    }];
+}
+
+/*
+ *  Tell the progress view to stop animating and fade it out.
+ */
+- (void)hideProgressView {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.progressView.alpha = 0;
+    } completion: ^(BOOL finished) {
+        self.progressView.hidden = YES;
+    }];
+    [self.progressView stopGears];
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+}
+
+/*
+ *  DropBox API method -- called when the status of the upload
+ *  changes. We essentially ignore the event unless we're 99%
+ *  or greater done, then we call it done and hide the progress
+ *  indicator.
+ */
+- (void)restClient:(DBRestClient *)client
+    uploadProgress:(CGFloat)progress
+           forFile:(NSString *)destPath
+              from:(NSString *)srcPath {
+    
+    if(progress>0.99) {
+        [self hideProgressView];
+        // Clear drawing.
+        [self.drawingView eraseView];
+    }
 }
 
 @end
