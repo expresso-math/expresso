@@ -7,174 +7,155 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB26F1F016CD44E900F29E89 /* EXProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1EF16CD44E900F29E89 /* EXProgressView.m */; };
-		CB26F1F216CD50B100F29E89 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = CB26F1F116CD50B100F29E89 /* checkmark.png */; };
-		CB41A4C616C3141B008FDF27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C516C3141B008FDF27 /* UIKit.framework */; };
-		CB41A4C816C3141B008FDF27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C716C3141B008FDF27 /* Foundation.framework */; };
-		CB41A4CA16C3141B008FDF27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB41A4C916C3141B008FDF27 /* CoreGraphics.framework */; };
-		CB41A4D016C3141B008FDF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4CE16C3141B008FDF27 /* InfoPlist.strings */; };
-		CB41A4D216C3141B008FDF27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4D116C3141B008FDF27 /* main.m */; };
-		CB41A4D616C3141B008FDF27 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4D516C3141B008FDF27 /* EXAppDelegate.m */; };
-		CB41A4D816C3141B008FDF27 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4D716C3141B008FDF27 /* Default.png */; };
-		CB41A4DA16C3141B008FDF27 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4D916C3141B008FDF27 /* Default@2x.png */; };
-		CB41A4DC16C3141B008FDF27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4DB16C3141B008FDF27 /* Default-568h@2x.png */; };
-		CB41A4DF16C3141B008FDF27 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */; };
-		CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E116C3141B008FDF27 /* EXViewController.m */; };
-		CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */; };
-		CB85D2BD16CD926D005D8671 /* EXSettingsPopoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */; };
-		CBFD3DF816CC625500CA0058 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF716CC625500CA0058 /* MessageUI.framework */; };
-		CBFD3DFA16CC6BCF00CA0058 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */; };
-		CBFD3DFC16CC6BDB00CA0058 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DFB16CC6BDB00CA0058 /* Security.framework */; };
-		CBFD3DFE16CC6BE400CA0058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */; };
+		CB0E723416D6896900F2B9CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E723316D6896900F2B9CA /* UIKit.framework */; };
+		CB0E723616D6896900F2B9CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E723516D6896900F2B9CA /* Foundation.framework */; };
+		CB0E723816D6896900F2B9CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E723716D6896900F2B9CA /* CoreGraphics.framework */; };
+		CB0E723E16D6896900F2B9CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB0E723C16D6896900F2B9CA /* InfoPlist.strings */; };
+		CB0E724016D6896900F2B9CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E723F16D6896900F2B9CA /* main.m */; };
+		CB0E724416D6896900F2B9CA /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E724316D6896900F2B9CA /* EXAppDelegate.m */; };
+		CB0E724616D6896900F2B9CA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0E724516D6896900F2B9CA /* Default.png */; };
+		CB0E724816D6896900F2B9CA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0E724716D6896900F2B9CA /* Default@2x.png */; };
+		CB0E724A16D6896900F2B9CA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0E724916D6896900F2B9CA /* Default-568h@2x.png */; };
+		CB0E724D16D6896900F2B9CA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0E724B16D6896900F2B9CA /* MainStoryboard.storyboard */; };
+		CB0E725016D6896900F2B9CA /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E724F16D6896900F2B9CA /* EXViewController.m */; };
+		CB0E725B16D6899B00F2B9CA /* EXDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E725A16D6899B00F2B9CA /* EXDrawing.m */; };
+		CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E725D16D6B29200F2B9CA /* EXDrawingView.m */; };
+		CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CB26F1EE16CD44E900F29E89 /* EXProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXProgressView.h; sourceTree = "<group>"; };
-		CB26F1EF16CD44E900F29E89 /* EXProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXProgressView.m; sourceTree = "<group>"; };
-		CB26F1F116CD50B100F29E89 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
-		CB41A4C216C3141B008FDF27 /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB41A4C516C3141B008FDF27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CB41A4C716C3141B008FDF27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CB41A4C916C3141B008FDF27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CB41A4CD16C3141B008FDF27 /* Expresso-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Expresso-Info.plist"; sourceTree = "<group>"; };
-		CB41A4CF16C3141B008FDF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CB41A4D116C3141B008FDF27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CB41A4D316C3141B008FDF27 /* Expresso-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Expresso-Prefix.pch"; sourceTree = "<group>"; };
-		CB41A4D416C3141B008FDF27 /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
-		CB41A4D516C3141B008FDF27 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
-		CB41A4D716C3141B008FDF27 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CB41A4D916C3141B008FDF27 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CB41A4DB16C3141B008FDF27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CB41A4DE16C3141B008FDF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		CB41A4E016C3141B008FDF27 /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
-		CB41A4E116C3141B008FDF27 /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
-		CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawingInterpretationView.h; sourceTree = "<group>"; };
-		CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingInterpretationView.m; sourceTree = "<group>"; };
-		CB85D2BB16CD926D005D8671 /* EXSettingsPopoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXSettingsPopoverContentViewController.h; sourceTree = "<group>"; };
-		CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXSettingsPopoverContentViewController.m; sourceTree = "<group>"; };
-		CBFD3DF716CC625500CA0058 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
-		CBFD3DFB16CC6BDB00CA0058 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB0E723016D6896900F2B9CA /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0E723316D6896900F2B9CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CB0E723516D6896900F2B9CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CB0E723716D6896900F2B9CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CB0E723B16D6896900F2B9CA /* Expresso-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Expresso-Info.plist"; sourceTree = "<group>"; };
+		CB0E723D16D6896900F2B9CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB0E723F16D6896900F2B9CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CB0E724116D6896900F2B9CA /* Expresso-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Expresso-Prefix.pch"; sourceTree = "<group>"; };
+		CB0E724216D6896900F2B9CA /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
+		CB0E724316D6896900F2B9CA /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
+		CB0E724516D6896900F2B9CA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CB0E724716D6896900F2B9CA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CB0E724916D6896900F2B9CA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CB0E724C16D6896900F2B9CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CB0E724E16D6896900F2B9CA /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
+		CB0E724F16D6896900F2B9CA /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
+		CB0E725916D6899B00F2B9CA /* EXDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawing.h; sourceTree = "<group>"; };
+		CB0E725A16D6899B00F2B9CA /* EXDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawing.m; sourceTree = "<group>"; };
+		CB0E725C16D6B29200F2B9CA /* EXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawingView.h; sourceTree = "<group>"; };
+		CB0E725D16D6B29200F2B9CA /* EXDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingView.m; sourceTree = "<group>"; };
+		CB0E725F16D6D0D500F2B9CA /* EXDrawSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawSettingsViewController.h; sourceTree = "<group>"; };
+		CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CB41A4BF16C3141B008FDF27 /* Frameworks */ = {
+		CB0E722D16D6896900F2B9CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBFD3DFE16CC6BE400CA0058 /* QuartzCore.framework in Frameworks */,
-				CBFD3DFC16CC6BDB00CA0058 /* Security.framework in Frameworks */,
-				CBFD3DF816CC625500CA0058 /* MessageUI.framework in Frameworks */,
-				CB41A4C616C3141B008FDF27 /* UIKit.framework in Frameworks */,
-				CB41A4C816C3141B008FDF27 /* Foundation.framework in Frameworks */,
-				CB41A4CA16C3141B008FDF27 /* CoreGraphics.framework in Frameworks */,
-				CBFD3DFA16CC6BCF00CA0058 /* DropboxSDK.framework in Frameworks */,
+				CB0E723416D6896900F2B9CA /* UIKit.framework in Frameworks */,
+				CB0E723616D6896900F2B9CA /* Foundation.framework in Frameworks */,
+				CB0E723816D6896900F2B9CA /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB26F1F316CD50B500F29E89 /* Images */ = {
+		CB0E722716D6896900F2B9CA = {
 			isa = PBXGroup;
 			children = (
-				CB26F1F116CD50B100F29E89 /* checkmark.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		CB41A4B916C3141B008FDF27 = {
-			isa = PBXGroup;
-			children = (
-				CB41A4CB16C3141B008FDF27 /* Expresso */,
-				CB41A4C416C3141B008FDF27 /* Frameworks */,
-				CB41A4C316C3141B008FDF27 /* Products */,
+				CB0E723916D6896900F2B9CA /* Expresso */,
+				CB0E723216D6896900F2B9CA /* Frameworks */,
+				CB0E723116D6896900F2B9CA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CB41A4C316C3141B008FDF27 /* Products */ = {
+		CB0E723116D6896900F2B9CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB41A4C216C3141B008FDF27 /* Expresso.app */,
+				CB0E723016D6896900F2B9CA /* Expresso.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CB41A4C416C3141B008FDF27 /* Frameworks */ = {
+		CB0E723216D6896900F2B9CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CBFD3DFD16CC6BE400CA0058 /* QuartzCore.framework */,
-				CBFD3DFB16CC6BDB00CA0058 /* Security.framework */,
-				CBFD3DF916CC6BCF00CA0058 /* DropboxSDK.framework */,
-				CBFD3DF716CC625500CA0058 /* MessageUI.framework */,
-				CB41A4C516C3141B008FDF27 /* UIKit.framework */,
-				CB41A4C716C3141B008FDF27 /* Foundation.framework */,
-				CB41A4C916C3141B008FDF27 /* CoreGraphics.framework */,
+				CB0E723316D6896900F2B9CA /* UIKit.framework */,
+				CB0E723516D6896900F2B9CA /* Foundation.framework */,
+				CB0E723716D6896900F2B9CA /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB41A4CB16C3141B008FDF27 /* Expresso */ = {
+		CB0E723916D6896900F2B9CA /* Expresso */ = {
 			isa = PBXGroup;
 			children = (
-				CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */,
-				CB85D2BF16CD9295005D8671 /* Controllers */,
-				CB85D2BE16CD928E005D8671 /* Views */,
-				CB41A4CC16C3141B008FDF27 /* Supporting Files */,
+				CB0E725816D6897A00F2B9CA /* Models */,
+				CB0E725716D6897500F2B9CA /* Controllers */,
+				CB0E725616D6897000F2B9CA /* Views */,
+				CB0E724B16D6896900F2B9CA /* MainStoryboard.storyboard */,
+				CB0E723A16D6896900F2B9CA /* Supporting Files */,
 			);
 			path = Expresso;
 			sourceTree = "<group>";
 		};
-		CB41A4CC16C3141B008FDF27 /* Supporting Files */ = {
+		CB0E723A16D6896900F2B9CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB26F1F316CD50B500F29E89 /* Images */,
-				CB41A4D416C3141B008FDF27 /* EXAppDelegate.h */,
-				CB41A4D516C3141B008FDF27 /* EXAppDelegate.m */,
-				CB41A4CD16C3141B008FDF27 /* Expresso-Info.plist */,
-				CB41A4CE16C3141B008FDF27 /* InfoPlist.strings */,
-				CB41A4D116C3141B008FDF27 /* main.m */,
-				CB41A4D316C3141B008FDF27 /* Expresso-Prefix.pch */,
-				CB41A4D716C3141B008FDF27 /* Default.png */,
-				CB41A4D916C3141B008FDF27 /* Default@2x.png */,
-				CB41A4DB16C3141B008FDF27 /* Default-568h@2x.png */,
+				CB0E724216D6896900F2B9CA /* EXAppDelegate.h */,
+				CB0E724316D6896900F2B9CA /* EXAppDelegate.m */,
+				CB0E723B16D6896900F2B9CA /* Expresso-Info.plist */,
+				CB0E723C16D6896900F2B9CA /* InfoPlist.strings */,
+				CB0E723F16D6896900F2B9CA /* main.m */,
+				CB0E724116D6896900F2B9CA /* Expresso-Prefix.pch */,
+				CB0E724516D6896900F2B9CA /* Default.png */,
+				CB0E724716D6896900F2B9CA /* Default@2x.png */,
+				CB0E724916D6896900F2B9CA /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CB85D2BE16CD928E005D8671 /* Views */ = {
+		CB0E725616D6897000F2B9CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB26F1EE16CD44E900F29E89 /* EXProgressView.h */,
-				CB26F1EF16CD44E900F29E89 /* EXProgressView.m */,
-				CB41A4E816C31555008FDF27 /* EXDrawingInterpretationView.h */,
-				CB41A4E916C31555008FDF27 /* EXDrawingInterpretationView.m */,
+				CB0E725C16D6B29200F2B9CA /* EXDrawingView.h */,
+				CB0E725D16D6B29200F2B9CA /* EXDrawingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		CB85D2BF16CD9295005D8671 /* Controllers */ = {
+		CB0E725716D6897500F2B9CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB85D2BB16CD926D005D8671 /* EXSettingsPopoverContentViewController.h */,
-				CB85D2BC16CD926D005D8671 /* EXSettingsPopoverContentViewController.m */,
-				CB41A4E016C3141B008FDF27 /* EXViewController.h */,
-				CB41A4E116C3141B008FDF27 /* EXViewController.m */,
+				CB0E725F16D6D0D500F2B9CA /* EXDrawSettingsViewController.h */,
+				CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */,
+				CB0E724E16D6896900F2B9CA /* EXViewController.h */,
+				CB0E724F16D6896900F2B9CA /* EXViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CB0E725816D6897A00F2B9CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB0E725916D6899B00F2B9CA /* EXDrawing.h */,
+				CB0E725A16D6899B00F2B9CA /* EXDrawing.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CB41A4C116C3141B008FDF27 /* Expresso */ = {
+		CB0E722F16D6896900F2B9CA /* Expresso */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB41A4E516C3141B008FDF27 /* Build configuration list for PBXNativeTarget "Expresso" */;
+			buildConfigurationList = CB0E725316D6896900F2B9CA /* Build configuration list for PBXNativeTarget "Expresso" */;
 			buildPhases = (
-				CB41A4BE16C3141B008FDF27 /* Sources */,
-				CB41A4BF16C3141B008FDF27 /* Frameworks */,
-				CB41A4C016C3141B008FDF27 /* Resources */,
+				CB0E722C16D6896900F2B9CA /* Sources */,
+				CB0E722D16D6896900F2B9CA /* Frameworks */,
+				CB0E722E16D6896900F2B9CA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -182,81 +163,80 @@
 			);
 			name = Expresso;
 			productName = Expresso;
-			productReference = CB41A4C216C3141B008FDF27 /* Expresso.app */;
+			productReference = CB0E723016D6896900F2B9CA /* Expresso.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CB41A4BA16C3141B008FDF27 /* Project object */ = {
+		CB0E722816D6896900F2B9CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EX;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Josef Lange & Daniel Guilak";
 			};
-			buildConfigurationList = CB41A4BD16C3141B008FDF27 /* Build configuration list for PBXProject "Expresso" */;
+			buildConfigurationList = CB0E722B16D6896900F2B9CA /* Build configuration list for PBXProject "Expresso" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = CB41A4B916C3141B008FDF27;
-			productRefGroup = CB41A4C316C3141B008FDF27 /* Products */;
+			mainGroup = CB0E722716D6896900F2B9CA;
+			productRefGroup = CB0E723116D6896900F2B9CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB41A4C116C3141B008FDF27 /* Expresso */,
+				CB0E722F16D6896900F2B9CA /* Expresso */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CB41A4C016C3141B008FDF27 /* Resources */ = {
+		CB0E722E16D6896900F2B9CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB41A4D016C3141B008FDF27 /* InfoPlist.strings in Resources */,
-				CB41A4D816C3141B008FDF27 /* Default.png in Resources */,
-				CB41A4DA16C3141B008FDF27 /* Default@2x.png in Resources */,
-				CB41A4DC16C3141B008FDF27 /* Default-568h@2x.png in Resources */,
-				CB41A4DF16C3141B008FDF27 /* MainStoryboard.storyboard in Resources */,
-				CB26F1F216CD50B100F29E89 /* checkmark.png in Resources */,
+				CB0E723E16D6896900F2B9CA /* InfoPlist.strings in Resources */,
+				CB0E724616D6896900F2B9CA /* Default.png in Resources */,
+				CB0E724816D6896900F2B9CA /* Default@2x.png in Resources */,
+				CB0E724A16D6896900F2B9CA /* Default-568h@2x.png in Resources */,
+				CB0E724D16D6896900F2B9CA /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CB41A4BE16C3141B008FDF27 /* Sources */ = {
+		CB0E722C16D6896900F2B9CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB41A4D216C3141B008FDF27 /* main.m in Sources */,
-				CB41A4D616C3141B008FDF27 /* EXAppDelegate.m in Sources */,
-				CB41A4E216C3141B008FDF27 /* EXViewController.m in Sources */,
-				CB41A4EA16C31555008FDF27 /* EXDrawingInterpretationView.m in Sources */,
-				CB26F1F016CD44E900F29E89 /* EXProgressView.m in Sources */,
-				CB85D2BD16CD926D005D8671 /* EXSettingsPopoverContentViewController.m in Sources */,
+				CB0E724016D6896900F2B9CA /* main.m in Sources */,
+				CB0E724416D6896900F2B9CA /* EXAppDelegate.m in Sources */,
+				CB0E725016D6896900F2B9CA /* EXViewController.m in Sources */,
+				CB0E725B16D6899B00F2B9CA /* EXDrawing.m in Sources */,
+				CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */,
+				CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB41A4CE16C3141B008FDF27 /* InfoPlist.strings */ = {
+		CB0E723C16D6896900F2B9CA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CB41A4CF16C3141B008FDF27 /* en */,
+				CB0E723D16D6896900F2B9CA /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		CB41A4DD16C3141B008FDF27 /* MainStoryboard.storyboard */ = {
+		CB0E724B16D6896900F2B9CA /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CB41A4DE16C3141B008FDF27 /* en */,
+				CB0E724C16D6896900F2B9CA /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -264,7 +244,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CB41A4E316C3141B008FDF27 /* Debug */ = {
+		CB0E725116D6896900F2B9CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,7 +276,7 @@
 			};
 			name = Debug;
 		};
-		CB41A4E416C3141B008FDF27 /* Release */ = {
+		CB0E725216D6896900F2B9CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -322,31 +302,25 @@
 			};
 			name = Release;
 		};
-		CB41A4E616C3141B008FDF27 /* Debug */ = {
+		CB0E725416D6896900F2B9CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
 				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		CB41A4E716C3141B008FDF27 /* Release */ = {
+		CB0E725516D6896900F2B9CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
 				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -355,25 +329,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CB41A4BD16C3141B008FDF27 /* Build configuration list for PBXProject "Expresso" */ = {
+		CB0E722B16D6896900F2B9CA /* Build configuration list for PBXProject "Expresso" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CB41A4E316C3141B008FDF27 /* Debug */,
-				CB41A4E416C3141B008FDF27 /* Release */,
+				CB0E725116D6896900F2B9CA /* Debug */,
+				CB0E725216D6896900F2B9CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB41A4E516C3141B008FDF27 /* Build configuration list for PBXNativeTarget "Expresso" */ = {
+		CB0E725316D6896900F2B9CA /* Build configuration list for PBXNativeTarget "Expresso" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CB41A4E616C3141B008FDF27 /* Debug */,
-				CB41A4E716C3141B008FDF27 /* Release */,
+				CB0E725416D6896900F2B9CA /* Debug */,
+				CB0E725516D6896900F2B9CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CB41A4BA16C3141B008FDF27 /* Project object */;
+	rootObject = CB0E722816D6896900F2B9CA /* Project object */;
 }

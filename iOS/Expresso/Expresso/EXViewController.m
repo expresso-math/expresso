@@ -2,21 +2,25 @@
 //  EXViewController.m
 //  Expresso
 //
-//  Created by Josef Lange on 2/6/13.
+//  Created by Josef Lange on 2/21/13.
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
 #import "EXViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "EXDrawing.h"
+#import "EXDrawSettingsViewController.h"
 
 @interface EXViewController ()
+
+@property (strong, nonatomic) EXDrawing *drawing;
 
 @end
 
 @implementation EXViewController
 
-@synthesize restClient = _restClient; // Synth restClient into an instance variable.
-@synthesize settingsPopoverController = _settingsPopoverController;
+@synthesize drawing = _drawing;
+@synthesize drawingView = _drawingView;
+@synthesize undoManager = _undoManager;
 
 /*
  *  Help force landscape.
@@ -25,28 +29,43 @@
     return (interfaceOrientation != UIInterfaceOrientationPortrait);
 }
 
-/*
- *  Setup stuff for when the main View loads. Background colors, state setup, etc.
- */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSNotificationCenter *n = [NSNotificationCenter defaultCenter];
-    [n addObserver:self selector:@selector(strokeWidthDidChange:) name:@"strokeWidthDidChange" object:nil];
+    NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
     
-    [self.mainView setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1.0]];
-
-    self.drawingView.strokeWidth = [NSNumber numberWithInt:3];
+    self.undoManager = [[NSUndoManager alloc] init];
+    [self.undoManager setLevelsOfUndo:10];
     
-    [[self.progressView layer] setCornerRadius:5.0];
-    [[self.progressView layer] setMasksToBounds:YES];
-
+    [dnc addObserver:self selector:@selector(undoManagerDidUndo:) name:NSUndoManagerDidUndoChangeNotification object:self.undoManager];
+    [dnc addObserver:self selector:@selector(undoManagerDidRedo:) name:NSUndoManagerDidRedoChangeNotification object:self.undoManager];
+    
+    [self.undoButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [self.redoButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    
+    [self updateUndoRedoButtons];
+	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)strokeWidthDidChange:(NSNotification *)notification {
-    NSNumber *num = [[notification userInfo] valueForKey:@"newStrokeWidth"];
-    self.drawingView.strokeWidth = num;
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self resignFirstResponder];
+}
+
+- (EXDrawing *)drawing {
+    if(!_drawing) { _drawing = [[EXDrawing alloc] init]; }
+    return _drawing;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,132 +74,70 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- *  set members to nil to be easy on memory.
- */
-- (void)viewDidUnload {
-    [self setMainView:nil];
-    [self setDrawingView:nil];
-    //[self setStrokeWidthSlider:nil];
-    //[self setStrokeWidthLabel:nil];
-    [super viewDidUnload];
+- (void)drawingDidEnd:(UIBezierPath *)path {
+    [self.drawing addPath:[path copy]];
+    [self.undoManager registerUndoWithTarget:self
+                                    selector:@selector(removeMostRecentDraw)
+                                      object:nil];
+    
+    self.undoButton.enabled = [self.undoManager canUndo];
+    self.redoButton.enabled = [self.undoManager canRedo];
 }
 
-/*
- *  Receive target action for clear from the button and send it to the drawingView.
- */
-- (IBAction)clearDrawing:(id)sender {
-    [self.drawingView eraseView];
-}
-
-/*
- *  Lazily instantiate the DropBox REST client in the getter.
- */
-- (DBRestClient *)restClient {
-    if (!_restClient) {
-        _restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-        _restClient.delegate = self;
-    }
-    return _restClient;
-}
-
-- (IBAction)showOptions:(UIButton *)sender {
-        EXSettingsPopoverContentViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsPopoverViewController"];
-    
-    
-    UIPopoverController *popController = [[UIPopoverController alloc] initWithContentViewController:settingsView];
-    
-    popController.delegate = self;
-    self.settingsPopoverController = popController;
-    
-    [self.settingsPopoverController presentPopoverFromRect:sender.frame
-                                            inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
-    [settingsView updateStrokeWidthUI:self.drawingView.strokeWidth];
+- (void)removeMostRecentDraw {
+    UIBezierPath *path = [self.drawing removeMostRecentPath];
+    [self.undoManager registerUndoWithTarget:self selector:@selector(drawingDidEnd:) object:path];
 
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-//    self.settingsPopoverController = nil;
+- (NSArray *)allDrawnPaths {
+    return [self.drawing.drawnPaths copy];
 }
 
-/*
- *  Respond to drawing upload action.
- */
-- (IBAction)uploadDrawing:(id)sender {
-    
-    // Get the image as NSData.
-    NSData *imageData = [self.drawingView getImageData];
-
-    // Check if we're linked to DropBox. If not, start the linking
-    // process.
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:self];
-    }
-    
-    // Tell the client to create a folder (errors get ignored by default,
-    // should the folder already exist.
-    [self.restClient createFolder:@"expresso"];
-    
-    // Get today's date, and format it into the filename, concactinating with "-upload.png".
-    NSDate *today = [NSDate date];
-    NSDateFormatter *dFormatter = [[NSDateFormatter alloc] init];
-    [dFormatter setDateFormat:@"yyyy-MM-dd-HH-mm-ss"];
-    NSString *fileName = [NSString stringWithFormat:@"%@-upload.png", [dFormatter stringFromDate:today]];
-    
-    // Put the image in a temp directory so we can upload it.
-    NSString *tempDir = NSTemporaryDirectory();
-    NSString *imagePath = [tempDir stringByAppendingPathComponent:fileName];
-    [imageData writeToFile:imagePath atomically:YES];
-    
-    // Upload image.
-    [self.restClient uploadFile:fileName toPath:@"/expresso" withParentRev:@"" fromPath:imagePath];
-    
-    [self showProgressView];
-    
+- (void)undoManagerDidUndo:(NSUndoManager *)undoManager {
+    [self updateUndoRedoButtons];
 }
 
-/*
- *  Fade in the little progress view and animate it.
- */
-- (void)showProgressView {
-    self.progressView.alpha = 0;
-    self.progressView.hidden = NO;
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    [self.progressView turnGears];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.progressView.alpha = 1;
-    }];
+- (void)undoManagerDidRedo:(NSUndoManager *)undoManager {
+    [self updateUndoRedoButtons];
 }
 
-/*
- *  Tell the progress view to stop animating and fade it out.
- */
-- (void)hideProgressView {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.progressView.alpha = 0;
-    } completion: ^(BOOL finished) {
-        self.progressView.hidden = YES;
-    }];
-    [self.progressView stopGears];
-    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+- (void)updateUndoRedoButtons {
+    self.undoButton.enabled = [self.undoManager canUndo];
+    self.redoButton.enabled = [self.undoManager canRedo];
 }
 
-/*
- *  DropBox API method -- called when the status of the upload
- *  changes. We essentially ignore the event unless we're 99%
- *  or greater done, then we call it done and hide the progress
- *  indicator.
- */
-- (void)restClient:(DBRestClient *)client
-    uploadProgress:(CGFloat)progress
-           forFile:(NSString *)destPath
-              from:(NSString *)srcPath {
+-(IBAction)undo:(id)sender {
+    [self.undoManager undo];
+    [self.drawingView setNeedsDisplay];
+}
+
+-(IBAction)redo:(id)sender {
+    [self.undoManager redo];
+    [self.drawingView setNeedsDisplay];
+}
+
+-(IBAction)clearDrawing:(id)sender {
+    [self.drawing clearPaths];
+    [self.drawingView setNeedsDisplay];
+    [self.undoManager removeAllActions];
+    [self updateUndoRedoButtons];
+
+}
+
+-(IBAction)showOptions:(UIButton *)sender {
+    EXDrawSettingsViewController *drawSettingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"drawSettings"];
     
-    if(progress>0.99) {
-        [self hideProgressView];
-        // Clear drawing.
-        [self.drawingView eraseView];
-    }
+    UIPopoverController *popController = [[UIPopoverController alloc] initWithContentViewController:drawSettingsViewController];
+    
+    drawSettingsViewController.popoverController = popController;
+    drawSettingsViewController.popoverController.delegate = self;
+    
+    [drawSettingsViewController.popoverController presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+}
+
+-(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

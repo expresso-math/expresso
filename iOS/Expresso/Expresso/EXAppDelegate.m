@@ -2,27 +2,23 @@
 //  EXAppDelegate.m
 //  Expresso
 //
-//  Created by Josef Lange on 2/6/13.
+//  Created by Josef Lange on 2/21/13.
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
 #import "EXAppDelegate.h"
-#import <DropboxSDK/DropboxSDK.h> // DropBox!
-
-@interface EXAppDelegate()
-
-@end
 
 @implementation EXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Set up our DropBox session.
-    DBSession* dbSession =
-    [[DBSession alloc] initWithAppKey:@"d4a7k2jd3z0szpw"    // SEKRET!
-                            appSecret:@"xva2joc7r5v08ms"    // MORE SEKRET!
-                                 root:kDBRootDropbox];
-    [DBSession setSharedSession:dbSession]; // Set shared session.
+    // Set up initial user defaults.
+    NSArray *objects = [NSArray arrayWithObject:[NSNumber numberWithInt:3]];
+    NSArray *keys = [NSArray arrayWithObject:@"strokeWidth"];
+    NSDictionary *initialUserDefaults = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:initialUserDefaults];
+    
+    // Override point for customization after application launch.
     return YES;
 }
 							
@@ -51,25 +47,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-/*
- *  Capture the link activation from the DropBox app or website once the user has
- *  OK'd our app's access.
- *
- */
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    if ([[DBSession sharedSession] handleOpenURL:url]) {
-        if ([[DBSession sharedSession] isLinked]) {
-            NSLog(@"App linked successfully!");
-            // At this point you can start making API calls
-        }
-        return YES;
-    }
-    // Add whatever other url handling code your app requires here
-    // DON'T FORGET: THERE'S A SETTING IN THE INFO.PLIST THAT SETS UP THIS APP FOR
-    // ACCEPTING A SPECIFIC URL. CLEAR IT WHEN DONE WITH DB STUFF.
-    return NO;
 }
 
 @end

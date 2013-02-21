@@ -1,10 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment version="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Draw Settings View Controller-->
+        <scene sceneID="xNy-0c-tSC">
+            <objects>
+                <viewController storyboardIdentifier="drawSettings" id="1rT-iH-f6X" customClass="EXDrawSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p0a-bc-1h9">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="THk-zU-eYd">
+                                <rect key="frame" x="18" y="20" width="264" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="strokeWidthDidChange:" destination="1rT-iH-f6X" eventType="valueChanged" id="dof-1y-HgA"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Width: 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pwA-cM-pvf">
+                                <rect key="frame" x="20" y="50" width="133" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="txJ-aS-JTi">
+                                <rect key="frame" x="20" y="87" width="260" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save Settings">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSettings:" destination="1rT-iH-f6X" eventType="touchUpInside" id="P5g-35-gL7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="strokeWidthLabel" destination="pwA-cM-pvf" id="Bhe-0O-IgV"/>
+                        <outlet property="strokeWidthSlider" destination="THk-zU-eYd" id="pvN-HP-qU6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6Y-5b-tYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-77" y="-332"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="4">
             <objects>
@@ -13,35 +65,16 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Expresso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t24-gg-I9b">
-                                <rect key="frame" x="417" y="20" width="191" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bCC-bJ-wUB">
-                                <rect key="frame" x="930" y="685" width="74" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Upload">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="uploadDrawing:" destination="2" eventType="touchUpInside" id="u8J-Ig-wRn"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" id="uA4-Sz-m4C" customClass="EXDrawingInterpretationView">
-                                <rect key="frame" x="20" y="98" width="984" height="569"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" id="1Ed-oC-OVt" customClass="EXDrawingView">
+                                <rect key="frame" x="20" y="90" width="984" height="587"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="drawingViewDelegate" destination="2" id="CPG-dW-zQp"/>
+                                </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VfZ-pR-aaq">
-                                <rect key="frame" x="851" y="685" width="71" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pb5-J1-z9L">
+                                <rect key="frame" x="937" y="685" width="62" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Clear">
@@ -52,33 +85,41 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clearDrawing:" destination="2" eventType="touchUpInside" id="cBT-3T-5Dh"/>
+                                    <action selector="clearDrawing:" destination="2" eventType="touchUpInside" id="jVJ-7C-dSM"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="EpB-Tk-NbM" customClass="EXProgressView">
-                                <rect key="frame" x="430" y="335" width="165" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UeT-wy-t2P">
+                                <rect key="frame" x="91" y="685" width="62" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="wfh-PI-RbC">
-                                        <rect key="frame" x="64" y="20" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uploading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUR-Nx-hLp">
-                                        <rect key="frame" x="20" y="59" width="125" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Redo">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="activityGlyph" destination="wfh-PI-RbC" id="NWC-zq-bEm"/>
-                                    <outlet property="textLabel" destination="tUR-Nx-hLp" id="m2c-5D-gz9"/>
+                                    <action selector="redo:" destination="2" eventType="touchUpInside" id="pw4-Th-CyW"/>
                                 </connections>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tTa-vS-VJZ">
-                                <rect key="frame" x="756" y="685" width="87" height="44"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PpP-Cs-etH">
+                                <rect key="frame" x="20" y="685" width="63" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undo:" destination="2" eventType="touchUpInside" id="0OV-Tu-Exs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Wm-uG-uHP">
+                                <rect key="frame" x="848" y="685" width="81" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Options">
@@ -89,7 +130,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showOptions:" destination="2" eventType="touchUpInside" id="1A7-bJ-1hL"/>
+                                    <action selector="showOptions:" destination="2" eventType="touchUpInside" id="Ntv-5O-IEt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,83 +139,41 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="drawingView" destination="uA4-Sz-m4C" id="G6I-yj-W8i"/>
-                        <outlet property="mainView" destination="5" id="GQa-8b-abP"/>
-                        <outlet property="progressView" destination="EpB-Tk-NbM" id="pdC-zr-mns"/>
+                        <outlet property="drawingView" destination="1Ed-oC-OVt" id="W9a-Ne-2qV"/>
+                        <outlet property="redoButton" destination="UeT-wy-t2P" id="3RI-D9-wLx"/>
+                        <outlet property="undoButton" destination="PpP-Cs-etH" id="GZB-h0-xE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2315" y="-673"/>
-        </scene>
-        <!--Settings Popover Content View Controller-->
-        <scene sceneID="BN9-u6-TML">
-            <objects>
-                <viewController storyboardIdentifier="SettingsPopoverViewController" id="Frg-YC-xyZ" customClass="EXSettingsPopoverContentViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L3k-Tw-bDU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="RF9-TP-iTX">
-                                <rect key="frame" x="24" y="20" width="278" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="strokeWidthChanged:" destination="Frg-YC-xyZ" eventType="valueChanged" id="2iO-yN-MjG"/>
-                                    <action selector="strokeWidthChanged:" destination="2" eventType="valueChanged" id="5VH-5w-F9d"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Width: 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fkc-Pl-Znb">
-                                <rect key="frame" x="26" y="50" width="255" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="strokeWidthLabel" destination="Fkc-Pl-Znb" id="c52-uA-Mff"/>
-                        <outlet property="strokeWidthSlider" destination="RF9-TP-iTX" id="FTn-TV-hf1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lR8-43-IiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1173" y="-667"/>
         </scene>
     </scenes>
     <classes>
-        <class className="EXDrawingInterpretationView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawingInterpretationView.h"/>
-        </class>
-        <class className="EXProgressView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXProgressView.h"/>
+        <class className="EXDrawSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawSettingsViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="activityGlyph" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EXSettingsPopoverContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXSettingsPopoverContentViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="strokeWidthChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="saveSettings:"/>
+                <relationship kind="action" name="strokeWidthDidChange:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="strokeWidthLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="strokeWidthSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="EXDrawingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawingView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="drawingViewDelegate"/>
             </relationships>
         </class>
         <class className="EXViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EXViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clearDrawing:"/>
+                <relationship kind="action" name="redo:"/>
                 <relationship kind="action" name="showOptions:" candidateClass="UIButton"/>
-                <relationship kind="action" name="uploadDrawing:"/>
-                <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingInterpretationView"/>
-                <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="progressView" candidateClass="EXProgressView"/>
+                <relationship kind="action" name="undo:"/>
+                <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingView"/>
+                <relationship kind="outlet" name="redoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="undoButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
