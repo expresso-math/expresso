@@ -170,10 +170,11 @@
         // Add an arc (a 360-degree one, so a circle) to the path at the
         // touchpoint.
         [self.path addArcWithCenter:p
-                        radius:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue] * 0.9
+                        radius:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue] * 0.3
                     startAngle:0.0
                       endAngle:(3.141592*2.0)
                      clockwise:YES];
+        [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue] * 0.6];
     }
     
     [self.drawingViewDelegate drawingDidEnd:self.path];

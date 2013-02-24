@@ -9,6 +9,7 @@
 #import "EXViewController.h"
 #import "EXDrawing.h"
 #import "EXDrawSettingsViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EXViewController ()
 
@@ -46,7 +47,7 @@
     [self.redoButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     [self updateUndoRedoButtons];
-	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -127,6 +128,8 @@
 
 -(IBAction)showOptions:(UIButton *)sender {
     EXDrawSettingsViewController *drawSettingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"drawSettings"];
+    
+//    drawSettingsViewController.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     UIPopoverController *popController = [[UIPopoverController alloc] initWithContentViewController:drawSettingsViewController];
     
