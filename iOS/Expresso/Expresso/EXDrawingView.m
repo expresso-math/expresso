@@ -12,6 +12,7 @@
 @interface EXDrawingView ()
 
 @property (strong, nonatomic) UIBezierPath *path;
+@property (strong, nonatomic) UIImage *cachedImage;
 
 @end
 
@@ -23,6 +24,7 @@
 
 @synthesize drawingViewDelegate = _drawingViewDelegate;
 @synthesize path = _path;
+@synthesize cachedImage = _cachedImage;
 
 /*
  *  Overwritten initializer, calls drawingSetup after initting the super.
@@ -57,6 +59,8 @@
     if(!_path) { _path = [UIBezierPath bezierPath]; }
     return _path;
 }
+
+// No lazy instantiation of cachedImage, because we're depending on it being nil at some point.
 
 /*
  *  Some common setup actions. Setting the primary state of the view, including
@@ -179,14 +183,12 @@
     
     [self.drawingViewDelegate drawingDidEnd:self.path];
     
-    // Clear path.
-    self.path = nil;
-    
     // Fully reset counter.
     ctr = 0;
     
     // We finished scribbling. Handle the previously-drawn path caching.
     [self setNeedsDisplay];
+    [self drawBitmap];
     
 }
 
@@ -204,6 +206,38 @@
     [self touchesEnded:touches withEvent:event];
 }
 
+
+/*
+ *  Given the array of paths, erase the cached image and draw over
+ *  a blank image context, capturing them into a new cached image.
+ *
+ */
+-(void)redrawFromPaths:(NSArray *)paths {
+    
+    [self.path removeAllPoints];
+    self.cachedImage = nil;
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
+    
+    
+    UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:self.bounds];
+    [[UIColor whiteColor] setFill];
+    [rectPath fill];
+    
+    [self.cachedImage drawAtPoint:CGPointZero];
+    
+    for(UIBezierPath *p in paths) {
+        [p setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+        [p stroke];
+    }
+    
+    self.cachedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+
+    
+}
+
 /*
  *  Override of UIView's main drawRect method. Set line width given our
  *  object's current line width, draw the cached image, stroke our path,
@@ -211,15 +245,41 @@
  *
  *  @param  (CGRect)rect    The rectangle in which to draw.
  */
-- (void)drawRect:(CGRect)rect
-{
-    NSArray *paths = [self.drawingViewDelegate allDrawnPaths];
-    for(UIBezierPath *p in paths) {
-        [p stroke];
-    }
+- (void)drawRect:(CGRect)rect {
+    
+    [self.cachedImage drawInRect:rect];
     
     [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
     [self.path stroke];
+    
+}
+
+
+/*
+ *  Draw cached image with most recent path over the top, then
+ *  add that path to the cached image.
+ */
+- (void)drawBitmap {
+
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
+
+    if(!self.cachedImage) {
+        UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:self.bounds];
+        [[UIColor whiteColor] setFill];
+        [rectPath fill];
+    }
+    
+    [self.cachedImage drawAtPoint:CGPointZero];
+
+    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+    [self.path stroke];
+
+    self.cachedImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+    
+    // Clear path.
+    [self.path removeAllPoints];
 
 }
 

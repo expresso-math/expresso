@@ -91,15 +91,15 @@
 
 }
 
-- (NSArray *)allDrawnPaths {
-    return [self.drawing.drawnPaths copy];
-}
-
 - (void)undoManagerDidUndo:(NSUndoManager *)undoManager {
+    [self.drawingView redrawFromPaths:self.drawing.drawnPaths];
+    [self.drawingView setNeedsDisplay];
     [self updateUndoRedoButtons];
 }
 
 - (void)undoManagerDidRedo:(NSUndoManager *)undoManager {
+    [self.drawingView redrawFromPaths:self.drawing.drawnPaths];
+    [self.drawingView setNeedsDisplay];
     [self updateUndoRedoButtons];
 }
 
@@ -110,16 +110,15 @@
 
 -(IBAction)undo:(id)sender {
     [self.undoManager undo];
-    [self.drawingView setNeedsDisplay];
 }
 
 -(IBAction)redo:(id)sender {
     [self.undoManager redo];
-    [self.drawingView setNeedsDisplay];
 }
 
 -(IBAction)clearDrawing:(id)sender {
     [self.drawing clearPaths];
+    [self.drawingView redrawFromPaths:self.drawing.drawnPaths];
     [self.drawingView setNeedsDisplay];
     [self.undoManager removeAllActions];
     [self updateUndoRedoButtons];

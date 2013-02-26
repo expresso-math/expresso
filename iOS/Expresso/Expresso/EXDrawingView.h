@@ -14,9 +14,6 @@
 // Event fired off to delegate with information on the most-recently completed stroke.
 - (void)drawingDidEnd:(UIBezierPath *)path;
 
-// Protocol method to get all drawn paths from the View Controller.
-- (NSArray *)allDrawnPaths;
-
 @end
 
 @interface EXDrawingView : UIView {
@@ -29,5 +26,7 @@
 
 // Erase the view -- set path to nil, etc.
 -(void)eraseView;
+
+-(void)redrawFromPaths:(NSArray *)paths;
 
 @end
