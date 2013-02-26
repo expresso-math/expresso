@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *strokeWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *strokeWidthLabel;
+@property (weak, nonatomic) IBOutlet UIButton *saveSettingsButton;
 @property (strong, nonatomic) UIPopoverController *popoverController;
 
 

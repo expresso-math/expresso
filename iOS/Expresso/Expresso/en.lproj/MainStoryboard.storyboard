@@ -26,29 +26,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="txJ-aS-JTi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="txJ-aS-JTi">
                                 <rect key="frame" x="20" y="87" width="260" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="backgroundColor" red="0.0011963273058979722" green="0.73637045278637769" blue="0.11663537483547591" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="-0.5" height="-1"/>
                                 <state key="normal" title="Save Settings">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.89294698142414863" green="0.89294698142414863" blue="0.89294698142414863" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.19035410216718263" green="0.19035410216718263" blue="0.19035410216718263" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="saveSettings:" destination="1rT-iH-f6X" eventType="touchUpInside" id="P5g-35-gL7"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="saveSettingsButton" destination="txJ-aS-JTi" id="lXl-NE-jt4"/>
                         <outlet property="strokeWidthLabel" destination="pwA-cM-pvf" id="Bhe-0O-IgV"/>
                         <outlet property="strokeWidthSlider" destination="THk-zU-eYd" id="pvN-HP-qU6"/>
                     </connections>
@@ -162,6 +165,7 @@
             <relationships>
                 <relationship kind="action" name="saveSettings:"/>
                 <relationship kind="action" name="strokeWidthDidChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="saveSettingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="strokeWidthLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="strokeWidthSlider" candidateClass="UISlider"/>
             </relationships>

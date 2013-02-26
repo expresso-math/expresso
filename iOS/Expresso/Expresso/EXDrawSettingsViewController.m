@@ -8,12 +8,14 @@
 
 #import "EXDrawSettingsViewController.h"
 #import "EXAppDelegate.h"
+#import "UIButton+Glossy.h"
 
 
 @implementation EXDrawSettingsViewController
 
 @synthesize strokeWidthLabel = _strokeWidthLabel;
 @synthesize strokeWidthSlider = _strokeWidthSlider;
+@synthesize saveSettingsButton = _saveSettingsButton;
 @synthesize popoverController = _myPopoverController;
 
 
@@ -34,8 +36,11 @@
     NSNumber *newStrokeWidth = [[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"];
     self.strokeWidthSlider.value = [newStrokeWidth floatValue];
     self.strokeWidthLabel.text = [NSString stringWithFormat:@"Stroke Width: %d", [newStrokeWidth intValue]];
-    
+
 	// Do any additional setup after loading the view.
+    [self.saveSettingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.saveSettingsButton makeGlossy];
 }
 
 - (void)didReceiveMemoryWarning

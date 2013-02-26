@@ -21,6 +21,8 @@
 		CB0E725B16D6899B00F2B9CA /* EXDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E725A16D6899B00F2B9CA /* EXDrawing.m */; };
 		CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E725D16D6B29200F2B9CA /* EXDrawingView.m */; };
 		CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */; };
+		CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB8486616DD4C6400E0B340 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8486516DD4C6400E0B340 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,9 @@
 		CB0E725D16D6B29200F2B9CA /* EXDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingView.m; sourceTree = "<group>"; };
 		CB0E725F16D6D0D500F2B9CA /* EXDrawSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawSettingsViewController.h; sourceTree = "<group>"; };
 		CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawSettingsViewController.m; sourceTree = "<group>"; };
+		CBB8486216DD4C5C00E0B340 /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
+		CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
+		CBB8486516DD4C6400E0B340 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB8486616DD4C6400E0B340 /* QuartzCore.framework in Frameworks */,
 				CB0E723416D6896900F2B9CA /* UIKit.framework in Frameworks */,
 				CB0E723616D6896900F2B9CA /* Foundation.framework in Frameworks */,
 				CB0E723816D6896900F2B9CA /* CoreGraphics.framework in Frameworks */,
@@ -65,6 +71,7 @@
 		CB0E722716D6896900F2B9CA = {
 			isa = PBXGroup;
 			children = (
+				CBB8486516DD4C6400E0B340 /* QuartzCore.framework */,
 				CB0E723916D6896900F2B9CA /* Expresso */,
 				CB0E723216D6896900F2B9CA /* Frameworks */,
 				CB0E723116D6896900F2B9CA /* Products */,
@@ -104,6 +111,7 @@
 		CB0E723A16D6896900F2B9CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CBB8486A16DD4FDF00E0B340 /* Buttons */,
 				CB0E724216D6896900F2B9CA /* EXAppDelegate.h */,
 				CB0E724316D6896900F2B9CA /* EXAppDelegate.m */,
 				CB0E723B16D6896900F2B9CA /* Expresso-Info.plist */,
@@ -144,6 +152,15 @@
 				CB0E725A16D6899B00F2B9CA /* EXDrawing.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		CBB8486A16DD4FDF00E0B340 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				CBB8486216DD4C5C00E0B340 /* UIButton+Glossy.h */,
+				CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +236,7 @@
 				CB0E725B16D6899B00F2B9CA /* EXDrawing.m in Sources */,
 				CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */,
 				CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */,
+				CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +363,7 @@
 				CB0E725516D6896900F2B9CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
