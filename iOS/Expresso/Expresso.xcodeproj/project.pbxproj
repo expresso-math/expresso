@@ -32,6 +32,7 @@
 		CBB8488916DD719200E0B340 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488816DD719200E0B340 /* SystemConfiguration.framework */; };
 		CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */; };
 		CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */; };
+		CBB8489216DEA30A00E0B340 /* EXRecognitionVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedDrawing.m; sourceTree = "<group>"; };
 		CBB8488D16DEA09000E0B340 /* EXRecognizedCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedCharacter.h; sourceTree = "<group>"; };
 		CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedCharacter.m; sourceTree = "<group>"; };
+		CBB8489016DEA30A00E0B340 /* EXRecognitionVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognitionVerificationViewController.h; sourceTree = "<group>"; };
+		CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognitionVerificationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,8 @@
 		CB0E725716D6897500F2B9CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBB8489016DEA30A00E0B340 /* EXRecognitionVerificationViewController.h */,
+				CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */,
 				CBB8486B16DD642000E0B340 /* EXNetworkConnectionController.h */,
 				CBB8486C16DD642000E0B340 /* EXNetworkConnectionController.m */,
 				CB0E725F16D6D0D500F2B9CA /* EXDrawSettingsViewController.h */,
@@ -366,6 +371,7 @@
 				CBB8486D16DD642000E0B340 /* EXNetworkConnectionController.m in Sources */,
 				CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */,
 				CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */,
+				CBB8489216DEA30A00E0B340 /* EXRecognitionVerificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
