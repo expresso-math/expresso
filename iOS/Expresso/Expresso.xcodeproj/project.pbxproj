@@ -30,6 +30,8 @@
 		CBB8488516DD718100E0B340 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488416DD718100E0B340 /* MobileCoreServices.framework */; };
 		CBB8488716DD718800E0B340 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488616DD718800E0B340 /* Security.framework */; };
 		CBB8488916DD719200E0B340 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488816DD719200E0B340 /* SystemConfiguration.framework */; };
+		CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */; };
+		CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,10 @@
 		CBB8488416DD718100E0B340 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CBB8488616DD718800E0B340 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CBB8488816DD719200E0B340 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CBB8488A16DDB07E00E0B340 /* EXRecognizedDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedDrawing.h; sourceTree = "<group>"; };
+		CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedDrawing.m; sourceTree = "<group>"; };
+		CBB8488D16DEA09000E0B340 /* EXRecognizedCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedCharacter.h; sourceTree = "<group>"; };
+		CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedCharacter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,10 @@
 		CB0E725816D6897A00F2B9CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CBB8488D16DEA09000E0B340 /* EXRecognizedCharacter.h */,
+				CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */,
+				CBB8488A16DDB07E00E0B340 /* EXRecognizedDrawing.h */,
+				CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */,
 				CB0E725916D6899B00F2B9CA /* EXDrawing.h */,
 				CB0E725A16D6899B00F2B9CA /* EXDrawing.m */,
 			);
@@ -354,6 +364,8 @@
 				CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */,
 				CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */,
 				CBB8486D16DD642000E0B340 /* EXNetworkConnectionController.m in Sources */,
+				CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */,
+				CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

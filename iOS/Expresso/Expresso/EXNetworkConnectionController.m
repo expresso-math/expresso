@@ -10,4 +10,21 @@
 
 @implementation EXNetworkConnectionController
 
+
+- (id)init {
+    self = [super init];
+    
+    if(self) {
+        
+        NSURL *baseURL = [NSURL URLWithString:@"http://expresso-helloworld.herokuapp.com"];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+        [httpClient setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
+        
+        //RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:httpClient];
+        
+    }
+    
+    return self;
+}
+
 @end

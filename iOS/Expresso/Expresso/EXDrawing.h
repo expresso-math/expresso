@@ -24,6 +24,9 @@
 //  Remove the most recent path. (Useful for undoing).
 - (UIBezierPath *)removeMostRecentPath;
 
+//  Remove a given path.
+- (void)removePath:(UIBezierPath *)path;
+
 //  Clear all paths.
 - (void)clearPaths;
 

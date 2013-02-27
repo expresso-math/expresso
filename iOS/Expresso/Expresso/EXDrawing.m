@@ -50,6 +50,14 @@
     return removedPath;
 }
 
+- (void)removePath:(UIBezierPath *)path {
+    if([self.drawnPaths containsObject:path]) {
+        NSMutableArray *tempArray = [self.drawnPaths mutableCopy];
+        [tempArray removeObject:path];
+        self.drawnPaths = [NSArray arrayWithArray:tempArray];
+    }
+}
+
 //  Clear all paths.
 - (void)clearPaths {
     self.drawnPaths = nil;
