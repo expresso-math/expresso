@@ -10,10 +10,10 @@
 #import "EXDrawing.h"
 #import "EXRecognizedCharacter.h"
 
-@interface EXRecognizedDrawing : EXDrawing
+@interface EXRecognizedDrawing : NSObject
 
 @property (strong, nonatomic, readonly) NSNumber *drawingID;
 @property (strong, nonatomic) NSDictionary *characters;
-// Already has NSArray for drawnPaths from superclass.
+@property (strong, nonatomic) UIImage *image;
 
 @end
