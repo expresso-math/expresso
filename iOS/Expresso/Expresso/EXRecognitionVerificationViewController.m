@@ -10,4 +10,19 @@
 
 @implementation EXRecognitionVerificationViewController
 
+@synthesize image = _image;
+@synthesize imageView = _imageView;
+/*
+ *  Help force landscape.
+ */
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation != UIInterfaceOrientationPortrait);
+}
+
+- (void)viewDidLoad {
+    
+    self.imageView.image = self.image;
+
+}
+
 @end

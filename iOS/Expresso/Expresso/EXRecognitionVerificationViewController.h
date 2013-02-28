@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 
-@interface EXRecognitionVerificationViewController : NSViewController
+@interface EXRecognitionVerificationViewController : UIViewController
+
+@property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+//@property (strong, nonatomic) 
 
 @end

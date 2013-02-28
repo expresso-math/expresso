@@ -19,15 +19,16 @@
 @interface EXViewController : UIViewController <UIPopoverControllerDelegate, EXDrawingViewDelegate>
 
 @property (weak, nonatomic) IBOutlet EXDrawingView *drawingView; // The drawing View.
-@property (weak, nonatomic) IBOutlet UIButton *undoButton;
-@property (weak, nonatomic) IBOutlet UIButton *redoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *redoButton;
 
 @property (retain) NSUndoManager *undoManager; // The undo manager we're going to use here.
 
 -(IBAction)undo:(id)sender;
 -(IBAction)redo:(id)sender;
 -(IBAction)clearDrawing:(id)sender;
--(IBAction)showOptions:(UIButton *)sender; // Presents UIPopover for EXDrawSettingsViewController.
+-(IBAction)showOptions:(UIBarButtonItem *)sender; // Presents UIPopover for EXDrawSettingsViewController.
+-(IBAction)processDrawing:(id)sender;
 
 
 @end

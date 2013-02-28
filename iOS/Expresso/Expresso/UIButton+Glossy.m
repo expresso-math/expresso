@@ -25,16 +25,16 @@ void UIButton_Glossy_touch()
     // Give it a shadow
     if ([thisLayer respondsToSelector:@selector(shadowOpacity)]) // For compatibility, check if shadow is supported
     {
-        thisLayer.shadowOpacity = 0.7;
-        thisLayer.shadowColor = [[UIColor blackColor] CGColor];
-        thisLayer.shadowOffset = CGSizeMake(0.0, 3.0);
+        //thisLayer.shadowOpacity = 0.7;
+        //thisLayer.shadowColor = [[UIColor blackColor] CGColor];
+        //thisLayer.shadowOffset = CGSizeMake(0.0, 3.0);
         
         // TODO: Need to test these on iPad
-        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
-        {
-            thisLayer.rasterizationScale=2.0;
-        }
-	thisLayer.shouldRasterize = YES; // FYI: Shadows have a poor effect on performance
+        //if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
+        //{
+        //   thisLayer.rasterizationScale=2.0;
+        //}
+        //	thisLayer.shouldRasterize = YES; // FYI: Shadows have a poor effect on performance
     }
 	
     // Add backgorund color layer and make original background clear

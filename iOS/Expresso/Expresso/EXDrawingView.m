@@ -72,8 +72,6 @@
     [self setBackgroundColor:[UIColor whiteColor]];
     self.path = [UIBezierPath bezierPath];
     [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
-    [[self layer] setCornerRadius:5.0];
-    [[self layer] setMasksToBounds:YES];
     
 }
 
@@ -164,6 +162,8 @@
     UITouch *touch = [touches anyObject];
     CGPoint p = [touch locationInView:self];
     
+    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+    
     // Making up an arbitrary point area to determine whether or not we
     // drew something.
     CGRect pointSize = CGRectMake(p.x-3, p.y-3, 6, 6);
@@ -227,7 +227,7 @@
     [self.cachedImage drawAtPoint:CGPointZero];
     
     for(UIBezierPath *p in paths) {
-        [p setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+//        [p setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
         [p stroke];
     }
     
@@ -248,7 +248,6 @@
 - (void)drawRect:(CGRect)rect {
     
     [self.cachedImage drawInRect:rect];
-    
     [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
     [self.path stroke];
     
@@ -271,7 +270,7 @@
     
     [self.cachedImage drawAtPoint:CGPointZero];
 
-    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+//    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
     [self.path stroke];
 
     self.cachedImage = UIGraphicsGetImageFromCurrentImageContext();

@@ -9,7 +9,9 @@
 #import "EXViewController.h"
 #import "EXDrawing.h"
 #import "EXDrawSettingsViewController.h"
+#import "EXRecognitionVerificationViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIButton+Glossy.h"
 
 @interface EXViewController ()
 
@@ -42,9 +44,6 @@
     
     [dnc addObserver:self selector:@selector(undoManagerDidUndo:) name:NSUndoManagerDidUndoChangeNotification object:self.undoManager];
     [dnc addObserver:self selector:@selector(undoManagerDidRedo:) name:NSUndoManagerDidRedoChangeNotification object:self.undoManager];
-    
-    [self.undoButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    [self.redoButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     [self updateUndoRedoButtons];
     
@@ -125,7 +124,7 @@
 
 }
 
--(IBAction)showOptions:(UIButton *)sender {
+-(IBAction)showOptions:(UIBarButtonItem *)sender {
     EXDrawSettingsViewController *drawSettingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"drawSettings"];
     
 //    drawSettingsViewController.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -135,11 +134,21 @@
     drawSettingsViewController.popoverController = popController;
     drawSettingsViewController.popoverController.delegate = self;
     
-    [drawSettingsViewController.popoverController presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [drawSettingsViewController.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+
+}
+
+-(IBAction)processDrawing:(id)sender {
+    // Huh? Maybe nothing.
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    EXRecognitionVerificationViewController *desinationController = segue.destinationViewController;
+    desinationController.image = [self.drawing renderedImage];
 }
 
 @end

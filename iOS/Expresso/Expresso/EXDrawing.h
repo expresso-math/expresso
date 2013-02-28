@@ -30,4 +30,7 @@
 //  Clear all paths.
 - (void)clearPaths;
 
+// Get the rendered image.
+- (UIImage *)renderedImage;
+
 @end

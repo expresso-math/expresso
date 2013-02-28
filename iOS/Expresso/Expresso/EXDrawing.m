@@ -63,4 +63,30 @@
     self.drawnPaths = nil;
 }
 
+- (UIImage *)renderedImage {
+    
+    UIImage *returnImage = nil;
+    
+    if(self.drawnPaths.count>0) {
+        
+        CGRect imageRect = CGRectMake(0, 0, 1024, 660);
+        UIGraphicsBeginImageContextWithOptions(imageRect.size, YES, 0.0);
+        
+        UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:imageRect];
+        [[UIColor whiteColor] setFill];
+        [rectPath fill];
+        
+        for(UIBezierPath *p in self.drawnPaths) {
+            [p stroke];
+        }
+        
+        returnImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+    }
+    
+    return returnImage;
+}
+
 @end
