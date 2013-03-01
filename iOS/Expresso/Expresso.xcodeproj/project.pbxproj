@@ -23,7 +23,6 @@
 		CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */; };
 		CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CBB8486616DD4C6400E0B340 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8486516DD4C6400E0B340 /* QuartzCore.framework */; };
-		CBB8486D16DD642000E0B340 /* EXNetworkConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8486C16DD642000E0B340 /* EXNetworkConnectionController.m */; };
 		CBB8487F16DD715D00E0B340 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8487616DD6E7E00E0B340 /* libRestKit.a */; };
 		CBB8488116DD717400E0B340 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488016DD717400E0B340 /* CFNetwork.framework */; };
 		CBB8488316DD717A00E0B340 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488216DD717A00E0B340 /* CoreData.framework */; };
@@ -99,8 +98,6 @@
 		CBB8486216DD4C5C00E0B340 /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 		CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		CBB8486516DD4C6400E0B340 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CBB8486B16DD642000E0B340 /* EXNetworkConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXNetworkConnectionController.h; sourceTree = "<group>"; };
-		CBB8486C16DD642000E0B340 /* EXNetworkConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXNetworkConnectionController.m; sourceTree = "<group>"; };
 		CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../../../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		CBB8488016DD717400E0B340 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CBB8488216DD717A00E0B340 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -213,8 +210,6 @@
 			children = (
 				CBB8489016DEA30A00E0B340 /* EXRecognitionVerificationViewController.h */,
 				CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */,
-				CBB8486B16DD642000E0B340 /* EXNetworkConnectionController.h */,
-				CBB8486C16DD642000E0B340 /* EXNetworkConnectionController.m */,
 				CB0E725F16D6D0D500F2B9CA /* EXDrawSettingsViewController.h */,
 				CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */,
 				CB0E724E16D6896900F2B9CA /* EXViewController.h */,
@@ -368,7 +363,6 @@
 				CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */,
 				CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */,
 				CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */,
-				CBB8486D16DD642000E0B340 /* EXNetworkConnectionController.m in Sources */,
 				CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */,
 				CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */,
 				CBB8489216DEA30A00E0B340 /* EXRecognitionVerificationViewController.m in Sources */,

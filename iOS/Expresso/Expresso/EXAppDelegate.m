@@ -7,6 +7,7 @@
 //
 
 #import "EXAppDelegate.h"
+#import <RestKit/RestKit.h>
 
 @implementation EXAppDelegate
 
@@ -17,6 +18,14 @@
     NSArray *keys = [NSArray arrayWithObject:@"strokeWidth"];
     NSDictionary *initialUserDefaults = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialUserDefaults];
+    
+    NSURL *baseURL = [NSURL URLWithString:@"http://expresso-api.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    [httpClient setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
+    
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:httpClient];
+    
+    
     
     // Override point for customization after application launch.
     return YES;

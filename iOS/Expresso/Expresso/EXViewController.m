@@ -11,6 +11,7 @@
 #import "EXDrawSettingsViewController.h"
 #import "EXRecognitionVerificationViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <RestKit/RestKit.h>
 #import "UIButton+Glossy.h"
 
 @interface EXViewController ()
@@ -146,9 +147,13 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     EXRecognitionVerificationViewController *desinationController = segue.destinationViewController;
     desinationController.image = [self.drawing renderedImage];
+
+    // RestKit object mapping and such.
+    RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[EXDrawing class]];
+
 }
 
 @end
