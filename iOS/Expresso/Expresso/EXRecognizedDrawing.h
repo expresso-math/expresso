@@ -12,7 +12,7 @@
 
 @interface EXRecognizedDrawing : NSObject
 
-@property (strong, nonatomic, readonly) NSNumber *drawingID;
+@property (strong, nonatomic) NSString *drawingID;
 @property (strong, nonatomic) NSArray *characters;
 @property (strong, nonatomic) UIImage *image;
 

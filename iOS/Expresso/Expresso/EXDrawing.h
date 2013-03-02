@@ -16,6 +16,7 @@
 @interface EXDrawing : NSObject
 
 @property (strong, nonatomic, readonly) NSArray *drawnPaths; // Data Structure for all our paths.
+@property (strong, nonatomic, readonly, getter = renderedImage) UIImage *renderedImage; // The rendered image.
 
 
 //  Add the given path to the drawing.
@@ -29,8 +30,5 @@
 
 //  Clear all paths.
 - (void)clearPaths;
-
-// Get the rendered image.
-- (UIImage *)renderedImage;
 
 @end

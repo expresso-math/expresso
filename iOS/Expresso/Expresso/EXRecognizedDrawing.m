@@ -10,4 +10,8 @@
 
 @implementation EXRecognizedDrawing
 
+@synthesize drawingID = _drawingID;
+@synthesize characters = _characters;
+@synthesize image = _image;
+
 @end

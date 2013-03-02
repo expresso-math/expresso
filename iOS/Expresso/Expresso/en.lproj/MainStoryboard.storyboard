@@ -126,7 +126,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Process" id="EcB-Ic-jva">
                             <color key="tintColor" red="0.0011963273059999999" green="0.73637045280000002" blue="0.1166353748" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="processDrawing:" destination="2" id="Q4z-MD-A4B"/>
                                 <segue destination="o1p-a3-klu" kind="push" id="Unx-fO-RO8"/>
                             </connections>
                         </barButtonItem>
@@ -145,7 +144,6 @@
         <!--Recognition Verification View Controller - Character Recognition Verification-->
         <scene sceneID="7Wq-LL-SFO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yqm-hL-rp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="o1p-a3-klu" customClass="EXRecognitionVerificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zny-hH-cM4">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
@@ -174,6 +172,7 @@
                         <outlet property="imageView" destination="fa1-if-XVd" id="rHG-6O-Fom"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqm-hL-rp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="-2708"/>
         </scene>

@@ -128,8 +128,6 @@
 -(IBAction)showOptions:(UIBarButtonItem *)sender {
     EXDrawSettingsViewController *drawSettingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"drawSettings"];
     
-//    drawSettingsViewController.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
     UIPopoverController *popController = [[UIPopoverController alloc] initWithContentViewController:drawSettingsViewController];
     
     drawSettingsViewController.popoverController = popController;
@@ -139,21 +137,13 @@
 
 }
 
--(IBAction)processDrawing:(id)sender {
-    // Huh? Maybe nothing.
-}
-
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     EXRecognitionVerificationViewController *desinationController = segue.destinationViewController;
-    desinationController.image = [self.drawing renderedImage];
-
-    // RestKit object mapping and such.
-    RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[EXDrawing class]];
-
+    // Here we upload the image, receive an image ID, and pass it onto the destination
 }
 
 @end
