@@ -142,8 +142,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
-    EXRecognitionVerificationViewController *desinationController = segue.destinationViewController;
-    // Here we upload the image, receive an image ID, and pass it onto the destination
+    // Here we upload the image, receive an expression ID, and pass it onto the destination
 }
 
 @end

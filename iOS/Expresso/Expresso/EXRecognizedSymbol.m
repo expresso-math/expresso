@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
-#import "EXRecognizedCharacter.h"
+#import "EXRecognizedSymbol.h"
 
-@implementation EXRecognizedCharacter
+@implementation EXRecognizedSymbol
 
 
 @end

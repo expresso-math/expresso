@@ -10,7 +10,7 @@
 #import "EXDrawing.h"
 #import "EXRecognizedCharacter.h"
 
-@interface EXRecognizedDrawing : NSObject
+@interface EXRecognizedExpression : NSObject
 
 @property (strong, nonatomic) NSString *drawingID;
 @property (strong, nonatomic) NSArray *characters;

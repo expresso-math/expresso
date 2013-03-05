@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
-#import "EXRecognizedDrawing.h"
+#import "EXRecognizedExpression.h"
 
-@implementation EXRecognizedDrawing
+@implementation EXRecognizedExpression
 
 @synthesize drawingID = _drawingID;
 @synthesize characters = _characters;

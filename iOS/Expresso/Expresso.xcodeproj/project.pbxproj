@@ -23,54 +23,15 @@
 		CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0E726016D6D0D500F2B9CA /* EXDrawSettingsViewController.m */; };
 		CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CBB8486616DD4C6400E0B340 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8486516DD4C6400E0B340 /* QuartzCore.framework */; };
-		CBB8487F16DD715D00E0B340 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8487616DD6E7E00E0B340 /* libRestKit.a */; };
 		CBB8488116DD717400E0B340 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488016DD717400E0B340 /* CFNetwork.framework */; };
 		CBB8488316DD717A00E0B340 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488216DD717A00E0B340 /* CoreData.framework */; };
 		CBB8488516DD718100E0B340 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488416DD718100E0B340 /* MobileCoreServices.framework */; };
 		CBB8488716DD718800E0B340 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488616DD718800E0B340 /* Security.framework */; };
 		CBB8488916DD719200E0B340 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB8488816DD719200E0B340 /* SystemConfiguration.framework */; };
-		CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */; };
-		CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */; };
 		CBB8489216DEA30A00E0B340 /* EXRecognitionVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */; };
+		CBDF108A16E69C4700B226E5 /* EXRecognizedExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDF108716E69C4700B226E5 /* EXRecognizedExpression.m */; };
+		CBDF108B16E69C4700B226E5 /* EXRecognizedSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDF108916E69C4700B226E5 /* EXRecognizedSymbol.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CBB8487516DD6E7E00E0B340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D1614564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		CBB8487716DD6E7E00E0B340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D2614564E820060A5C5;
-			remoteInfo = RestKitTests;
-		};
-		CBB8487916DD6E7E00E0B340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		CBB8487B16DD6E7E00E0B340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E78145651060060A5C5;
-			remoteInfo = RestKitFrameworkTests;
-		};
-		CBB8487D16DD714C00E0B340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CB0E723016D6896900F2B9CA /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,18 +59,17 @@
 		CBB8486216DD4C5C00E0B340 /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 		CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		CBB8486516DD4C6400E0B340 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../../../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		CBB8488016DD717400E0B340 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CBB8488216DD717A00E0B340 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CBB8488416DD718100E0B340 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CBB8488616DD718800E0B340 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CBB8488816DD719200E0B340 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CBB8488A16DDB07E00E0B340 /* EXRecognizedDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedDrawing.h; sourceTree = "<group>"; };
-		CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedDrawing.m; sourceTree = "<group>"; };
-		CBB8488D16DEA09000E0B340 /* EXRecognizedCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedCharacter.h; sourceTree = "<group>"; };
-		CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedCharacter.m; sourceTree = "<group>"; };
 		CBB8489016DEA30A00E0B340 /* EXRecognitionVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognitionVerificationViewController.h; sourceTree = "<group>"; };
 		CBB8489116DEA30A00E0B340 /* EXRecognitionVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognitionVerificationViewController.m; sourceTree = "<group>"; };
+		CBDF108616E69C4700B226E5 /* EXRecognizedExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedExpression.h; sourceTree = "<group>"; };
+		CBDF108716E69C4700B226E5 /* EXRecognizedExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedExpression.m; sourceTree = "<group>"; };
+		CBDF108816E69C4700B226E5 /* EXRecognizedSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXRecognizedSymbol.h; sourceTree = "<group>"; };
+		CBDF108916E69C4700B226E5 /* EXRecognizedSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXRecognizedSymbol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +82,6 @@
 				CBB8488516DD718100E0B340 /* MobileCoreServices.framework in Frameworks */,
 				CBB8488316DD717A00E0B340 /* CoreData.framework in Frameworks */,
 				CBB8488116DD717400E0B340 /* CFNetwork.framework in Frameworks */,
-				CBB8487F16DD715D00E0B340 /* libRestKit.a in Frameworks */,
 				CBB8486616DD4C6400E0B340 /* QuartzCore.framework in Frameworks */,
 				CB0E723416D6896900F2B9CA /* UIKit.framework in Frameworks */,
 				CB0E723616D6896900F2B9CA /* Foundation.framework in Frameworks */,
@@ -181,7 +140,6 @@
 				CBB8488216DD717A00E0B340 /* CoreData.framework */,
 				CBB8488016DD717400E0B340 /* CFNetwork.framework */,
 				CBB8486516DD4C6400E0B340 /* QuartzCore.framework */,
-				CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */,
 				CBB8486A16DD4FDF00E0B340 /* Buttons */,
 				CB0E724216D6896900F2B9CA /* EXAppDelegate.h */,
 				CB0E724316D6896900F2B9CA /* EXAppDelegate.m */,
@@ -221,10 +179,10 @@
 		CB0E725816D6897A00F2B9CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CBB8488D16DEA09000E0B340 /* EXRecognizedCharacter.h */,
-				CBB8488E16DEA09000E0B340 /* EXRecognizedCharacter.m */,
-				CBB8488A16DDB07E00E0B340 /* EXRecognizedDrawing.h */,
-				CBB8488B16DDB07E00E0B340 /* EXRecognizedDrawing.m */,
+				CBDF108616E69C4700B226E5 /* EXRecognizedExpression.h */,
+				CBDF108716E69C4700B226E5 /* EXRecognizedExpression.m */,
+				CBDF108816E69C4700B226E5 /* EXRecognizedSymbol.h */,
+				CBDF108916E69C4700B226E5 /* EXRecognizedSymbol.m */,
 				CB0E725916D6899B00F2B9CA /* EXDrawing.h */,
 				CB0E725A16D6899B00F2B9CA /* EXDrawing.m */,
 			);
@@ -238,17 +196,6 @@
 				CBB8486316DD4C5C00E0B340 /* UIButton+Glossy.m */,
 			);
 			name = Buttons;
-			sourceTree = "<group>";
-		};
-		CBB8486F16DD6E7D00E0B340 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CBB8487616DD6E7E00E0B340 /* libRestKit.a */,
-				CBB8487816DD6E7E00E0B340 /* RestKitTests.octest */,
-				CBB8487A16DD6E7E00E0B340 /* RestKit.framework */,
-				CBB8487C16DD6E7E00E0B340 /* RestKitFrameworkTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +212,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CBB8487E16DD714C00E0B340 /* PBXTargetDependency */,
 			);
 			name = Expresso;
 			productName = Expresso;
@@ -292,49 +238,12 @@
 			mainGroup = CB0E722716D6896900F2B9CA;
 			productRefGroup = CB0E723116D6896900F2B9CA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CBB8486F16DD6E7D00E0B340 /* Products */;
-					ProjectRef = CBB8486E16DD6E7D00E0B340 /* RestKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CB0E722F16D6896900F2B9CA /* Expresso */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CBB8487616DD6E7E00E0B340 /* libRestKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKit.a;
-			remoteRef = CBB8487516DD6E7E00E0B340 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBB8487816DD6E7E00E0B340 /* RestKitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitTests.octest;
-			remoteRef = CBB8487716DD6E7E00E0B340 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBB8487A16DD6E7E00E0B340 /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = CBB8487916DD6E7E00E0B340 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBB8487C16DD6E7E00E0B340 /* RestKitFrameworkTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitFrameworkTests.octest;
-			remoteRef = CBB8487B16DD6E7E00E0B340 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CB0E722E16D6896900F2B9CA /* Resources */ = {
@@ -363,21 +272,13 @@
 				CB0E725E16D6B29200F2B9CA /* EXDrawingView.m in Sources */,
 				CB0E726116D6D0D500F2B9CA /* EXDrawSettingsViewController.m in Sources */,
 				CBB8486416DD4C5C00E0B340 /* UIButton+Glossy.m in Sources */,
-				CBB8488C16DDB07E00E0B340 /* EXRecognizedDrawing.m in Sources */,
-				CBB8488F16DEA09000E0B340 /* EXRecognizedCharacter.m in Sources */,
 				CBB8489216DEA30A00E0B340 /* EXRecognitionVerificationViewController.m in Sources */,
+				CBDF108A16E69C4700B226E5 /* EXRecognizedExpression.m in Sources */,
+				CBDF108B16E69C4700B226E5 /* EXRecognizedSymbol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CBB8487E16DD714C00E0B340 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = CBB8487D16DD714C00E0B340 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CB0E723C16D6896900F2B9CA /* InfoPlist.strings */ = {

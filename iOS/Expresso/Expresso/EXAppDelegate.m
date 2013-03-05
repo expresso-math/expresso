@@ -21,15 +21,6 @@
     NSDictionary *initialUserDefaults = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialUserDefaults];
     
-    // Create an HTTP client attached to our API.
-    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:5000"];
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    [httpClient setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
-    
-    // Create and set the shared object manager.
-    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:httpClient];
-    [RKObjectManager setSharedManager:objectManager];
-    
     // Override point for customization after application launch.
     return YES;
 }

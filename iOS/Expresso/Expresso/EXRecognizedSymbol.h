@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EXRecognizedCharacter : NSObject
+@interface EXRecognizedSymbol : NSObject
 
 @property (assign, nonatomic) CGRect boundingBox;
 @property (strong, nonatomic) NSDictionary *charactersWithCertainty;
