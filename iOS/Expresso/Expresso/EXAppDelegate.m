@@ -7,11 +7,12 @@
 //
 
 #import "EXAppDelegate.h"
-#import <RestKit/RestKit.h>
 
 #import "EXDrawing.h"
 
 @implementation EXAppDelegate
+
+@synthesize apiManager = _apiManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -20,6 +21,10 @@
     NSArray *keys = [NSArray arrayWithObject:@"strokeWidth"];
     NSDictionary *initialUserDefaults = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialUserDefaults];
+    
+    self.apiManager = [EXAPIManager sharedAPIManager];
+    
+    [self.apiManager startSession];
     
     // Override point for customization after application launch.
     return YES;

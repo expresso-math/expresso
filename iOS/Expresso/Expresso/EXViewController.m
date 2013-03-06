@@ -11,8 +11,8 @@
 #import "EXDrawSettingsViewController.h"
 #import "EXRecognitionVerificationViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import <RestKit/RestKit.h>
 #import "UIButton+Glossy.h"
+#import "EXAPIManager.h"
 
 @interface EXViewController ()
 
@@ -87,7 +87,9 @@
 
 - (void)removeMostRecentDraw {
     UIBezierPath *path = [self.drawing removeMostRecentPath];
-    [self.undoManager registerUndoWithTarget:self selector:@selector(drawingDidEnd:) object:path];
+    [self.undoManager registerUndoWithTarget:self
+                                    selector:@selector(drawingDidEnd:)
+                                      object:path];
 
 }
 
@@ -143,6 +145,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     // Here we upload the image, receive an expression ID, and pass it onto the destination
+    EXAPIManager *apiManager = [EXAPIManager sharedAPIManager];
+    NSString *expressionID = [apiManager getNewExpression];
 }
 
 @end

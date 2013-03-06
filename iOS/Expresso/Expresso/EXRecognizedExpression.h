@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EXDrawing.h"
-#import "EXRecognizedCharacter.h"
+#import "EXRecognizedSymbol.h"
 
 @interface EXRecognizedExpression : NSObject
 

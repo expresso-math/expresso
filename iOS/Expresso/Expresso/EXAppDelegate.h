@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EXAPIManager.h"
 
 @interface EXAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) EXAPIManager *apiManager;
 
 @end

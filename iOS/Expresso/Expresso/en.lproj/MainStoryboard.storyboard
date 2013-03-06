@@ -63,24 +63,29 @@
         <!--Navigation Controller-->
         <scene sceneID="dwC-Gx-fkx">
             <objects>
-                <navigationController definesPresentationContext="YES" id="ykA-jj-XMe" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="ykA-jj-XMe" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GWF-UP-n66">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PIa-wJ-mLL">
+                        <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="Hvi-QS-d8m"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZx-KB-2tN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3282" y="-2836"/>
+            <point key="canvasLocation" x="-3350" y="-2708"/>
         </scene>
         <!--View Controller - Draw-->
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="EXViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="1Ed-oC-OVt" customClass="EXDrawingView">
@@ -91,32 +96,28 @@
                                     <outlet property="drawingViewDelegate" destination="2" id="CPG-dW-zQp"/>
                                 </connections>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0Ws-oK-iob">
-                                <rect key="frame" x="0.0" y="660" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="undo" id="WSR-wq-f81">
-                                        <connections>
-                                            <action selector="undo:" destination="2" id="4u9-F9-l9R"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="redo" id="9e6-XU-qIa">
-                                        <connections>
-                                            <action selector="redo:" destination="2" id="JcO-D4-hjm"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="euI-bv-o7f"/>
-                                    <barButtonItem title="Options" id="Az0-91-rvf">
-                                        <connections>
-                                            <action selector="showOptions:" destination="2" id="WfX-Fr-WO0"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.92877462639999997" green="0.92877462639999997" blue="0.92877462639999997" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="undo" id="WSR-wq-f81">
+                            <connections>
+                                <action selector="undo:" destination="2" id="4u9-F9-l9R"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="redo" id="9e6-XU-qIa">
+                            <connections>
+                                <action selector="redo:" destination="2" id="JcO-D4-hjm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="euI-bv-o7f"/>
+                        <barButtonItem title="Options" id="Az0-91-rvf">
+                            <connections>
+                                <action selector="showOptions:" destination="2" id="WfX-Fr-WO0"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Draw" id="FNx-Mt-hlD">
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="OFI-tA-LCO">
                             <connections>
@@ -130,6 +131,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawingView" destination="1Ed-oC-OVt" id="W9a-Ne-2qV"/>
@@ -146,27 +148,24 @@
             <objects>
                 <viewController id="o1p-a3-klu" customClass="EXRecognitionVerificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zny-hH-cM4">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="fa1-if-XVd">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ep2-Yx-Yl1">
-                                <rect key="frame" x="0.0" y="660" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Show/Hide Bounding Boxes" id="THe-j6-zar"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Show/Hide Bounding Boxes" id="THe-j6-zar"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Character Recognition Verification" id="Ao7-cW-uaq">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="fat-Qz-Z27"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="imageView" destination="fa1-if-XVd" id="rHG-6O-Fom"/>
@@ -177,43 +176,6 @@
             <point key="canvasLocation" x="-439" y="-2708"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="EXDrawSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="saveSettings:"/>
-                <relationship kind="action" name="strokeWidthDidChange:" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="saveSettingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="strokeWidthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strokeWidthSlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="EXDrawingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawingView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="drawingViewDelegate"/>
-            </relationships>
-        </class>
-        <class className="EXRecognitionVerificationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXRecognitionVerificationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="EXViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearDrawing:"/>
-                <relationship kind="action" name="processDrawing:"/>
-                <relationship kind="action" name="redo:"/>
-                <relationship kind="action" name="showOptions:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="undo:"/>
-                <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingView"/>
-                <relationship kind="outlet" name="redoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="undoButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

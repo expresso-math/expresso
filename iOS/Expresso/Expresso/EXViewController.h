@@ -28,7 +28,5 @@
 -(IBAction)redo:(id)sender;
 -(IBAction)clearDrawing:(id)sender;
 -(IBAction)showOptions:(UIBarButtonItem *)sender; // Presents UIPopover for EXDrawSettingsViewController.
--(IBAction)processDrawing:(id)sender;
-
 
 @end
