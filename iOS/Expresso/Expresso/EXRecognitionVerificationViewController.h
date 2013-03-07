@@ -14,6 +14,7 @@
 @interface EXRecognitionVerificationViewController : UIViewController
 
 @property (strong, nonatomic) EXRecognizedExpression *expression;
+@property (strong, nonatomic) NSArray *boundingBoxes;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet EXProgressHUDView  *hud;
 //@property (strong, nonatomic) 

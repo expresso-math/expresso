@@ -21,6 +21,7 @@
 
 @synthesize imageView = _imageView;
 @synthesize expression = _expression;
+@synthesize boundingBoxes = _boundingBoxes;
 @synthesize boundingBoxesShowing = _boundingBoxesShowing;
 
 /*
@@ -35,6 +36,14 @@
         _expression = [[EXRecognizedExpression alloc] init];
     }
     return _expression;
+}
+
+- (NSArray *)boundingBoxes {
+    if(!_boundingBoxes ) {
+        _boundingBoxes = [[NSArray alloc] init];
+    }
+    return _boundingBoxes;
+
 }
 
 - (void)viewDidLoad {
@@ -69,7 +78,6 @@
 }
 
 - (void)uploadFailed:(NSNotification *)notification {
-    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -85,8 +93,6 @@
         self.hud.alpha = 0.0;
         self.hud.hidden = YES;
     }];
-    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-    EXAPIManager *manager = [EXAPIManager sharedManager];
     NSData *data = [(ASIHTTPRequest *)[notification.userInfo valueForKey:@"request"] responseData];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSArray *symbols = [dict valueForKey:@"symbols"];
@@ -97,13 +103,11 @@
     NSArray *symbolSet = self.expression.symbols;
     for (symbol in symbolSet) {
         EXRecognizedCharacterView *newView = [[EXRecognizedCharacterView alloc] initWithFrame:symbol.boundingBox];
-        [self.view addSubview:newView];
+        self.boundingBoxes = [self.boundingBoxes arrayByAddingObject:newView];
     }
     
-    
-    
     [self showBoundingBoxes];
-}
+    }
 
 - (IBAction)toggleBoundingBoxes:(id)sender {
     if(self.boundingBoxesShowing) {
@@ -114,17 +118,25 @@
 }
 
 - (void)showBoundingBoxes {
-    
+    UIView *view;
+    for (view in self.boundingBoxes) {
+        [self.view addSubview:view];
+    }
+    self.boundingBoxesShowing = YES;
 }
 
 - (void)hideBoundingBoxes {
+    UIView *view;
+    for (view in self.boundingBoxes) {
+        [view removeFromSuperview];
+    }
+    self.boundingBoxesShowing = NO;
     
 }
 
 - (void)showHUD {
     self.hud.alpha = 0;
     self.hud.hidden = NO;
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [self.hud showBar];
     [UIView animateWithDuration:0.3 animations:^{
         self.hud.alpha = 0.9;

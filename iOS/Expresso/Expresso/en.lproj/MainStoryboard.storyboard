@@ -155,7 +155,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" id="Gqt-If-D0c" customClass="EXProgressHUDView">
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="Gqt-If-D0c" customClass="EXProgressHUDView">
                                 <rect key="frame" x="412" y="255" width="200" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -187,7 +187,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Show/Hide Bounding Boxes" id="THe-j6-zar"/>
+                        <barButtonItem title="Show/Hide Bounding Boxes" id="THe-j6-zar">
+                            <connections>
+                                <action selector="toggleBoundingBoxes:" destination="o1p-a3-klu" id="sfX-IS-OBe"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Character Recognition Verification" id="Ao7-cW-uaq">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="fat-Qz-Z27"/>

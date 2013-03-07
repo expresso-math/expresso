@@ -17,7 +17,7 @@
     static EXAPIManager *shared = nil;
     dispatch_once(&pred, ^{
         shared = [[EXAPIManager alloc] init];
-        shared.apiURL = [NSURL URLWithString:@"http://localhost:5000"];
+        shared.apiURL = [NSURL URLWithString:@"http://expresso-api.heroku.com"];
         shared.sessionID = nil;
         [[NSNotificationCenter defaultCenter] addObserver:shared selector:@selector(createSession:) name:@"sessionRequestFinished" object:nil];
     });
