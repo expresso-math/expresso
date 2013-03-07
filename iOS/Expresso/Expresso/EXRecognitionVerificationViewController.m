@@ -7,11 +7,22 @@
 //
 
 #import "EXRecognitionVerificationViewController.h"
+#import "EXRecognizedCharacterView.h"
+#import "EXAPIManager.h"
+#import <QuartzCore/QuartzCore.h>
+
+@interface EXRecognitionVerificationViewController()
+
+@property (readwrite, nonatomic) BOOL boundingBoxesShowing;
+
+@end
 
 @implementation EXRecognitionVerificationViewController
 
-@synthesize image = _image;
 @synthesize imageView = _imageView;
+@synthesize expression = _expression;
+@synthesize boundingBoxesShowing = _boundingBoxesShowing;
+
 /*
  *  Help force landscape.
  */
@@ -19,10 +30,105 @@
     return (interfaceOrientation != UIInterfaceOrientationPortrait);
 }
 
+- (EXRecognizedExpression *)expression {
+    if(!_expression ) {
+        _expression = [[EXRecognizedExpression alloc] init];
+    }
+    return _expression;
+}
+
 - (void)viewDidLoad {
     
-    self.imageView.image = self.image;
+    self.imageView.image = self.expression.image;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadStarted:) name:@"imageUploadStarted" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFailed:) name:@"imageUploadFailed" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFinished:) name:@"imageUploadFinished" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSymbolSetFinished:) name:@"getSymbolSetFinished" object:nil];
+     
+     EXAPIManager *manager = [EXAPIManager sharedManager];
+     self.expression.expressionID = [manager getNewExpression];
+     [manager sendImage:self.expression.image forExpression:self.expression.expressionID];
+    
+    [[self.hud layer] setCornerRadius:5.0];
+    [[self.hud layer] setMasksToBounds:YES];
+    
+    self.boundingBoxesShowing = NO;
 
+}
+
+- (void)uploadStarted:(NSNotification *)notification {
+    ASIHTTPRequest *request = (ASIHTTPRequest *)[[notification userInfo] objectForKey:@"request"];
+    [request setUploadProgressDelegate:self.hud.bar];
+    [self.hud.cog setHidden:YES];
+    [self.hud.label setText:@"Uploading..."];
+    [self showHUD];
+}
+
+- (void)uploadFailed:(NSNotification *)notification {
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)uploadFinished:(NSNotification *)notification {
+    [self.hud showCog];
+    self.hud.label.text = @"Processing...";
+    EXAPIManager *manager = [EXAPIManager sharedManager];
+    [manager getSymbolSetForExpression:self.expression.expressionID];
+}
+
+- (void)getSymbolSetFinished:(NSNotification *)notification {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.hud.alpha = 0.0;
+        self.hud.hidden = YES;
+    }];
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    EXAPIManager *manager = [EXAPIManager sharedManager];
+    NSData *data = [(ASIHTTPRequest *)[notification.userInfo valueForKey:@"request"] responseData];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSArray *symbols = [dict valueForKey:@"symbols"];
+    
+    [self.expression setSymbolsWithArray:symbols];
+    
+    EXRecognizedSymbol *symbol;
+    NSArray *symbolSet = self.expression.symbols;
+    for (symbol in symbolSet) {
+        EXRecognizedCharacterView *newView = [[EXRecognizedCharacterView alloc] initWithFrame:symbol.boundingBox];
+        [self.view addSubview:newView];
+    }
+    
+    
+    
+    [self showBoundingBoxes];
+}
+
+- (IBAction)toggleBoundingBoxes:(id)sender {
+    if(self.boundingBoxesShowing) {
+        [self hideBoundingBoxes];
+    } else {
+        [self showBoundingBoxes];
+    }
+}
+
+- (void)showBoundingBoxes {
+    
+}
+
+- (void)hideBoundingBoxes {
+    
+}
+
+- (void)showHUD {
+    self.hud.alpha = 0;
+    self.hud.hidden = NO;
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [self.hud showBar];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.hud.alpha = 0.9;
+    }];
 }
 
 @end

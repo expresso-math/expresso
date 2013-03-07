@@ -12,8 +12,10 @@
 
 @interface EXRecognizedExpression : NSObject
 
-@property (strong, nonatomic) NSString *drawingID;
-@property (strong, nonatomic) NSArray *characters;
+@property (strong, nonatomic) NSString *expressionID;
+@property (strong, nonatomic) NSArray *symbols;
 @property (strong, nonatomic) UIImage *image;
+
+-(void)setSymbolsWithArray:(NSArray *)symbols;
 
 @end

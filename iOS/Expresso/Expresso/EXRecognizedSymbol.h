@@ -10,7 +10,7 @@
 
 @interface EXRecognizedSymbol : NSObject
 
-@property (assign, nonatomic) CGRect boundingBox;
+@property (readwrite, nonatomic) CGRect boundingBox;
 @property (strong, nonatomic) NSDictionary *charactersWithCertainty;
 
 @end

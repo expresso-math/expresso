@@ -48,6 +48,17 @@
     
     [self updateUndoRedoButtons];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionStartFailed:) name:@"sessionRequestFailed" object:nil];
+
+}
+
+- (void)sessionStartFailed: (NSNotification *)notification {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connection Failed!" message:@"Connection to Barista failed." delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [[EXAPIManager sharedManager] startSession];
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -144,9 +155,10 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
-    // Here we upload the image, receive an expression ID, and pass it onto the destination
-    EXAPIManager *apiManager = [EXAPIManager sharedAPIManager];
-    NSString *expressionID = [apiManager getNewExpression];
+    // Nothin. The next view will handle this.
+    EXRecognizedExpression *expression = [[EXRecognizedExpression alloc] init];
+    [expression setImage:self.drawing.renderedImage];
+    [[segue destinationViewController] setExpression:expression];
 }
 
 @end

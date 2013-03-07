@@ -10,5 +10,7 @@
 
 @implementation EXRecognizedSymbol
 
+@synthesize boundingBox = _boundingBox;
+@synthesize charactersWithCertainty = _charactersWithCertainty;
 
 @end

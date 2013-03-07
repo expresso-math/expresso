@@ -14,10 +14,12 @@
 @property (strong, nonatomic) NSURL *apiURL;
 @property (strong, nonatomic) NSString *sessionID;
 
-+ (EXAPIManager *)sharedAPIManager;
++ (EXAPIManager *)sharedManager;
 
 - (void)startSession;
 - (void)createSession:(NSNotification *)notification;
 - (NSString *)getNewExpression;
+- (void)sendImage:(UIImage *)image forExpression:(NSString *)expression;
+- (void)getSymbolSetForExpression:(NSString *)expression;
 
 @end

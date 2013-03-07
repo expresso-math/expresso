@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 #import "EXDrawingView.h"
 
-@interface EXViewController : UIViewController <UIPopoverControllerDelegate, EXDrawingViewDelegate>
+@interface EXViewController : UIViewController <UIPopoverControllerDelegate, EXDrawingViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet EXDrawingView *drawingView; // The drawing View.
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;

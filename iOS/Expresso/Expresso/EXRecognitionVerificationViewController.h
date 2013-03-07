@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EXProgressHUDView.h"
+#import "EXRecognizedExpression.h"
+#import "EXRecognizedCharacterView.h"
 
 @interface EXRecognitionVerificationViewController : UIViewController
 
-@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) EXRecognizedExpression *expression;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet EXProgressHUDView  *hud;
 //@property (strong, nonatomic) 
+
+- (IBAction)toggleBoundingBoxes:(id)sender;
 
 @end

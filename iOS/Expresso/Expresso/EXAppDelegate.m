@@ -22,7 +22,7 @@
     NSDictionary *initialUserDefaults = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialUserDefaults];
     
-    self.apiManager = [EXAPIManager sharedAPIManager];
+    self.apiManager = [EXAPIManager sharedManager];
     
     [self.apiManager startSession];
     

@@ -8,20 +8,20 @@
 
 #import "EXAPIManager.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @implementation EXAPIManager
 
-+ (EXAPIManager *)sharedAPIManager
-{
-    static dispatch_once_t pred = 0;
-    __strong static EXAPIManager *sharedObject = nil;
++(EXAPIManager *)sharedManager {
+    static dispatch_once_t pred;
+    static EXAPIManager *shared = nil;
     dispatch_once(&pred, ^{
-        sharedObject = [[self alloc] init]; // or some other init method
-        sharedObject.apiURL = [NSURL URLWithString:@"http://localhost:5000"];
-        sharedObject.sessionID = nil;
-        [[NSNotificationCenter defaultCenter] addObserver:sharedObject selector:@selector(createSession:) name:@"sessionRequestFinished" object:nil];
+        shared = [[EXAPIManager alloc] init];
+        shared.apiURL = [NSURL URLWithString:@"http://localhost:5000"];
+        shared.sessionID = nil;
+        [[NSNotificationCenter defaultCenter] addObserver:shared selector:@selector(createSession:) name:@"sessionRequestFinished" object:nil];
     });
-    return sharedObject;
+    return shared;
 }
 
 - (void)startSession {
@@ -34,7 +34,10 @@
 }
 
 - (void)createSession:(NSNotification *)notification {
-   
+    EXAPIManager *shared = [EXAPIManager sharedManager];
+    NSData *data = [(ASIHTTPRequest *)[notification.userInfo valueForKey:@"request"] responseData];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    shared.sessionID = [dict valueForKey:@"session_name"];
 }
 
 - (NSString *)getNewExpression {
@@ -81,6 +84,26 @@
     
     NSString *notificationName = [(NSString *)[request.userInfo valueForKey:@"action"] stringByAppendingString:@"Failed"];
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:errorDict];
+}
+
+- (void)sendImage:(UIImage *)image forExpression:(NSString *)expression {
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:expression] URLByAppendingPathComponent:@"image"];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"imageUpload" forKey:@"action"];
+    [request setUserInfo:userInfo];
+    [request setData:imageData withFileName:@"img.png" andContentType:@"image/png" forKey:@"image"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+}
+
+- (void)getSymbolSetForExpression:(NSString *)expression {
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:expression] URLByAppendingPathComponent:@"symbolset"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    request.userInfo = [NSDictionary dictionaryWithObject:@"getSymbolSet" forKey:@"action"];
+    request.delegate = self;
+    [request startAsynchronous];
 }
 
 @end
