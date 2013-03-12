@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB745C7C16EA80F300ED87B8 /* EXWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */; };
+		CB745C8016EA821800ED87B8 /* EXDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C7F16EA821800ED87B8 /* EXDrawingViewController.m */; };
+		CB745C8316EA82CD00ED87B8 /* EXSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C8216EA82CD00ED87B8 /* EXSession.m */; };
+		CB745C8716EA84A000ED87B8 /* EXExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C8616EA84A000ED87B8 /* EXExpression.m */; };
+		CB745C8B16EAA83500ED87B8 /* EXLandscapeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C8A16EAA83500ED87B8 /* EXLandscapeNavigationController.m */; };
+		CB745C9116EAA9D000ED87B8 /* EXVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */; };
+		CB745C9416EAAC5E00ED87B8 /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */; };
+		CB937EA216EE8C1400F9D4F1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */; };
+		CB9B0DA916EAEFEB004FED12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */; };
+		CBB6338616EBA84A000555D3 /* button_green.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB6338216EBA84A000555D3 /* button_green.png */; };
+		CBB6338716EBA84A000555D3 /* button_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB6338316EBA84A000555D3 /* button_green@2x.png */; };
+		CBB6338816EBA84A000555D3 /* button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB6338416EBA84A000555D3 /* button_red.png */; };
+		CBB6338916EBA84A000555D3 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB6338516EBA84A000555D3 /* button_red@2x.png */; };
+		CBB6338C16EC5FFD000555D3 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6338B16EC5FFD000555D3 /* UIButton+Glossy.m */; };
+		CBB6338F16EDB0A3000555D3 /* EXDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6338E16EDB0A3000555D3 /* EXDrawing.m */; };
+		CBB6339216EDB0AF000555D3 /* EXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339116EDB0AF000555D3 /* EXDrawingView.m */; };
+		CBB633A916EE3D5B000555D3 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339616EE3D5B000555D3 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AA16EE3D5B000555D3 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339916EE3D5B000555D3 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AB16EE3D5B000555D3 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339B16EE3D5B000555D3 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AC16EE3D5B000555D3 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339D16EE3D5B000555D3 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AD16EE3D5B000555D3 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339F16EE3D5B000555D3 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AE16EE3D5B000555D3 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB633A116EE3D5B000555D3 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633AF16EE3D5B000555D3 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB633A516EE3D5B000555D3 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633B016EE3D5B000555D3 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB633A716EE3D5B000555D3 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB633B216EE3D6E000555D3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B116EE3D6E000555D3 /* CFNetwork.framework */; };
+		CBB633B416EE3D77000555D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B316EE3D77000555D3 /* SystemConfiguration.framework */; };
+		CBB633B616EE3D7E000555D3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B516EE3D7E000555D3 /* MobileCoreServices.framework */; };
+		CBB633B816EE3D87000555D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B716EE3D87000555D3 /* libz.dylib */; };
+		CBB633BC16EE6676000555D3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB633BB16EE6676000555D3 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBE8386316E9B78A00397E14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386216E9B78A00397E14 /* UIKit.framework */; };
+		CBE8386516E9B78A00397E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386416E9B78A00397E14 /* Foundation.framework */; };
+		CBE8386716E9B78A00397E14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386616E9B78A00397E14 /* CoreGraphics.framework */; };
+		CBE8386D16E9B78A00397E14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBE8386B16E9B78A00397E14 /* InfoPlist.strings */; };
+		CBE8386F16E9B78A00397E14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE8386E16E9B78A00397E14 /* main.m */; };
+		CBE8387316E9B78A00397E14 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE8387216E9B78A00397E14 /* EXAppDelegate.m */; };
+		CBE8387516E9B78A00397E14 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387416E9B78A00397E14 /* Default.png */; };
+		CBE8387716E9B78A00397E14 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387616E9B78A00397E14 /* Default@2x.png */; };
+		CBE8387916E9B78A00397E14 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387816E9B78A00397E14 /* Default-568h@2x.png */; };
+		CBE8387C16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387A16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard */; };
+		CBE8387F16E9B78A00397E14 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387D16E9B78A00397E14 /* MainStoryboard_iPad.storyboard */; };
+		CBF7965816EEA454001844D7 /* EXSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7965716EEA454001844D7 /* EXSymbol.m */; };
+		CBF7965B16EEA7AD001844D7 /* EXSymbolView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7965A16EEA7AD001844D7 /* EXSymbolView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CB745C7A16EA80F300ED87B8 /* EXWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXWelcomeViewController.h; path = Expresso/Classes/EXWelcomeViewController.h; sourceTree = "<group>"; };
+		CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXWelcomeViewController.m; path = Expresso/Classes/EXWelcomeViewController.m; sourceTree = "<group>"; };
+		CB745C7E16EA821800ED87B8 /* EXDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawingViewController.h; path = Expresso/Classes/EXDrawingViewController.h; sourceTree = "<group>"; };
+		CB745C7F16EA821800ED87B8 /* EXDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXDrawingViewController.m; path = Expresso/Classes/EXDrawingViewController.m; sourceTree = "<group>"; };
+		CB745C8116EA82CD00ED87B8 /* EXSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXSession.h; path = Classes/EXSession.h; sourceTree = "<group>"; };
+		CB745C8216EA82CD00ED87B8 /* EXSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXSession.m; path = Classes/EXSession.m; sourceTree = "<group>"; };
+		CB745C8516EA84A000ED87B8 /* EXExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXExpression.h; path = Classes/EXExpression.h; sourceTree = "<group>"; };
+		CB745C8616EA84A000ED87B8 /* EXExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXExpression.m; path = Classes/EXExpression.m; sourceTree = "<group>"; };
+		CB745C8916EAA83500ED87B8 /* EXLandscapeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXLandscapeNavigationController.h; sourceTree = "<group>"; };
+		CB745C8A16EAA83500ED87B8 /* EXLandscapeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXLandscapeNavigationController.m; sourceTree = "<group>"; };
+		CB745C8F16EAA9D000ED87B8 /* EXVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXVerificationViewController.h; path = Expresso/Classes/EXVerificationViewController.h; sourceTree = "<group>"; };
+		CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXVerificationViewController.m; path = Expresso/Classes/EXVerificationViewController.m; sourceTree = "<group>"; };
+		CB745C9216EAAC5E00ED87B8 /* EXDrawSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawSettingsViewController.h; sourceTree = "<group>"; };
+		CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawSettingsViewController.m; sourceTree = "<group>"; };
+		CB937EA016EE8C1400F9D4F1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CBB6338216EBA84A000555D3 /* button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_green.png; sourceTree = "<group>"; };
+		CBB6338316EBA84A000555D3 /* button_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_green@2x.png"; sourceTree = "<group>"; };
+		CBB6338416EBA84A000555D3 /* button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_red.png; sourceTree = "<group>"; };
+		CBB6338516EBA84A000555D3 /* button_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_red@2x.png"; sourceTree = "<group>"; };
+		CBB6338A16EC5FFD000555D3 /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
+		CBB6338B16EC5FFD000555D3 /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
+		CBB6338D16EDB0A3000555D3 /* EXDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawing.h; sourceTree = "<group>"; };
+		CBB6338E16EDB0A3000555D3 /* EXDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawing.m; sourceTree = "<group>"; };
+		CBB6339016EDB0AF000555D3 /* EXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXDrawingView.h; sourceTree = "<group>"; };
+		CBB6339116EDB0AF000555D3 /* EXDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXDrawingView.m; sourceTree = "<group>"; };
+		CBB6339516EE3D5B000555D3 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		CBB6339616EE3D5B000555D3 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		CBB6339716EE3D5B000555D3 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		CBB6339816EE3D5B000555D3 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		CBB6339916EE3D5B000555D3 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		CBB6339A16EE3D5B000555D3 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		CBB6339B16EE3D5B000555D3 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		CBB6339C16EE3D5B000555D3 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		CBB6339D16EE3D5B000555D3 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		CBB6339E16EE3D5B000555D3 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		CBB6339F16EE3D5B000555D3 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		CBB633A016EE3D5B000555D3 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		CBB633A116EE3D5B000555D3 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		CBB633A216EE3D5B000555D3 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		CBB633A316EE3D5B000555D3 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		CBB633A416EE3D5B000555D3 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		CBB633A516EE3D5B000555D3 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		CBB633A616EE3D5B000555D3 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		CBB633A716EE3D5B000555D3 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		CBB633A816EE3D5B000555D3 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		CBB633B116EE3D6E000555D3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CBB633B316EE3D77000555D3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CBB633B516EE3D7E000555D3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CBB633B716EE3D87000555D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CBB633BA16EE6676000555D3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CBB633BB16EE6676000555D3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CBE8385F16E9B78A00397E14 /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE8386216E9B78A00397E14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CBE8386416E9B78A00397E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CBE8386616E9B78A00397E14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CBE8386A16E9B78A00397E14 /* Expresso-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Expresso-Info.plist"; sourceTree = "<group>"; };
+		CBE8386C16E9B78A00397E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CBE8386E16E9B78A00397E14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBE8387016E9B78A00397E14 /* Expresso-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Expresso-Prefix.pch"; sourceTree = "<group>"; };
+		CBE8387116E9B78A00397E14 /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
+		CBE8387216E9B78A00397E14 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
+		CBE8387416E9B78A00397E14 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CBE8387616E9B78A00397E14 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CBE8387816E9B78A00397E14 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CBE8387B16E9B78A00397E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		CBE8387E16E9B78A00397E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		CBF7965616EEA454001844D7 /* EXSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXSymbol.h; sourceTree = "<group>"; };
+		CBF7965716EEA454001844D7 /* EXSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXSymbol.m; sourceTree = "<group>"; };
+		CBF7965916EEA7AD001844D7 /* EXSymbolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXSymbolView.h; sourceTree = "<group>"; };
+		CBF7965A16EEA7AD001844D7 /* EXSymbolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXSymbolView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBE8385C16E9B78A00397E14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB633B816EE3D87000555D3 /* libz.dylib in Frameworks */,
+				CBB633B616EE3D7E000555D3 /* MobileCoreServices.framework in Frameworks */,
+				CBB633B416EE3D77000555D3 /* SystemConfiguration.framework in Frameworks */,
+				CBB633B216EE3D6E000555D3 /* CFNetwork.framework in Frameworks */,
+				CB9B0DA916EAEFEB004FED12 /* QuartzCore.framework in Frameworks */,
+				CBE8386316E9B78A00397E14 /* UIKit.framework in Frameworks */,
+				CBE8386516E9B78A00397E14 /* Foundation.framework in Frameworks */,
+				CBE8386716E9B78A00397E14 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB745C7D16EA80F800ED87B8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB745C9216EAAC5E00ED87B8 /* EXDrawSettingsViewController.h */,
+				CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */,
+				CB745C8F16EAA9D000ED87B8 /* EXVerificationViewController.h */,
+				CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */,
+				CB745C7A16EA80F300ED87B8 /* EXWelcomeViewController.h */,
+				CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */,
+				CB745C7E16EA821800ED87B8 /* EXDrawingViewController.h */,
+				CB745C7F16EA821800ED87B8 /* EXDrawingViewController.m */,
+			);
+			name = "View Controllers";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CB745C8416EA82D000ED87B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB745C8916EAA83500ED87B8 /* EXLandscapeNavigationController.h */,
+				CB745C8A16EAA83500ED87B8 /* EXLandscapeNavigationController.m */,
+				CB745C7D16EA80F800ED87B8 /* View Controllers */,
+				CB745C8116EA82CD00ED87B8 /* EXSession.h */,
+				CB745C8216EA82CD00ED87B8 /* EXSession.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CB745C8816EA84A300ED87B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6338D16EDB0A3000555D3 /* EXDrawing.h */,
+				CBB6338E16EDB0A3000555D3 /* EXDrawing.m */,
+				CB745C8516EA84A000ED87B8 /* EXExpression.h */,
+				CB745C8616EA84A000ED87B8 /* EXExpression.m */,
+				CBF7965616EEA454001844D7 /* EXSymbol.h */,
+				CBF7965716EEA454001844D7 /* EXSymbol.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CBB6338116EBA84A000555D3 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6338A16EC5FFD000555D3 /* UIButton+Glossy.h */,
+				CBB6338B16EC5FFD000555D3 /* UIButton+Glossy.m */,
+				CBB6338216EBA84A000555D3 /* button_green.png */,
+				CBB6338316EBA84A000555D3 /* button_green@2x.png */,
+				CBB6338416EBA84A000555D3 /* button_red.png */,
+				CBB6338516EBA84A000555D3 /* button_red@2x.png */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		CBB6339316EDB0B2000555D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7965916EEA7AD001844D7 /* EXSymbolView.h */,
+				CBF7965A16EEA7AD001844D7 /* EXSymbolView.m */,
+				CBB6339016EDB0AF000555D3 /* EXDrawingView.h */,
+				CBB6339116EDB0AF000555D3 /* EXDrawingView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CBB6339416EE3D5B000555D3 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CBB633B916EE6676000555D3 /* Reachability */,
+				CBB6339516EE3D5B000555D3 /* ASIAuthenticationDialog.h */,
+				CBB6339616EE3D5B000555D3 /* ASIAuthenticationDialog.m */,
+				CBB6339716EE3D5B000555D3 /* ASICacheDelegate.h */,
+				CBB6339816EE3D5B000555D3 /* ASIDataCompressor.h */,
+				CBB6339916EE3D5B000555D3 /* ASIDataCompressor.m */,
+				CBB6339A16EE3D5B000555D3 /* ASIDataDecompressor.h */,
+				CBB6339B16EE3D5B000555D3 /* ASIDataDecompressor.m */,
+				CBB6339C16EE3D5B000555D3 /* ASIDownloadCache.h */,
+				CBB6339D16EE3D5B000555D3 /* ASIDownloadCache.m */,
+				CBB6339E16EE3D5B000555D3 /* ASIFormDataRequest.h */,
+				CBB6339F16EE3D5B000555D3 /* ASIFormDataRequest.m */,
+				CBB633A016EE3D5B000555D3 /* ASIHTTPRequest.h */,
+				CBB633A116EE3D5B000555D3 /* ASIHTTPRequest.m */,
+				CBB633A216EE3D5B000555D3 /* ASIHTTPRequestConfig.h */,
+				CBB633A316EE3D5B000555D3 /* ASIHTTPRequestDelegate.h */,
+				CBB633A416EE3D5B000555D3 /* ASIInputStream.h */,
+				CBB633A516EE3D5B000555D3 /* ASIInputStream.m */,
+				CBB633A616EE3D5B000555D3 /* ASINetworkQueue.h */,
+				CBB633A716EE3D5B000555D3 /* ASINetworkQueue.m */,
+				CBB633A816EE3D5B000555D3 /* ASIProgressDelegate.h */,
+			);
+			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		CBB633B916EE6676000555D3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				CBB633BA16EE6676000555D3 /* Reachability.h */,
+				CBB633BB16EE6676000555D3 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		CBE8385616E9B78A00397E14 = {
+			isa = PBXGroup;
+			children = (
+				CBE8386816E9B78A00397E14 /* Expresso */,
+				CBE8386116E9B78A00397E14 /* Frameworks */,
+				CBE8386016E9B78A00397E14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBE8386016E9B78A00397E14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBE8385F16E9B78A00397E14 /* Expresso.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBE8386116E9B78A00397E14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBB633B716EE3D87000555D3 /* libz.dylib */,
+				CBB633B516EE3D7E000555D3 /* MobileCoreServices.framework */,
+				CBB633B316EE3D77000555D3 /* SystemConfiguration.framework */,
+				CBB633B116EE3D6E000555D3 /* CFNetwork.framework */,
+				CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */,
+				CBE8386216E9B78A00397E14 /* UIKit.framework */,
+				CBE8386416E9B78A00397E14 /* Foundation.framework */,
+				CBE8386616E9B78A00397E14 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBE8386816E9B78A00397E14 /* Expresso */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6339316EDB0B2000555D3 /* Views */,
+				CB745C8816EA84A300ED87B8 /* Models */,
+				CB745C8416EA82D000ED87B8 /* Controllers */,
+				CBE8387116E9B78A00397E14 /* EXAppDelegate.h */,
+				CBE8387216E9B78A00397E14 /* EXAppDelegate.m */,
+				CBE8387A16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard */,
+				CBE8387D16E9B78A00397E14 /* MainStoryboard_iPad.storyboard */,
+				CBE8386916E9B78A00397E14 /* Supporting Files */,
+			);
+			path = Expresso;
+			sourceTree = "<group>";
+		};
+		CBE8386916E9B78A00397E14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBF7965516EE9E36001844D7 /* MBProgressHUD */,
+				CBB6339416EE3D5B000555D3 /* ASIHTTPRequest */,
+				CBB6338116EBA84A000555D3 /* Buttons */,
+				CBE8386A16E9B78A00397E14 /* Expresso-Info.plist */,
+				CBE8386B16E9B78A00397E14 /* InfoPlist.strings */,
+				CBE8386E16E9B78A00397E14 /* main.m */,
+				CBE8387016E9B78A00397E14 /* Expresso-Prefix.pch */,
+				CBE8387416E9B78A00397E14 /* Default.png */,
+				CBE8387616E9B78A00397E14 /* Default@2x.png */,
+				CBE8387816E9B78A00397E14 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBF7965516EE9E36001844D7 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CB937EA016EE8C1400F9D4F1 /* MBProgressHUD.h */,
+				CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBE8385E16E9B78A00397E14 /* Expresso */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBE8388516E9B78A00397E14 /* Build configuration list for PBXNativeTarget "Expresso" */;
+			buildPhases = (
+				CBE8385B16E9B78A00397E14 /* Sources */,
+				CBE8385C16E9B78A00397E14 /* Frameworks */,
+				CBE8385D16E9B78A00397E14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Expresso;
+			productName = Expresso;
+			productReference = CBE8385F16E9B78A00397E14 /* Expresso.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBE8385716E9B78A00397E14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EX;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Josef Lange & Daniel Guilak";
+			};
+			buildConfigurationList = CBE8385A16E9B78A00397E14 /* Build configuration list for PBXProject "Expresso" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CBE8385616E9B78A00397E14;
+			productRefGroup = CBE8386016E9B78A00397E14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBE8385E16E9B78A00397E14 /* Expresso */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBE8385D16E9B78A00397E14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE8386D16E9B78A00397E14 /* InfoPlist.strings in Resources */,
+				CBE8387516E9B78A00397E14 /* Default.png in Resources */,
+				CBE8387716E9B78A00397E14 /* Default@2x.png in Resources */,
+				CBE8387916E9B78A00397E14 /* Default-568h@2x.png in Resources */,
+				CBE8387C16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard in Resources */,
+				CBE8387F16E9B78A00397E14 /* MainStoryboard_iPad.storyboard in Resources */,
+				CBB6338616EBA84A000555D3 /* button_green.png in Resources */,
+				CBB6338716EBA84A000555D3 /* button_green@2x.png in Resources */,
+				CBB6338816EBA84A000555D3 /* button_red.png in Resources */,
+				CBB6338916EBA84A000555D3 /* button_red@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBE8385B16E9B78A00397E14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE8386F16E9B78A00397E14 /* main.m in Sources */,
+				CBE8387316E9B78A00397E14 /* EXAppDelegate.m in Sources */,
+				CB745C7C16EA80F300ED87B8 /* EXWelcomeViewController.m in Sources */,
+				CB745C8016EA821800ED87B8 /* EXDrawingViewController.m in Sources */,
+				CB745C8316EA82CD00ED87B8 /* EXSession.m in Sources */,
+				CB745C8716EA84A000ED87B8 /* EXExpression.m in Sources */,
+				CB745C8B16EAA83500ED87B8 /* EXLandscapeNavigationController.m in Sources */,
+				CB745C9116EAA9D000ED87B8 /* EXVerificationViewController.m in Sources */,
+				CB745C9416EAAC5E00ED87B8 /* EXDrawSettingsViewController.m in Sources */,
+				CBB6338C16EC5FFD000555D3 /* UIButton+Glossy.m in Sources */,
+				CBB6338F16EDB0A3000555D3 /* EXDrawing.m in Sources */,
+				CBB6339216EDB0AF000555D3 /* EXDrawingView.m in Sources */,
+				CBB633A916EE3D5B000555D3 /* ASIAuthenticationDialog.m in Sources */,
+				CBB633AA16EE3D5B000555D3 /* ASIDataCompressor.m in Sources */,
+				CBB633AB16EE3D5B000555D3 /* ASIDataDecompressor.m in Sources */,
+				CBB633AC16EE3D5B000555D3 /* ASIDownloadCache.m in Sources */,
+				CBB633AD16EE3D5B000555D3 /* ASIFormDataRequest.m in Sources */,
+				CBB633AE16EE3D5B000555D3 /* ASIHTTPRequest.m in Sources */,
+				CBB633AF16EE3D5B000555D3 /* ASIInputStream.m in Sources */,
+				CBB633B016EE3D5B000555D3 /* ASINetworkQueue.m in Sources */,
+				CBB633BC16EE6676000555D3 /* Reachability.m in Sources */,
+				CB937EA216EE8C1400F9D4F1 /* MBProgressHUD.m in Sources */,
+				CBF7965816EEA454001844D7 /* EXSymbol.m in Sources */,
+				CBF7965B16EEA7AD001844D7 /* EXSymbolView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CBE8386B16E9B78A00397E14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE8386C16E9B78A00397E14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CBE8387A16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE8387B16E9B78A00397E14 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		CBE8387D16E9B78A00397E14 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE8387E16E9B78A00397E14 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBE8388316E9B78A00397E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBE8388416E9B78A00397E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBE8388616E9B78A00397E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
+				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CBE8388716E9B78A00397E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Expresso/Expresso-Prefix.pch";
+				INFOPLIST_FILE = "Expresso/Expresso-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBE8385A16E9B78A00397E14 /* Build configuration list for PBXProject "Expresso" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE8388316E9B78A00397E14 /* Debug */,
+				CBE8388416E9B78A00397E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBE8388516E9B78A00397E14 /* Build configuration list for PBXNativeTarget "Expresso" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE8388616E9B78A00397E14 /* Debug */,
+				CBE8388716E9B78A00397E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBE8385716E9B78A00397E14 /* Project object */;
+}

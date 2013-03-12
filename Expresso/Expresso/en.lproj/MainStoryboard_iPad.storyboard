@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="p6t-V2-FIM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Landscape Navigation Controller-->
+        <scene sceneID="J6B-vK-ON3">
+            <objects>
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="p6t-V2-FIM" customClass="EXLandscapeNavigationController" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="ZyU-5a-SND">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QDD-Jf-fXL">
+                        <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="wc3-zs-b3G" kind="relationship" relationship="rootViewController" id="OtQ-6d-b1R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUB-Ts-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="-319"/>
+        </scene>
+        <!--Welcome View Controller - Welcome-->
+        <scene sceneID="Dwz-03-sze">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeView" title="Welcome" id="wc3-zs-b3G" customClass="EXWelcomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fUT-5h-pIS">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome to Expresso." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SJd-2y-VbT">
+                                <rect key="frame" x="195" y="247" width="634" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="64"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap &quot;Connect&quot; to begin." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nJp-Nv-Rms">
+                                <rect key="frame" x="345" y="341" width="335" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="aUA-Qb-DSg">
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="IaN-Ye-dcE">
+                            <connections>
+                                <action selector="connectToSession:" destination="wc3-zs-b3G" id="bAw-WH-vdL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="Lq5-PO-tXi" kind="push" identifier="WelcomeToDrawing" id="DVG-Ne-7yH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQs-U7-xkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="-319"/>
+        </scene>
+        <!--Drawing View Controller - Drawing View-->
+        <scene sceneID="a3P-Tu-9cD">
+            <objects>
+                <viewController title="Drawing View" id="Lq5-PO-tXi" customClass="EXDrawingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zCF-L1-LRf" customClass="EXDrawingView">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dsq-1p-Teb">
+                                <rect key="frame" x="674" y="603" width="330" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Clear" id="xB0-De-QjP">
+                            <color key="tintColor" red="0.53179590450000003" green="0.0" blue="0.0033190879119999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="clearDrawing:" destination="Lq5-PO-tXi" id="1Wi-EC-yCL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Undo" id="v7l-M0-WWl">
+                            <connections>
+                                <action selector="undo:" destination="Lq5-PO-tXi" id="jPJ-Es-xUI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Redo" id="7dU-ix-VfN">
+                            <connections>
+                                <action selector="redo:" destination="Lq5-PO-tXi" id="InP-MJ-yM7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Tey-re-jlF"/>
+                        <barButtonItem title="Settings" id="GWt-e4-waH">
+                            <connections>
+                                <action selector="showSettings:" destination="Lq5-PO-tXi" id="Z9b-4h-zSg"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Write Math" id="QJO-P0-RNa">
+                        <barButtonItem key="rightBarButtonItem" title="Recognize" id="hxa-RC-BRF">
+                            <color key="tintColor" red="0.00066680357849999996" green="0.55713800469999997" blue="0.0030451351850000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="recognizeDrawing:" destination="Lq5-PO-tXi" id="hqU-fh-Ruc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="drawingView" destination="zCF-L1-LRf" id="mie-al-vvg"/>
+                        <outlet property="redoButton" destination="7dU-ix-VfN" id="tEG-q9-Anh"/>
+                        <outlet property="sessionLabel" destination="Dsq-1p-Teb" id="zxt-9k-wz9"/>
+                        <outlet property="settingsButton" destination="GWt-e4-waH" id="T3z-D6-t5O"/>
+                        <outlet property="undoButton" destination="v7l-M0-WWl" id="U5D-Nb-QCa"/>
+                        <segue destination="0GY-HX-fQ3" kind="push" identifier="DrawingToRecognition" id="yQL-NZ-hHk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7y-Xk-LTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2328" y="-319"/>
+        </scene>
+        <!--Verification View Controller - Recognition View-->
+        <scene sceneID="5Ii-q4-ztG">
+            <objects>
+                <viewController title="Recognition View" id="0GY-HX-fQ3" customClass="EXVerificationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZsN-pf-jKg">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="JVX-gA-bWC">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Toggle Bounding Boxes" id="dPt-ON-nub"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Verify" id="HPE-FC-loc">
+                        <barButtonItem key="rightBarButtonItem" title="Process" id="i1J-sD-wgM">
+                            <color key="tintColor" red="0.00066680357849999996" green="0.55713800469999997" blue="0.0030451351850000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="imageView" destination="JVX-gA-bWC" id="00f-GB-AyG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3543" y="-319"/>
+        </scene>
+        <!--Draw Settings View Controller-->
+        <scene sceneID="am3-Zv-LKr">
+            <objects>
+                <viewController storyboardIdentifier="DrawSettings" modalTransitionStyle="flipHorizontal" id="MzW-eR-cgO" customClass="EXDrawSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z2H-gb-VDE">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="118"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Ekn-5P-Y8w">
+                                <rect key="frame" x="20" y="55" width="360" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Heavy"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectedStrokeWith:" destination="MzW-eR-cgO" eventType="valueChanged" id="g1I-Be-nR0"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0yq-xc-qHF">
+                                <rect key="frame" x="20" y="9" width="225" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dJE-29-Gmf"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="strokeWidthSelector" destination="Ekn-5P-Y8w" id="aEi-4R-4F5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIZ-de-s83" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2805" y="588"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
