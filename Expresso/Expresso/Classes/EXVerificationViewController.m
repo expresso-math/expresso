@@ -27,6 +27,23 @@
     return _boundingBoxes;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -94,6 +111,10 @@
     }
     self.boundingBoxesShowing = NO;
     
+}
+
+- (IBAction)startOver:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

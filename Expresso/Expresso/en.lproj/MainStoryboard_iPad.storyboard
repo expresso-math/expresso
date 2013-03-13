@@ -141,6 +141,7 @@
         <!--Verification View Controller - Recognition View-->
         <scene sceneID="5Ii-q4-ztG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Recognition View" id="0GY-HX-fQ3" customClass="EXVerificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZsN-pf-jKg">
                         <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
@@ -155,6 +156,12 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem title="Start Over" id="Pe4-jS-tT9">
+                            <connections>
+                                <action selector="startOver:" destination="0GY-HX-fQ3" id="fym-tg-2vc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vgc-QJ-ZqN"/>
                         <barButtonItem title="Toggle Bounding Boxes" id="dPt-ON-nub">
                             <connections>
                                 <action selector="toggleBoundingBoxes:" destination="0GY-HX-fQ3" id="P2D-nc-b4R"/>
@@ -166,13 +173,13 @@
                             <color key="tintColor" red="0.00066680357849999996" green="0.55713800469999997" blue="0.0030451351850000002" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="imageView" destination="JVX-gA-bWC" id="00f-GB-AyG"/>
                         <outlet property="nextButton" destination="i1J-sD-wgM" id="uzD-qE-gP8"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3543" y="-319"/>
         </scene>

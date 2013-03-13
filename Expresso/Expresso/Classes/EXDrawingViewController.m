@@ -32,6 +32,23 @@
     return _drawing;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,6 +64,7 @@
 	// Do any additional setup after loading the view.
     
     self.drawingView.drawingViewDelegate = self;
+    self.sessionLabel.text = self.session.sessionIdentifier;
     
     NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
     
@@ -65,10 +83,6 @@
     
     [self updateUndoRedoButtons];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.sessionLabel.text = self.session.sessionIdentifier;
 }
 
 - (void)didReceiveMemoryWarning

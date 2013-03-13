@@ -199,6 +199,12 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem title="Start Over" id="fI5-H0-bTs">
+                            <connections>
+                                <action selector="startOver:" destination="3I7-rn-ohv" id="Vrw-2F-eD4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="X2U-UL-vge"/>
                         <barButtonItem title="Toggle Bounding Boxes" id="nnr-qS-etx">
                             <connections>
                                 <action selector="toggleBoundingBoxes:" destination="3I7-rn-ohv" id="O0E-T7-Tmm"/>
@@ -211,6 +217,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="imageView" destination="58c-1Y-YWj" id="PJy-h4-dUq"/>

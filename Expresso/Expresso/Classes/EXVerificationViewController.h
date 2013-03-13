@@ -18,5 +18,6 @@
 @property (readwrite, nonatomic) BOOL boundingBoxesShowing;
 
 - (IBAction)toggleBoundingBoxes:(id)sender;
+- (IBAction)startOver:(id)sender;
 
 @end

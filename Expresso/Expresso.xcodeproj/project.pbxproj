@@ -14,6 +14,7 @@
 		CB745C8B16EAA83500ED87B8 /* EXLandscapeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C8A16EAA83500ED87B8 /* EXLandscapeNavigationController.m */; };
 		CB745C9116EAA9D000ED87B8 /* EXVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */; };
 		CB745C9416EAAC5E00ED87B8 /* EXDrawSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */; };
+		CB87870D16F12C200007584B /* pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87870C16F12C200007584B /* pattern.png */; };
 		CB937EA216EE8C1400F9D4F1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */; };
 		CB9B0DA916EAEFEB004FED12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */; };
 		CBB1FB9016EF8E8F004440BF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB1FB7A16EF8E8F004440BF /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -73,6 +74,7 @@
 		CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXVerificationViewController.m; path = Expresso/Classes/EXVerificationViewController.m; sourceTree = "<group>"; };
 		CB745C9216EAAC5E00ED87B8 /* EXDrawSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawSettingsViewController.h; path = Expresso/Classes/EXDrawSettingsViewController.h; sourceTree = "<group>"; };
 		CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXDrawSettingsViewController.m; path = Expresso/Classes/EXDrawSettingsViewController.m; sourceTree = "<group>"; };
+		CB87870C16F12C200007584B /* pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern.png; sourceTree = "<group>"; };
 		CB937EA016EE8C1400F9D4F1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Classes/MBProgressHUD.h; sourceTree = "<group>"; };
 		CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Classes/MBProgressHUD.m; sourceTree = "<group>"; };
 		CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -322,6 +324,7 @@
 		CBE8386916E9B78A00397E14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB87870C16F12C200007584B /* pattern.png */,
 				CBB1FB9916EF8EA6004440BF /* Buttons */,
 				CBB1FB7816EF8E8F004440BF /* ASIHTTPRequest */,
 				CBF7965516EE9E36001844D7 /* MBProgressHUD */,
@@ -412,6 +415,7 @@
 				CBB1FBCA16EFDC7D004440BF /* Default-Landscape~ipad.png in Resources */,
 				CBB1FBCD16EFDD57004440BF /* expresso_icon_57.png in Resources */,
 				CBB1FBCE16EFDD5D004440BF /* expresso_icon_114.png in Resources */,
+				CB87870D16F12C200007584B /* pattern.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
