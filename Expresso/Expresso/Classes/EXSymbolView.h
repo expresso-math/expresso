@@ -10,6 +10,4 @@
 
 @interface EXSymbolView : UIView
 
-@property (strong, nonatomic) UILabel *characterLabel;
-
 @end

@@ -14,6 +14,8 @@
 
 @implementation EXWelcomeViewController
 
+@synthesize nextButton = _nextButton;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,8 +43,12 @@
 }
 
 - (IBAction)connectToSession:(id)sender {
+    self.nextButton.enabled = NO;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.animationType = MBProgressHUDAnimationZoom;
     hud.mode = MBProgressHUDModeIndeterminate;
+    hud.graceTime = 0.25;
+    hud.minShowTime = 2.0;
     hud.labelText = @"Starting Session";
     EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.heroku.com"]];
     self.session = newSession;
@@ -55,6 +61,8 @@
                                                                    error:nil];
     self.session.sessionIdentifier = [responseData valueForKey:@"session_name"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    self.nextButton.enabled = YES;
     [self performSegueWithIdentifier:@"WelcomeToDrawing" sender:self];
 
 }
@@ -68,6 +76,7 @@
     switch (buttonIndex) {
         case 0:
             // Do nothing.
+            self.nextButton.enabled = YES;
             break;
         case 1:
             [self connectToSession:self];

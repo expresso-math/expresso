@@ -20,6 +20,7 @@
 
 @implementation EXDrawingViewController
 
+@synthesize nextButton = _nextButton;
 @synthesize popCon = _popCon;
 @synthesize drawing = _drawing;
 @synthesize undoManager = _undoManager;
@@ -83,6 +84,7 @@
 }
 
 - (IBAction)recognizeDrawing:(id)sender {
+    self.nextButton.enabled = NO;
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.mode = MBProgressHUDModeIndeterminate;
     self.hud.labelText = @"Creating expression...";
@@ -147,6 +149,7 @@
 }
 
 - (void)advanceToProcess {
+    self.nextButton.enabled = YES;
     [self performSegueWithIdentifier:@"DrawingToRecognition" sender:self];
 }
 
@@ -230,6 +233,7 @@
     switch (buttonIndex) {
         case 0:
             // Do nothing.
+            self.nextButton.enabled = YES;
             break;
         case 1:
             // Try again.

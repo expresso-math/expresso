@@ -64,6 +64,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="nextButton" destination="gql-hF-aFZ" id="acC-h8-bMa"/>
                         <segue destination="l7U-Ht-9OR" kind="push" identifier="WelcomeToDrawing" id="mg1-EM-vYa"/>
                     </connections>
                 </viewController>
@@ -169,6 +170,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawingView" destination="Ncd-9V-762" id="sZR-TT-AfN"/>
+                        <outlet property="nextButton" destination="jXU-fR-T30" id="mcI-Ep-tIm"/>
                         <outlet property="redoButton" destination="4iC-Tg-soe" id="zRt-xS-kwF"/>
                         <outlet property="sessionLabel" destination="xWc-R9-HB3" id="Bef-a4-VBa"/>
                         <outlet property="settingsButton" destination="PKG-Ps-Nru" id="nLS-ek-BK9"/>
@@ -197,7 +199,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Toggle Bounding Boxes" id="nnr-qS-etx"/>
+                        <barButtonItem title="Toggle Bounding Boxes" id="nnr-qS-etx">
+                            <connections>
+                                <action selector="toggleBoundingBoxes:" destination="3I7-rn-ohv" id="O0E-T7-Tmm"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Verify" id="QYt-bR-k7M">
                         <barButtonItem key="rightBarButtonItem" title="Process" id="G9Z-WA-DHt">
@@ -208,6 +214,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="imageView" destination="58c-1Y-YWj" id="PJy-h4-dUq"/>
+                        <outlet property="nextButton" destination="G9Z-WA-DHt" id="gnQ-Bp-fav"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yka-ev-wKK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) UIPopoverController *popCon;
 @property (strong, nonatomic) EXSession *session;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @property (weak, nonatomic) IBOutlet EXDrawingView *drawingView; // The drawing View.
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;

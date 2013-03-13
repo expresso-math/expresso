@@ -64,6 +64,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="nextButton" destination="IaN-Ye-dcE" id="2jM-38-OdN"/>
                         <segue destination="Lq5-PO-tXi" kind="push" identifier="WelcomeToDrawing" id="DVG-Ne-7yH"/>
                     </connections>
                 </viewController>
@@ -125,6 +126,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawingView" destination="zCF-L1-LRf" id="mie-al-vvg"/>
+                        <outlet property="nextButton" destination="hxa-RC-BRF" id="oN4-4l-YGG"/>
                         <outlet property="redoButton" destination="7dU-ix-VfN" id="tEG-q9-Anh"/>
                         <outlet property="sessionLabel" destination="Dsq-1p-Teb" id="zxt-9k-wz9"/>
                         <outlet property="settingsButton" destination="GWt-e4-waH" id="T3z-D6-t5O"/>
@@ -134,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7y-Xk-LTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="-319"/>
+            <point key="canvasLocation" x="2372" y="-313"/>
         </scene>
         <!--Verification View Controller - Recognition View-->
         <scene sceneID="5Ii-q4-ztG">
@@ -153,7 +155,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Toggle Bounding Boxes" id="dPt-ON-nub"/>
+                        <barButtonItem title="Toggle Bounding Boxes" id="dPt-ON-nub">
+                            <connections>
+                                <action selector="toggleBoundingBoxes:" destination="0GY-HX-fQ3" id="P2D-nc-b4R"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Verify" id="HPE-FC-loc">
                         <barButtonItem key="rightBarButtonItem" title="Process" id="i1J-sD-wgM">
@@ -163,6 +169,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="imageView" destination="JVX-gA-bWC" id="00f-GB-AyG"/>
+                        <outlet property="nextButton" destination="i1J-sD-wgM" id="uzD-qE-gP8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@
 @interface EXWelcomeViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) EXSession *session;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 
 -(IBAction)connectToSession:(id)sender;
 -(void)receiveSession:(ASIHTTPRequest *)request;

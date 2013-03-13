@@ -7,6 +7,7 @@
 //
 
 #import "EXVerificationViewController.h"
+#import "EXSymbolView.h"
 
 @interface EXVerificationViewController ()
 
@@ -14,15 +15,24 @@
 
 @implementation EXVerificationViewController
 
+@synthesize nextButton = _nextButton;
 @synthesize session = _session;
 @synthesize boundingBoxes = _boundingBoxes;
 @synthesize imageView = _imageView;
+
+- (NSArray *)boundingBoxes {
+    if(!_boundingBoxes) {
+        _boundingBoxes = [[NSArray alloc] init];
+    }
+    return _boundingBoxes;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.boundingBoxesShowing = NO;
     }
     return self;
 }
@@ -30,7 +40,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.imageView.image = self.session.currentExpression.image;
+    
+    EXSymbol *symbol;
 	// Do any additional setup after loading the view.
+    for (symbol in self.session.currentExpression.symbols) {
+        EXSymbolView *newView = [[EXSymbolView alloc] initWithFrame:symbol.boundingBox];
+        self.boundingBoxes = [self.boundingBoxes arrayByAddingObject:newView];
+    }
+    
+    [self showBoundingBoxes];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +73,7 @@
 }
 
 - (void)showBoundingBoxes {
-    UIView *view;
+    EXSymbolView *view;
     for (view in self.boundingBoxes) {
         [self.view addSubview:view];
     }
@@ -56,7 +81,7 @@
 }
 
 - (void)hideBoundingBoxes {
-    UIView *view;
+    EXSymbolView *view;
     for (view in self.boundingBoxes) {
         [view removeFromSuperview];
     }

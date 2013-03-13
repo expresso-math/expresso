@@ -11,6 +11,7 @@
 
 @interface EXVerificationViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 @property (strong, nonatomic) EXSession *session;
 @property (strong, nonatomic) NSArray *boundingBoxes;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
