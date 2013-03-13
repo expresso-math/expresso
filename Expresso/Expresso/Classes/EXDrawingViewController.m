@@ -115,9 +115,18 @@
 
 - (void)uploadImage {
     UIImage *renderedImage = [self.drawing renderedImage];
-    self.hud.mode = MBProgressHUDModeDeterminate;
+    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
     self.hud.labelText = @"Uploading drawing...";
-    [self.session uploadImage:renderedImage withHud:self.hud from:self]; // Add progress view.
+    [self.session uploadImage:renderedImage from:self]; // Add progress view.
+}
+
+- (void)setProgress:(float)newProgress {
+    // Intercept setProgress to catch that nasty NaN that comes out of ASIHTTPRequest.
+    if(newProgress != newProgress || newProgress<self.hud.progress) {
+        self.hud.progress = 1.0;
+    } else {
+        self.hud.progress = newProgress;
+    }
 }
 
 - (void)imageUploadFinished:(ASIHTTPRequest *)request {

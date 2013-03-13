@@ -75,7 +75,7 @@
     [request startAsynchronous];
 }
 
-- (void)uploadImage:(UIImage *)image withHud:(id)hud from:(id)sender {
+- (void)uploadImage:(UIImage *)image from:(id)sender {
     
     NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"image"];
     NSData *imageData = UIImagePNGRepresentation(image);
@@ -84,7 +84,7 @@
     [request setDelegate:sender];
     [request setDidFinishSelector:@selector(imageUploadFinished:)];
     [request setDidFailSelector:@selector(imageUploadFailed:)];
-    [request setUploadProgressDelegate:hud];
+    [request setUploadProgressDelegate:sender];
     [request startAsynchronous];
     self.currentExpression.image = image;
     

@@ -21,7 +21,7 @@
 -(void)startSessionFrom:(id)sender;
 -(void)startSessionWithSessionIdentifier:(NSString *)identifier from:(id)sender;
 -(void)getNewExpressionFrom:(id)sender;
--(void)uploadImage:(UIImage *)image withHud:(id)hud from:(id)sender;
+-(void)uploadImage:(UIImage *)image from:(id)sender;
 -(void)getSymbolsFrom:(id)sender;
 -(void)addExpression:(EXExpression *)expression;
 
