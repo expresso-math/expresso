@@ -50,7 +50,7 @@
     hud.graceTime = 0.25;
     hud.minShowTime = 2.0;
     hud.labelText = @"Starting Session";
-    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"expresso-api.heroku.com"]];
+    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.heroku.com"]];
     self.session = newSession;
     [newSession startSessionFrom:self];
 }
