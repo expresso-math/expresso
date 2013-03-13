@@ -12,7 +12,7 @@
 
 @interface EXExpression : NSObject
 
-@property (strong, nonatomic) NSString *expressionIdentifier;
+@property (strong, nonatomic) NSNumber *expressionIdentifier;
 @property (strong, nonatomic) NSArray *symbols;
 @property (strong, nonatomic) UIImage *image;
 

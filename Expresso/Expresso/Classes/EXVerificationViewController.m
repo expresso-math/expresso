@@ -43,9 +43,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+
     self.imageView.image = self.session.currentExpression.image;
-    
+    [self.imageView sizeToFit];
+
     EXSymbol *symbol;
 	// Do any additional setup after loading the view.
     for (symbol in self.session.currentExpression.symbols) {
@@ -75,7 +76,10 @@
 - (void)showBoundingBoxes {
     EXSymbolView *view;
     for (view in self.boundingBoxes) {
-        [self.view addSubview:view];
+        [UIView transitionWithView:self.view duration:0.2
+                           options:UIViewAnimationOptionTransitionCrossDissolve //change to whatever animation you like
+                        animations:^ { [self.view addSubview:view]; }
+                        completion:nil];
     }
     self.boundingBoxesShowing = YES;
 }
@@ -83,7 +87,10 @@
 - (void)hideBoundingBoxes {
     EXSymbolView *view;
     for (view in self.boundingBoxes) {
-        [view removeFromSuperview];
+        [UIView transitionWithView:self.view duration:0.2
+                           options:UIViewAnimationOptionTransitionCrossDissolve //change to whatever animation you like
+                        animations:^ { [view removeFromSuperview]; }
+                        completion:nil];
     }
     self.boundingBoxesShowing = NO;
     

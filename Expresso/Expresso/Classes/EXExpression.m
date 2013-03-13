@@ -32,6 +32,5 @@
         [newSymbolSet addObject:newSymbol];
     }
     self.symbols = [newSymbolSet copy];
-    NSLog(@"SYMBOLSET: %@", self.symbols);
 }
 @end

@@ -99,8 +99,8 @@
                                                                  options:NSJSONReadingAllowFragments
                                                                    error:nil];
     
-    newExpression.expressionIdentifier = [responseData valueForKey:@"expression_id"];
-    
+    newExpression.expressionIdentifier = [responseData valueForKey:@"expression_identifier"];
+
     // Fill in newExpression with the response data.
     [self.session addExpression:newExpression];
     

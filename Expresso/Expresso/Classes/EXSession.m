@@ -77,8 +77,7 @@
 
 - (void)uploadImage:(UIImage *)image withHud:(id)hud from:(id)sender {
     
-    NSLog(@"%@", self.currentExpression.expressionIdentifier);
-    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:self.currentExpression.expressionIdentifier] URLByAppendingPathComponent:@"image"];
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"image"];
     NSData *imageData = UIImagePNGRepresentation(image);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setData:imageData withFileName:@"img.png" andContentType:@"image/png" forKey:@"image"];
@@ -93,7 +92,7 @@
 
 - (void)getSymbolsFrom:(id)sender {
     
-    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:self.currentExpression.expressionIdentifier] URLByAppendingPathComponent:@"symbolset"];
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"symbolset"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setDelegate:sender];

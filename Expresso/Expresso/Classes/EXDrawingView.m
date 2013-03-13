@@ -71,10 +71,15 @@
     [self setMultipleTouchEnabled:NO];
     [self setBackgroundColor:[UIColor whiteColor]];
     self.path = [UIBezierPath bezierPath];
-    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+    
+    [self.path setLineWidth:[self lineWidth]];
     
 }
 
+- (float)lineWidth {
+    // Here just in case we want to scale stroke size by device. Not sure at this point.
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue];
+}
 /*
  *  Touch-responding method. Fired off when the first touch of a given
  *  stroke happens. Set counter to zero, get the first touch (and location),
@@ -162,7 +167,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint p = [touch locationInView:self];
     
-    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+    [self.path setLineWidth:[self lineWidth]];
     
     // Making up an arbitrary point area to determine whether or not we
     // drew something.
@@ -178,7 +183,7 @@
                     startAngle:0.0
                       endAngle:(3.141592*2.0)
                      clockwise:YES];
-        [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue] * 0.6];
+        [self.path setLineWidth:[self lineWidth] * 0.6];
     }
     
     [self.drawingViewDelegate drawingDidEnd:self.path];
@@ -227,7 +232,6 @@
     [self.cachedImage drawAtPoint:CGPointZero];
     
     for(UIBezierPath *p in paths) {
-//        [p setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
         [p stroke];
     }
     
@@ -248,7 +252,7 @@
 - (void)drawRect:(CGRect)rect {
     
     [self.cachedImage drawInRect:rect];
-    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
+    [self.path setLineWidth:[self lineWidth]];
     [self.path stroke];
     
 }
@@ -270,7 +274,6 @@
     
     [self.cachedImage drawAtPoint:CGPointZero];
 
-//    [self.path setLineWidth:[[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue]];
     [self.path stroke];
 
     self.cachedImage = UIGraphicsGetImageFromCurrentImageContext();

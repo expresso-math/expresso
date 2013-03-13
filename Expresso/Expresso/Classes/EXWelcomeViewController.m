@@ -50,7 +50,7 @@
     hud.graceTime = 0.25;
     hud.minShowTime = 2.0;
     hud.labelText = @"Starting Session";
-    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.heroku.com"]];
+    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"expresso-api.heroku.com"]];
     self.session = newSession;
     [newSession startSessionFrom:self];
 }
@@ -59,7 +59,7 @@
     NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
                                                                  options:NSJSONReadingAllowFragments
                                                                    error:nil];
-    self.session.sessionIdentifier = [responseData valueForKey:@"session_name"];
+    self.session.sessionIdentifier = [responseData valueForKey:@"session_identifier"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     self.nextButton.enabled = YES;
@@ -73,6 +73,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     switch (buttonIndex) {
         case 0:
             // Do nothing.
