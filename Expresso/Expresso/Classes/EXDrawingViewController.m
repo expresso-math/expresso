@@ -159,7 +159,7 @@
                                                                  options:NSJSONReadingAllowFragments
                                                                    error:nil];
     NSArray *symbols = [responseData valueForKey:@"symbols"];
-    [self.session.currentExpression setSymbolsWithArray:symbols];
+    [self.session.currentExpression setSymbolsWithArrayOfDicts:symbols];
     
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 

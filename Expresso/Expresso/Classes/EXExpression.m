@@ -15,19 +15,19 @@
 @synthesize image = _image;
 
 
--(void)setSymbolsWithArray:(NSArray *)symbols {
+-(void)setSymbolsWithArrayOfDicts:(NSArray *)symbols {
     NSDictionary *symbol;
     NSMutableArray *newSymbolSet = [NSMutableArray arrayWithCapacity:20];
     for (symbol in symbols) {
         NSArray *box = [symbol valueForKey:@"box"];
-        NSDictionary *characters = [symbol valueForKey:@"characters"];
+        NSDictionary *symbols = [symbol valueForKey:@"characters"];
         CGFloat x = [[box objectAtIndex:0] doubleValue];
         CGFloat y = [[box objectAtIndex:1] doubleValue];
         CGFloat w = [[box objectAtIndex:2] doubleValue];
         CGFloat h = [[box objectAtIndex:3] doubleValue];
         CGRect boundingBox = CGRectMake(x,y,w,h);
         EXSymbol *newSymbol = [[EXSymbol alloc] init];
-        [newSymbol setCharactersWithCertainty:characters];
+        [newSymbol setSymbolsWithCertainty:symbols];
         [newSymbol setBoundingBox:boundingBox];
         [newSymbolSet addObject:newSymbol];
     }

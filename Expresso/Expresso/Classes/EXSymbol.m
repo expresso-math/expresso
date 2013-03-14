@@ -11,6 +11,6 @@
 @implementation EXSymbol
 
 @synthesize boundingBox = _boundingBox;
-@synthesize charactersWithCertainty = _charactersWithCertainty;
+@synthesize symbolsWithCertainty = _symbolsWithCertainty;
 
 @end

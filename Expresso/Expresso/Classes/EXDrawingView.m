@@ -285,8 +285,4 @@
 
 }
 
--(void)eraseView {
-    // Nothing for now.
-}
-
 @end

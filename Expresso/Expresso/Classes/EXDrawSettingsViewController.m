@@ -84,7 +84,7 @@
 
 }
 
-- (IBAction)selectedStrokeWith:(id)sender {
+- (IBAction)selectedStrokeWidth:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     switch ([segmentedControl selectedSegmentIndex]) {
         case 0:

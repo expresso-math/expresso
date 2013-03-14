@@ -8,25 +8,44 @@
 
 #import <UIKit/UIKit.h>
 
-// Protocol so our View can ask (very nicely) for the model's paths through the controller.
+
+/**
+ * Protocol so EXDrawingView can tell someone that drawing ended.
+ */
 @protocol EXDrawingViewDelegate
 
-// Event fired off to delegate with information on the most-recently completed stroke.
+/* 
+ *  Event fired off to delegate with information on the most-recently
+ *  completed stroke.
+ *
+ *  @param path The path just drawn.
+ */
 - (void)drawingDidEnd:(UIBezierPath *)path;
 
 @end
+
+
+/**
+ *  This class is a subclass of UIView that allows drawing. It has a delegate
+ *  which responds to an event fired off at the end of every draw moment.
+ */
 
 @interface EXDrawingView : UIView {
      id<EXDrawingViewDelegate> drawingViewDelegate;
 }
 
-// Set up an outlet for the EXViewController to become a delegate to the drawingView.
-// This allows us to fire off the events in the above protocol.
+/** The drawing view delegate. Receives drawingDidEnd: from this object. */
 @property (nonatomic, assign) id<EXDrawingViewDelegate> drawingViewDelegate;
 
-// Erase the view -- set path to nil, etc.
--(void)eraseView;
 
+/** 
+ *  Redraw the view from the given paths.
+ *
+ *  These paths, hopefully, have come from an EXDrawing object, and more hopefully
+ *  one that was used recently so as to avoid any change in frame.
+ *
+ *  @param paths an array of UIBezerPath objects
+ */
 -(void)redrawFromPaths:(NSArray *)paths;
 
 @end

@@ -10,11 +10,22 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIButton+Glossy.h"
 
+/**
+ *  View controller to manage the draw settings UIPopover (or page-curl view on iPhone)
+ */
+
 @interface EXDrawSettingsViewController : UIViewController
 
+/** The Popover Controller that presents this ViewController on iPad. */
 @property (strong, nonatomic) UIPopoverController *myPopoverController;
+/** The UISegmentedControl the user uses to choose stroke width. */
 @property (weak, nonatomic) IBOutlet UISegmentedControl *strokeWidthSelector;
 
--(IBAction)selectedStrokeWith:(id)sender;
+/**
+ * Change the stroke width in response to a UISegmentedControl.
+ *
+ * @param sender The message-sending object.
+ */
+-(IBAction)selectedStrokeWidth:(id)sender;
 
 @end
