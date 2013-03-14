@@ -200,6 +200,7 @@
                                     <segment title="Heavy"/>
                                 </segments>
                                 <connections>
+                                    <action selector="selectedStrokeWidth:" destination="MzW-eR-cgO" eventType="valueChanged" id="zPj-7V-Qhj"/>
                                     <action selector="selectedStrokeWith:" destination="MzW-eR-cgO" eventType="valueChanged" id="g1I-Be-nR0"/>
                                 </connections>
                             </segmentedControl>

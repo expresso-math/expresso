@@ -107,15 +107,15 @@
 		CBB1FB9E16EF8EA6004440BF /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 		CBB1FB9F16EF8EA6004440BF /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		CBB1FBA816EFDA36004440BF /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		CBB1FBAD16EFDA52004440BF /* expresso_icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expresso_icon_57.png; sourceTree = "<group>"; };
-		CBB1FBAF16EFDA57004440BF /* expresso_icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expresso_icon_114.png; sourceTree = "<group>"; };
-		CBB1FBB316EFDA7A004440BF /* expresso_icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expresso_icon_72.png; sourceTree = "<group>"; };
-		CBB1FBB516EFDA7D004440BF /* expresso_icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expresso_icon_144.png; sourceTree = "<group>"; };
-		CBB1FBC116EFDC53004440BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CBB1FBC316EFDC57004440BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CBB1FBC516EFDC5C004440BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CBB1FBC716EFDC71004440BF /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		CBB1FBAD16EFDA52004440BF /* expresso_icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expresso_icon_57.png; path = ../expresso_icon_57.png; sourceTree = "<group>"; };
+		CBB1FBAF16EFDA57004440BF /* expresso_icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expresso_icon_114.png; path = ../expresso_icon_114.png; sourceTree = "<group>"; };
+		CBB1FBB316EFDA7A004440BF /* expresso_icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expresso_icon_72.png; path = ../expresso_icon_72.png; sourceTree = "<group>"; };
+		CBB1FBB516EFDA7D004440BF /* expresso_icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expresso_icon_144.png; path = ../expresso_icon_144.png; sourceTree = "<group>"; };
+		CBB1FBC116EFDC53004440BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		CBB1FBC316EFDC57004440BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		CBB1FBC516EFDC5C004440BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		CBB1FBC716EFDC71004440BF /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		CBB6338D16EDB0A3000555D3 /* EXDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawing.h; path = Classes/EXDrawing.h; sourceTree = "<group>"; };
 		CBB6338E16EDB0A3000555D3 /* EXDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXDrawing.m; path = Classes/EXDrawing.m; sourceTree = "<group>"; };
 		CBB6339016EDB0AF000555D3 /* EXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawingView.h; path = Classes/EXDrawingView.h; sourceTree = "<group>"; };
@@ -202,6 +202,39 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CB87870E16F13D000007584B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CB87871016F13D1C0007584B /* Icons */,
+				CB87870F16F13D080007584B /* Launch Images */,
+				CB87870C16F12C200007584B /* pattern.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CB87870F16F13D080007584B /* Launch Images */ = {
+			isa = PBXGroup;
+			children = (
+				CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */,
+				CBB1FBC716EFDC71004440BF /* Default-Landscape@2x~ipad.png */,
+				CBB1FBC516EFDC5C004440BF /* Default.png */,
+				CBB1FBC316EFDC57004440BF /* Default@2x.png */,
+				CBB1FBC116EFDC53004440BF /* Default-568h@2x.png */,
+			);
+			name = "Launch Images";
+			sourceTree = "<group>";
+		};
+		CB87871016F13D1C0007584B /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CBB1FBB516EFDA7D004440BF /* expresso_icon_144.png */,
+				CBB1FBB316EFDA7A004440BF /* expresso_icon_72.png */,
+				CBB1FBAF16EFDA57004440BF /* expresso_icon_114.png */,
+				CBB1FBAD16EFDA52004440BF /* expresso_icon_57.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		CBB1FB7816EF8E8F004440BF /* ASIHTTPRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,15 +301,6 @@
 		CBE8385616E9B78A00397E14 = {
 			isa = PBXGroup;
 			children = (
-				CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */,
-				CBB1FBC716EFDC71004440BF /* Default-Landscape@2x~ipad.png */,
-				CBB1FBC516EFDC5C004440BF /* Default.png */,
-				CBB1FBC316EFDC57004440BF /* Default@2x.png */,
-				CBB1FBC116EFDC53004440BF /* Default-568h@2x.png */,
-				CBB1FBB516EFDA7D004440BF /* expresso_icon_144.png */,
-				CBB1FBB316EFDA7A004440BF /* expresso_icon_72.png */,
-				CBB1FBAF16EFDA57004440BF /* expresso_icon_114.png */,
-				CBB1FBAD16EFDA52004440BF /* expresso_icon_57.png */,
 				CBE8386816E9B78A00397E14 /* Expresso */,
 				CBE8386116E9B78A00397E14 /* Frameworks */,
 				CBE8386016E9B78A00397E14 /* Products */,
@@ -324,7 +348,7 @@
 		CBE8386916E9B78A00397E14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB87870C16F12C200007584B /* pattern.png */,
+				CB87870E16F13D000007584B /* Images */,
 				CBB1FB9916EF8EA6004440BF /* Buttons */,
 				CBB1FB7816EF8E8F004440BF /* ASIHTTPRequest */,
 				CBF7965516EE9E36001844D7 /* MBProgressHUD */,

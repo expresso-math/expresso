@@ -89,6 +89,7 @@
                                     <segment title="Heavy"/>
                                 </segments>
                                 <connections>
+                                    <action selector="selectedStrokeWidth:" destination="GPG-pd-iF4" eventType="valueChanged" id="ZAA-KV-XOs"/>
                                     <action selector="selectedStrokeWith:" destination="GPG-pd-iF4" eventType="valueChanged" id="Oim-LH-RY5"/>
                                 </connections>
                             </segmentedControl>
