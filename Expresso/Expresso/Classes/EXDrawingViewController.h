@@ -43,7 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sessionLabel;
 
 /** The NSUndoManager that is going to manage the drawing view's undo stack. */
-@property (retain) NSUndoManager *undoManager; 
+@property (strong, nonatomic) NSUndoManager *undoManager;
 
 /**
  *  Undo. Just forwards the command to the undoManager.

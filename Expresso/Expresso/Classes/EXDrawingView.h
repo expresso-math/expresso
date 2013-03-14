@@ -38,13 +38,13 @@
 @property (nonatomic, assign) id<EXDrawingViewDelegate> drawingViewDelegate;
 
 
-/** 
+/**
  *  Redraw the view from the given paths.
  *
  *  These paths, hopefully, have come from an EXDrawing object, and more hopefully
  *  one that was used recently so as to avoid any change in frame.
  *
- *  @param paths an array of UIBezerPath objects
+ *  @param  paths   An array of UIBezerPath objects to redraw.
  */
 -(void)redrawFromPaths:(NSArray *)paths;
 

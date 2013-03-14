@@ -76,17 +76,24 @@
         <scene sceneID="a3P-Tu-9cD">
             <objects>
                 <viewController title="Drawing View" id="Lq5-PO-tXi" customClass="EXDrawingViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zCF-L1-LRf" customClass="EXDrawingView">
+                    <view key="view" contentMode="scaleToFill" id="zCF-L1-LRf">
                         <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dsq-1p-Teb">
-                                <rect key="frame" x="674" y="603" width="330" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="uEQ-2P-x0t" customClass="EXDrawingView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dsq-1p-Teb">
+                                        <rect key="frame" x="674" y="603" width="330" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -125,12 +132,13 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="drawingView" destination="zCF-L1-LRf" id="mie-al-vvg"/>
+                        <outlet property="drawingView" destination="uEQ-2P-x0t" id="u7c-bb-1N2"/>
                         <outlet property="nextButton" destination="hxa-RC-BRF" id="oN4-4l-YGG"/>
                         <outlet property="redoButton" destination="7dU-ix-VfN" id="tEG-q9-Anh"/>
                         <outlet property="sessionLabel" destination="Dsq-1p-Teb" id="zxt-9k-wz9"/>
                         <outlet property="settingsButton" destination="GWt-e4-waH" id="T3z-D6-t5O"/>
                         <outlet property="undoButton" destination="v7l-M0-WWl" id="U5D-Nb-QCa"/>
+                        <outlet property="view" destination="zCF-L1-LRf" id="RKU-yA-tQm"/>
                         <segue destination="0GY-HX-fQ3" kind="push" identifier="DrawingToRecognition" id="yQL-NZ-hHk"/>
                     </connections>
                 </viewController>
@@ -141,7 +149,6 @@
         <!--Verification View Controller - Recognition View-->
         <scene sceneID="5Ii-q4-ztG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Recognition View" id="0GY-HX-fQ3" customClass="EXVerificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZsN-pf-jKg">
                         <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
@@ -180,6 +187,7 @@
                         <outlet property="nextButton" destination="i1J-sD-wgM" id="uzD-qE-gP8"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3543" y="-319"/>
         </scene>
@@ -200,8 +208,7 @@
                                     <segment title="Heavy"/>
                                 </segments>
                                 <connections>
-                                    <action selector="selectedStrokeWidth:" destination="MzW-eR-cgO" eventType="valueChanged" id="zPj-7V-Qhj"/>
-                                    <action selector="selectedStrokeWith:" destination="MzW-eR-cgO" eventType="valueChanged" id="g1I-Be-nR0"/>
+                                    <action selector="selectedStrokeWidth:" destination="MzW-eR-cgO" eventType="valueChanged" id="y6C-Ab-4l0"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0yq-xc-qHF">

@@ -47,6 +47,14 @@
 		CBB633B416EE3D77000555D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B316EE3D77000555D3 /* SystemConfiguration.framework */; };
 		CBB633B616EE3D7E000555D3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B516EE3D7E000555D3 /* MobileCoreServices.framework */; };
 		CBB633B816EE3D87000555D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B716EE3D87000555D3 /* libz.dylib */; };
+		CBCA0D7D16F22DE1005A2141 /* honey_im_subtle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7516F22DE1005A2141 /* honey_im_subtle@2x.png */; };
+		CBCA0D7E16F22DE1005A2141 /* honey_im_subtle.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7616F22DE1005A2141 /* honey_im_subtle.png */; };
+		CBCA0D7F16F22DE1005A2141 /* linedpaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7716F22DE1005A2141 /* linedpaper@2x.png */; };
+		CBCA0D8016F22DE1005A2141 /* linedpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7816F22DE1005A2141 /* linedpaper.png */; };
+		CBCA0D8116F22DE1005A2141 /* noisy_grid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7916F22DE1005A2141 /* noisy_grid@2x.png */; };
+		CBCA0D8216F22DE1005A2141 /* noisy_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7A16F22DE1005A2141 /* noisy_grid.png */; };
+		CBCA0D8316F22DE1005A2141 /* paper_fibers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7B16F22DE1005A2141 /* paper_fibers@2x.png */; };
+		CBCA0D8416F22DE1005A2141 /* paper_fibers.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCA0D7C16F22DE1005A2141 /* paper_fibers.png */; };
 		CBE8386316E9B78A00397E14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386216E9B78A00397E14 /* UIKit.framework */; };
 		CBE8386516E9B78A00397E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386416E9B78A00397E14 /* Foundation.framework */; };
 		CBE8386716E9B78A00397E14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE8386616E9B78A00397E14 /* CoreGraphics.framework */; };
@@ -124,6 +132,14 @@
 		CBB633B316EE3D77000555D3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CBB633B516EE3D7E000555D3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CBB633B716EE3D87000555D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CBCA0D7516F22DE1005A2141 /* honey_im_subtle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "honey_im_subtle@2x.png"; sourceTree = "<group>"; };
+		CBCA0D7616F22DE1005A2141 /* honey_im_subtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = honey_im_subtle.png; sourceTree = "<group>"; };
+		CBCA0D7716F22DE1005A2141 /* linedpaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linedpaper@2x.png"; sourceTree = "<group>"; };
+		CBCA0D7816F22DE1005A2141 /* linedpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linedpaper.png; sourceTree = "<group>"; };
+		CBCA0D7916F22DE1005A2141 /* noisy_grid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noisy_grid@2x.png"; sourceTree = "<group>"; };
+		CBCA0D7A16F22DE1005A2141 /* noisy_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noisy_grid.png; sourceTree = "<group>"; };
+		CBCA0D7B16F22DE1005A2141 /* paper_fibers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper_fibers@2x.png"; sourceTree = "<group>"; };
+		CBCA0D7C16F22DE1005A2141 /* paper_fibers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_fibers.png; sourceTree = "<group>"; };
 		CBE8385F16E9B78A00397E14 /* Expresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE8386216E9B78A00397E14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CBE8386416E9B78A00397E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,6 +221,14 @@
 		CB87870E16F13D000007584B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CBCA0D7516F22DE1005A2141 /* honey_im_subtle@2x.png */,
+				CBCA0D7616F22DE1005A2141 /* honey_im_subtle.png */,
+				CBCA0D7716F22DE1005A2141 /* linedpaper@2x.png */,
+				CBCA0D7816F22DE1005A2141 /* linedpaper.png */,
+				CBCA0D7916F22DE1005A2141 /* noisy_grid@2x.png */,
+				CBCA0D7A16F22DE1005A2141 /* noisy_grid.png */,
+				CBCA0D7B16F22DE1005A2141 /* paper_fibers@2x.png */,
+				CBCA0D7C16F22DE1005A2141 /* paper_fibers.png */,
 				CB87871016F13D1C0007584B /* Icons */,
 				CB87870F16F13D080007584B /* Launch Images */,
 				CB87870C16F12C200007584B /* pattern.png */,
@@ -440,6 +464,14 @@
 				CBB1FBCD16EFDD57004440BF /* expresso_icon_57.png in Resources */,
 				CBB1FBCE16EFDD5D004440BF /* expresso_icon_114.png in Resources */,
 				CB87870D16F12C200007584B /* pattern.png in Resources */,
+				CBCA0D7D16F22DE1005A2141 /* honey_im_subtle@2x.png in Resources */,
+				CBCA0D7E16F22DE1005A2141 /* honey_im_subtle.png in Resources */,
+				CBCA0D7F16F22DE1005A2141 /* linedpaper@2x.png in Resources */,
+				CBCA0D8016F22DE1005A2141 /* linedpaper.png in Resources */,
+				CBCA0D8116F22DE1005A2141 /* noisy_grid@2x.png in Resources */,
+				CBCA0D8216F22DE1005A2141 /* noisy_grid.png in Resources */,
+				CBCA0D8316F22DE1005A2141 /* paper_fibers@2x.png in Resources */,
+				CBCA0D8416F22DE1005A2141 /* paper_fibers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

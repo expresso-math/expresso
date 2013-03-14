@@ -7,6 +7,8 @@
 //
 
 #import "EXDrawing.h"
+#import "EXAppDelegate.h"
+#import "EXLandscapeNavigationController.h"
 
 @interface EXDrawing ()
 
@@ -18,38 +20,44 @@
 
 @synthesize drawnPaths = _drawnPaths;
 
-//  Override for init if we want.
-- (id)init {
-    self = [super init];
-    if(self) {
-        
-    }
-    return self;
-}
-
-//  Lazy instantiation for drawnPaths.
+/** 
+ *  Lazy instantiation for drawnPaths.
+ *
+ *  @return property drawnPaths, an NSArray of UIBezierPath objects.
+ */
 - (NSArray *)drawnPaths {
     if(!_drawnPaths) { _drawnPaths = [[NSArray alloc] init]; }
     return _drawnPaths;
 }
 
-//  Add a path to our drawn paths NSArray.
+/**
+ *  Add a UIBezierPath object to our property drawnPaths.
+ *
+ *  @param  newPath The path object to add.
+ */
 - (void)addPath:(UIBezierPath *)newPath {
     NSArray *newArray = [self.drawnPaths arrayByAddingObject:newPath];
     self.drawnPaths = newArray;
 }
 
-//  Utility method for undo/redo usage.
+/**
+ *  Utility method for undo and redo operability.
+ *
+ *  Pops the most recent path off the property drawnPaths.
+ *
+ *  @return The most recent path added to this object.
+ */
 - (UIBezierPath *)removeMostRecentPath {
-    UIBezierPath *removedPath = nil;
-    if(self.drawnPaths.count > 0) {
-        NSRange range = NSMakeRange(0, self.drawnPaths.count-1);
-        removedPath = self.drawnPaths.lastObject;
-        self.drawnPaths = [self.drawnPaths subarrayWithRange:range];
-    }
+    UIBezierPath *removedPath = self.drawnPaths.lastObject;
+    [self removePath:removedPath];
     return removedPath;
 }
 
+/**
+ *  Remove the parameter UIBezierPath from this object.
+ *
+ *  @param  path    The path to remove.
+ */
 - (void)removePath:(UIBezierPath *)path {
     if([self.drawnPaths containsObject:path]) {
         NSMutableArray *tempArray = [self.drawnPaths mutableCopy];
@@ -58,34 +66,60 @@
     }
 }
 
-//  Clear all paths.
+/**
+ *  Clear our drawnPaths property.
+ */
 - (void)clearPaths {
     self.drawnPaths = nil;
 }
 
+/**
+ *  Generating getter for property renderedImage.
+ *
+ *  Contacts the App Delegate to get a hold of the root navigation controller, which then
+ *  gives us the view controller it's displaying, from which we can gather the size of the view
+ *  in which the user was drawing, since that changes between form factor and Retina-ability. From
+ *  there, it creates an image context to grab the image. Works a lot like the caching in 
+ *  EXDrawingView.
+ *
+ *  @return The image the paths represent, rendered.
+ */
 - (UIImage *)renderedImage {
     
+    // Make pointer.
     UIImage *returnImage = nil;
+        
+    // Get app delegate.
+    EXAppDelegate *appDelegate = (EXAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if(self.drawnPaths.count>0) {
-        
-        CGRect imageRect = CGRectMake(0, 0, 1024, 660);
-        UIGraphicsBeginImageContextWithOptions(imageRect.size, YES, 0.0);
-        
-        UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:imageRect];
-        [[UIColor whiteColor] setFill];
-        [rectPath fill];
-        
-        for(UIBezierPath *p in self.drawnPaths) {
-            [p stroke];
-        }
-        
-        returnImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        UIGraphicsEndImageContext();
-        
+    // Get the NavigationController as well as the view in the currently-showing viewController.
+    EXLandscapeNavigationController *nc = (EXLandscapeNavigationController *)appDelegate.window.rootViewController;
+    UIView *view = nc.visibleViewController.view;
+    
+    // Create image context given those bounds.
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0.0);
+    
+    // Make a white background for this image, since we're sending this to the server and want
+    // the most contrast possible.
+    //
+    // NOTE: Might want to change to a clear background, if possible.
+    //
+    UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:view.bounds];
+    [[UIColor whiteColor] setFill];
+    [rectPath fill];
+    
+    // Stroke all the paths. If there are no paths, oh well.
+    for(UIBezierPath *p in self.drawnPaths) {
+        [p stroke];
     }
     
+    // Get the image from the context.
+    returnImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Close the context.
+    UIGraphicsEndImageContext();
+    
+    // Return!
     return returnImage;
 }
 

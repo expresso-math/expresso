@@ -89,8 +89,7 @@
                                     <segment title="Heavy"/>
                                 </segments>
                                 <connections>
-                                    <action selector="selectedStrokeWidth:" destination="GPG-pd-iF4" eventType="valueChanged" id="ZAA-KV-XOs"/>
-                                    <action selector="selectedStrokeWith:" destination="GPG-pd-iF4" eventType="valueChanged" id="Oim-LH-RY5"/>
+                                    <action selector="selectedStrokeWidth:" destination="GPG-pd-iF4" eventType="valueChanged" id="TZt-4q-uXg"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stroke Weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PTe-EV-mqL">
@@ -120,17 +119,24 @@
         <scene sceneID="Kcj-sh-l4J">
             <objects>
                 <viewController title="Drawing View" id="l7U-Ht-9OR" customClass="EXDrawingViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ncd-9V-762" customClass="EXDrawingView">
+                    <view key="view" contentMode="scaleToFill" id="Ncd-9V-762">
                         <rect key="frame" x="0.0" y="44" width="568" height="232"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWc-R9-HB3">
-                                <rect key="frame" x="297" y="211" width="271" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="kEj-np-dMI" customClass="EXDrawingView">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="232"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session Identifier" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWc-R9-HB3">
+                                        <rect key="frame" x="295" y="211" width="271" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -170,12 +176,13 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="drawingView" destination="Ncd-9V-762" id="sZR-TT-AfN"/>
+                        <outlet property="drawingView" destination="kEj-np-dMI" id="WW5-Cb-rpn"/>
                         <outlet property="nextButton" destination="jXU-fR-T30" id="mcI-Ep-tIm"/>
                         <outlet property="redoButton" destination="4iC-Tg-soe" id="zRt-xS-kwF"/>
                         <outlet property="sessionLabel" destination="xWc-R9-HB3" id="Bef-a4-VBa"/>
                         <outlet property="settingsButton" destination="PKG-Ps-Nru" id="nLS-ek-BK9"/>
                         <outlet property="undoButton" destination="vov-JG-cHv" id="hgs-7f-X0w"/>
+                        <outlet property="view" destination="Ncd-9V-762" id="T3g-cv-5uT"/>
                         <segue destination="3I7-rn-ohv" kind="push" identifier="DrawingToRecognition" id="8Pf-rY-s1P"/>
                     </connections>
                 </viewController>

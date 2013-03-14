@@ -42,4 +42,11 @@
  */
 - (IBAction)startOver:(id)sender;
 
+/**
+ *  A symbolView was touched -- display its editing and modification view.
+ *
+ *  @param sender The sending object.
+ */
+- (void)symbolSelected:(id)sender;
+
 @end

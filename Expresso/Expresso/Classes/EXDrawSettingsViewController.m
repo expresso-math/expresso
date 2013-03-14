@@ -16,6 +16,9 @@
 
 @synthesize myPopoverController = _myPopoverController;
 
+/**
+ *  Force landscape.
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     switch (interfaceOrientation) {
         case UIInterfaceOrientationLandscapeLeft:{
@@ -32,6 +35,9 @@
     }
 }
 
+/**
+ *  Stub for overriding.
+ */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +47,9 @@
     return self;
 }
 
+/**
+ *  Overidden viewDidLoad to pre-set the stroke width selector to the current value.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,21 +71,28 @@
             self.strokeWidthSelector.selectedSegmentIndex = 1;
     }
     
-    // TODO: Load current settings into the data.
 }
 
+/**
+ *  Stub for overriding.
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ *  Dismiss the settings view.
+ *
+ *  Depending on platform, either dismisses pagecurl or dismisses popover.
+ */
 - (void)hide {
     if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
-        // Cancel settings iPhone way.
+        // Cancel settings iPhone way, page-curl.
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        // Cancel settings iPad way.
+        // Cancel settings iPad way, popover.
         UIPopoverController *popCon = self.myPopoverController;
         [popCon dismissPopoverAnimated:YES];
         [popCon.delegate popoverControllerDidDismissPopover:popCon];
@@ -84,6 +100,11 @@
 
 }
 
+/**
+ * Change the stroke width in response to a UISegmentedControl.
+ *
+ * @param sender The message-sending object.
+ */
 - (IBAction)selectedStrokeWidth:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     switch ([segmentedControl selectedSegmentIndex]) {
