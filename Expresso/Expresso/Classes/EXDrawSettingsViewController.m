@@ -16,30 +16,12 @@
 
 @synthesize myPopoverController = _myPopoverController;
 
-/**
- *  Force landscape.
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    switch (interfaceOrientation) {
-        case UIInterfaceOrientationLandscapeLeft:{
-            return YES;
-        } break;
-        case UIInterfaceOrientationLandscapeRight: {
-            return YES;
-        } break;
-        case UIInterfaceOrientationPortrait:
-        case UIInterfaceOrientationPortraitUpsideDown:
-        default: {
-            return NO;
-        } break;
-    }
-}
+#pragma mark - View Lifecycle
 
 /**
  *  Stub for overriding.
  */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -50,8 +32,7 @@
 /**
  *  Overidden viewDidLoad to pre-set the stroke width selector to the current value.
  */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -73,14 +54,7 @@
     
 }
 
-/**
- *  Stub for overriding.
- */
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - View Manipulation
 
 /**
  *  Dismiss the settings view.
@@ -99,6 +73,8 @@
     }
 
 }
+
+#pragma mark - IBActions
 
 /**
  * Change the stroke width in response to a UISegmentedControl.
@@ -126,5 +102,28 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self hide];
 }
+
+#pragma mark - Screen Orientation
+
+/**
+ *  Force landscape.
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+
 
 @end

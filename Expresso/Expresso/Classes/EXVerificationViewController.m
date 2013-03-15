@@ -20,6 +20,8 @@
 @synthesize boundingBoxes = _boundingBoxes;
 @synthesize imageView = _imageView;
 
+#pragma mark - Property Instantiation
+
 /**
  *  Lazy instantiation for boundingBoxes.
  */
@@ -49,11 +51,12 @@
     }
 }
 
+#pragma mark - View Lifecycle
+
 /**
  *  Override for setting up a simple BOOL flag on load.
  */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -65,8 +68,7 @@
 /**
  *  Override stub.
  */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
@@ -100,37 +102,14 @@
 }
 
 /**
- *  Target action for a symbol being selected by the user.
- *
- *  @param sender   The sender of the message.
- */
-- (void)symbolSelected:(id)sender {
-    if( [sender class] == [EXSymbolView class] ) {
-        EXSymbolView *view = (EXSymbolView *)sender;
-        [self displayEditingDialogWithSymbolView:view];
-    } else {
-        [NSException raise:@"Non-EXSymbolView sent symbolSelected." format:@"Thrower was actually of class %@.", [sender class]];
-    }
-}
-
-/**
- *  Stub for displaying the edit window for a given symbolView and its symbol.
- *
- *  @param  view    The view whose symbol we should modify with this dialog.
- */
-- (void)displayEditingDialogWithSymbolView:(EXSymbolView *)view {
-    // Do something here to display the editing dialog. Have to decide what that's going to look like...
-    NSLog(@"SymbolView %@ wants to be edited.", view);
-}
-
-/**
  *  Stub for overriding.
  */
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - IBActions
 
 /**
  *  Uh, toggle the bounding boxes.
@@ -144,6 +123,17 @@
         [self showBoundingBoxes];
     }
 }
+
+/**
+ *  Rocket the user back to the Welcome View.
+ *
+ *  @param  sender  The message sender.
+ */
+- (IBAction)startOver:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - Manipulate Bounding Boxes
 
 /**
  *  Go through the symbolViews and show them.
@@ -174,13 +164,31 @@
     
 }
 
+#pragma mark - Handle Symbol Selection & Editing
+
 /**
- *  Rocket the user back to the Welcome View.
+ *  Target action for a symbol being selected by the user.
  *
- *  @param  sender  The message sender.
+ *  @param sender   The sender of the message.
  */
-- (IBAction)startOver:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+- (void)symbolSelected:(id)sender {
+    if( [sender class] == [EXSymbolView class] ) {
+        EXSymbolView *view = (EXSymbolView *)sender;
+        [self displayEditingDialogWithSymbolView:view];
+    } else {
+        [NSException raise:@"Non-EXSymbolView sent symbolSelected." format:@"Thrower was actually of class %@.", [sender class]];
+    }
 }
+
+/**
+ *  Stub for displaying the edit window for a given symbolView and its symbol.
+ *
+ *  @param  view    The view whose symbol we should modify with this dialog.
+ */
+- (void)displayEditingDialogWithSymbolView:(EXSymbolView *)view {
+    // Do something here to display the editing dialog. Have to decide what that's going to look like...
+    NSLog(@"SymbolView %@ wants to be edited.", view);
+}
+
 
 @end

@@ -26,6 +26,8 @@
 @synthesize path = _path;
 @synthesize cachedImage = _cachedImage;
 
+#pragma mark - Initializers
+
 /**
  *  Overwritten initializer, calls drawingSetup after initting the super.
  *
@@ -33,8 +35,7 @@
  *
  *  @return id  A pointer to the new EXDrawingInterpretationView object.
  */
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder])
     {
         [self drawingSetup];
@@ -49,8 +50,7 @@
  *
  *  @return id  A pointer to the new EXDrawingInterpretationView object.
  */
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     if (self) {
@@ -59,6 +59,8 @@
     return self;
 }
 
+#pragma mark - Property Instantiation
+
 /**
  *  Lazy instantiation of the path.
  */
@@ -66,6 +68,8 @@
     if(!_path) { _path = [UIBezierPath bezierPath]; }
     return _path;
 }
+
+#pragma mark - Utility Methods
 
 /**
  *  Clear context and put the background image back in.
@@ -107,6 +111,8 @@
     return [[[NSUserDefaults standardUserDefaults] valueForKey:@"strokeWidth"] floatValue];
 }
 
+#pragma mark - Touch Lifecycle
+
 /**
  *  Touch-responding method. Fired off when the first touch of a given
  *  stroke happens. Set counter to zero, get the first touch (and location),
@@ -118,8 +124,7 @@
  *  @param  event       The event attached to these touches. Not so
  *                      important to us here.
  */
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     ctr = 0; // Initialize the counter.
     UITouch *touch = [touches anyObject]; // Get the touch.
     pts[ctr] = [touch locationInView:self]; // Get the location of said touch, put it in our array.
@@ -135,8 +140,7 @@
  *  @param  event       The event attached to these touches. Not so
  *                      important to us here.
  */
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];    // Get the one touch.
     CGPoint p = [touch locationInView:self]; // Get the point it's at now.
     ctr++;                                   // Increment poll counter.
@@ -195,8 +199,7 @@
  *                      important to us.
  *
  */
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{    
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {    
     // Get our touchpoint.
     UITouch *touch = [touches anyObject];
     CGPoint p = [touch locationInView:self];
@@ -244,11 +247,11 @@
  *                      important to us.
  *
  */
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [self touchesEnded:touches withEvent:event];
 }
 
+#pragma mark - Draw Lifecycle
 
 /**
  *  Redraw the view from the given paths.

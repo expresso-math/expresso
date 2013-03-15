@@ -27,6 +27,8 @@
 @synthesize session = _session;
 @synthesize hud = _hud;
 
+#pragma mark - Property Instantiation
+
 /**
  *  Lazy instantiation for drawing.
  *
@@ -47,6 +49,8 @@
     return _undoManager;
 }
 
+#pragma mark - Screen Orientation
+
 /**
  *  Force landscape.
  */
@@ -66,11 +70,12 @@
     }
 }
 
+#pragma mark - View Lifecycle
+
 /**
  *  Stub for overriding.
  */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -82,8 +87,7 @@
 /**
  *  Setup for when the view loads.
  */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     // Get background image and set it to the background.
@@ -122,22 +126,12 @@
 /**
  *  Stub for overriding.
  */
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/**
- *  Pass the session forward.
- *
- *  @param  segue   The segue about to happen.
- *  @param  sender  The message sender.
- */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    EXVerificationViewController *destinationViewController = segue.destinationViewController;
-    destinationViewController.session = self.session;
-}
+#pragma mark - Expression / Image / Symbol Request & Handling
 
 /**
  *  Respond to the "Recognize" button.
@@ -301,6 +295,7 @@
     
 }
 
+# pragma mark - Drawing View Delegate Protocol
 
 /**
  *  Delegate method from EXDrawingView that allows us to put the most recent path
@@ -322,16 +317,25 @@
     [self updateUndoRedoButtons];
 }
 
+#pragma mark - Undo/Redo Methods
 
 /**
- *  Pop off most recent path from self.drawing and register **its** undo as a drawingDidEnd: call.
+ *  Respond to undo button.
+ *
+ *  @param  sender  The message sender.
  */
-- (void)removeMostRecentDraw {
-    UIBezierPath *path = [self.drawing removeMostRecentPath];
-    [self.undoManager registerUndoWithTarget:self
-                                    selector:@selector(drawingDidEnd:)
-                                      object:path];
-    
+-(IBAction)undo:(id)sender {
+    [self.undoManager undo];
+}
+
+
+/**
+ *  Respond to redo button.
+ *
+ *  @param  sender  The message sender.
+ */
+-(IBAction)redo:(id)sender {
+    [self.undoManager redo];
 }
 
 /**
@@ -363,6 +367,17 @@
 }
 
 /**
+ *  Pop off most recent path from self.drawing and register **its** undo as a drawingDidEnd: call.
+ */
+- (void)removeMostRecentDraw {
+    UIBezierPath *path = [self.drawing removeMostRecentPath];
+    [self.undoManager registerUndoWithTarget:self
+                                    selector:@selector(drawingDidEnd:)
+                                      object:path];
+    
+}
+
+/**
  *  Update undo and redo buttons based on information from the undo manager.
  */
 - (void)updateUndoRedoButtons {
@@ -370,24 +385,7 @@
     self.redoButton.enabled = [self.undoManager canRedo];
 }
 
-/**
- *  Respond to undo button.
- *
- *  @param  sender  The message sender.
- */
--(IBAction)undo:(id)sender {
-    [self.undoManager undo];
-}
-
-
-/**
- *  Respond to redo button.
- *
- *  @param  sender  The message sender.
- */
--(IBAction)redo:(id)sender {
-    [self.undoManager redo];
-}
+#pragma mark - IBActions
 
 /**
  *  Respond to the clear drawing sender by, well, clearing the drawing.
@@ -427,6 +425,22 @@
 }
 
 /**
+ *  Pass the session forward.
+ *
+ *  @param  segue   The segue about to happen.
+ *  @param  sender  The message sender.
+ */
+
+#pragma mark - Segue Handling
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    EXVerificationViewController *destinationViewController = segue.destinationViewController;
+    destinationViewController.session = self.session;
+}
+
+#pragma mark - Popover Delegate Protocol
+
+/**
  *  UIPopoverController delegate method. Respond to the popover going bye-bye.
  *
  *  @param  popoverController   The PopoverController that dismissed the popover.
@@ -440,6 +454,8 @@
     self.settingsButton.enabled = YES;
     
 }
+
+#pragma mark - Alert View Delegate Protocol
 
 /**
  *  Respond to UIAlertView that gets called up in the event of any network errors.

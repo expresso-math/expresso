@@ -16,6 +16,8 @@
 
 @synthesize nextButton = _nextButton;
 
+#pragma mark - Screen Orientation
+
 /**
  *  Force landscape.
  */
@@ -35,11 +37,12 @@
     }
 }
 
+# pragma mark - View Lifecycle
+
 /**
  *  Stub for overriding.
  */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -50,8 +53,7 @@
 /**
  *  Some setup for when the view loads. Set the background of the view.
  */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     UIImage *pattern = [UIImage imageNamed:@"honey_im_subtle"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:pattern]];
@@ -60,21 +62,11 @@
 /**
  * Stub for overriding.
  */
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-/**
- *  Pass the session forward.
- *
- *  @param  segue   The segue about to happen.
- *  @param  sender  The message sender.
- */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    EXDrawingViewController *drawingViewController = (EXDrawingViewController *)[segue destinationViewController];
-    drawingViewController.session = self.session;
-}
+# pragma mark - Session Request & Handling
 
 /**
  *  Respond to the "Connect" button by starting an API call for a session.
@@ -143,6 +135,21 @@
     [alert show];
 
 }
+
+#pragma mark - Segue
+
+/**
+ *  Pass the session forward.
+ *
+ *  @param  segue   The segue about to happen.
+ *  @param  sender  The message sender.
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    EXDrawingViewController *drawingViewController = (EXDrawingViewController *)[segue destinationViewController];
+    drawingViewController.session = self.session;
+}
+
+#pragma mark - Alert View Protocol
 
 /**
  *  Respond to the session failure alert view.

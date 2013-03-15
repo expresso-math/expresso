@@ -115,9 +115,4 @@
  */
 - (void)symbolsFailed:(ASIHTTPRequest *)request;
 
-/**
- *  Advance to the verification viewcontroller.
- */
-- (void)advanceToProcess;
-
 @end

@@ -14,11 +14,12 @@
 
 @implementation EXLandscapeNavigationController
 
+#pragma mark - View Lifecycle
+
 /**
  *  Just in case we want to override...
  */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -29,8 +30,7 @@
 /**
  *  Override of viewDidLoad for us to modify the NavigationBar and ToolBar tint.
  */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     UIColor *color = [UIColor colorWithRed:68/255.0f green:30/255.0f blue:0/255.0f alpha:1.0f];
@@ -39,14 +39,7 @@
     
 }
 
-/**
- *  Stub for overriding.
- */
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Screen Orientation
 
 /**
  *  Force landscape.

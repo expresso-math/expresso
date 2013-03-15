@@ -17,11 +17,18 @@
 
 @implementation EXSymbolView
 
+
 @synthesize labelBackground = _labelBackground;
 @synthesize symbolLabel = _symbolLabel;
 
-- (id)initWithFrame:(CGRect)frame
-{
+
+#pragma mark - UIView
+/**
+ *  Override to build our cool little bounding box.
+ *
+ *  @param  frame   The frame in which to construct our view/control.
+ */
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         

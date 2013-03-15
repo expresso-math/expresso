@@ -14,6 +14,8 @@
 @synthesize symbols = _symbols;
 @synthesize image = _image;
 
+#pragma mark - Advanced State Manipulation
+
 /**
  * Set the expression's symbols with an array of NSDictionaries,
  * containing the formerly-JSONified data.

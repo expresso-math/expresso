@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 /**
  * Protocol so EXDrawingView can tell someone that drawing ended.
  */
@@ -36,7 +35,6 @@
 
 /** The drawing view delegate. Receives drawingDidEnd: from this object. */
 @property (nonatomic, assign) id<EXDrawingViewDelegate> drawingViewDelegate;
-
 
 /**
  *  Redraw the view from the given paths.

@@ -20,6 +20,8 @@
 
 @synthesize drawnPaths = _drawnPaths;
 
+#pragma mark - Property Instantiation
+
 /** 
  *  Lazy instantiation for drawnPaths.
  *
@@ -30,6 +32,8 @@
     return _drawnPaths;
 }
 
+#pragma mark - Advanced State Manipulation
+
 /**
  *  Add a UIBezierPath object to our property drawnPaths.
  *
@@ -38,19 +42,6 @@
 - (void)addPath:(UIBezierPath *)newPath {
     NSArray *newArray = [self.drawnPaths arrayByAddingObject:newPath];
     self.drawnPaths = newArray;
-}
-
-/**
- *  Utility method for undo and redo operability.
- *
- *  Pops the most recent path off the property drawnPaths.
- *
- *  @return The most recent path added to this object.
- */
-- (UIBezierPath *)removeMostRecentPath {
-    UIBezierPath *removedPath = self.drawnPaths.lastObject;
-    [self removePath:removedPath];
-    return removedPath;
 }
 
 /**
@@ -67,19 +58,12 @@
 }
 
 /**
- *  Clear our drawnPaths property.
- */
-- (void)clearPaths {
-    self.drawnPaths = nil;
-}
-
-/**
  *  Generating getter for property renderedImage.
  *
  *  Contacts the App Delegate to get a hold of the root navigation controller, which then
  *  gives us the view controller it's displaying, from which we can gather the size of the view
  *  in which the user was drawing, since that changes between form factor and Retina-ability. From
- *  there, it creates an image context to grab the image. Works a lot like the caching in 
+ *  there, it creates an image context to grab the image. Works a lot like the caching in
  *  EXDrawingView.
  *
  *  @return The image the paths represent, rendered.
@@ -88,7 +72,7 @@
     
     // Make pointer.
     UIImage *returnImage = nil;
-        
+    
     // Get app delegate.
     EXAppDelegate *appDelegate = (EXAppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -121,6 +105,31 @@
     
     // Return!
     return returnImage;
+}
+
+
+#pragma mark - Undo/Redo Utility Methods
+
+/**
+ *  Utility method for undo and redo operability.
+ *
+ *  Pops the most recent path off the property drawnPaths.
+ *
+ *  @return The most recent path added to this object.
+ */
+- (UIBezierPath *)removeMostRecentPath {
+    UIBezierPath *removedPath = self.drawnPaths.lastObject;
+    [self removePath:removedPath];
+    return removedPath;
+}
+
+#pragma mark - Utility Methods
+
+/**
+ *  Clear our drawnPaths property.
+ */
+- (void)clearPaths {
+    self.drawnPaths = nil;
 }
 
 @end
