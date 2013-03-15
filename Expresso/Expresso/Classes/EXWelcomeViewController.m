@@ -95,7 +95,7 @@
     hud.labelText = @"Starting Session";
     
     // Make a new session with the URL.
-    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.heroku.com"]];
+    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.heroku.com/"]];
     self.session = newSession;
     
     // Tell the new session to start, and pass in self as the sender.
