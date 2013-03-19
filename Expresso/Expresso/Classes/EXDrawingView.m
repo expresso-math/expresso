@@ -253,14 +253,7 @@
 
 #pragma mark - Draw Lifecycle
 
-/**
- *  Redraw the view from the given paths.
- *
- *  These paths, hopefully, have come from an EXDrawing object, and more hopefully
- *  one that was used recently so as to avoid any change in frame.
- *
- *  @param  paths   An array of UIBezerPath objects to redraw.
- */
+// (Documented in header file)
 -(void)redrawFromPaths:(NSArray *)paths {
     
     [self.path removeAllPoints];

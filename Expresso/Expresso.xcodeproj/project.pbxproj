@@ -41,6 +41,7 @@
 		CBB1FBCA16EFDC7D004440BF /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */; };
 		CBB1FBCD16EFDD57004440BF /* expresso_icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB1FBAD16EFDA52004440BF /* expresso_icon_57.png */; };
 		CBB1FBCE16EFDD5D004440BF /* expresso_icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB1FBAF16EFDA57004440BF /* expresso_icon_114.png */; };
+		CBB323A316F7B90500B5CE42 /* EXTrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB323A216F7B90500B5CE42 /* EXTrainingViewController.m */; };
 		CBB6338F16EDB0A3000555D3 /* EXDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6338E16EDB0A3000555D3 /* EXDrawing.m */; };
 		CBB6339216EDB0AF000555D3 /* EXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB6339116EDB0AF000555D3 /* EXDrawingView.m */; };
 		CBB633B216EE3D6E000555D3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB633B116EE3D6E000555D3 /* CFNetwork.framework */; };
@@ -124,6 +125,8 @@
 		CBB1FBC516EFDC5C004440BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		CBB1FBC716EFDC71004440BF /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		CBB1FBC916EFDC7D004440BF /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		CBB323A116F7B90500B5CE42 /* EXTrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTrainingViewController.h; path = Expresso/Classes/EXTrainingViewController.h; sourceTree = "<group>"; };
+		CBB323A216F7B90500B5CE42 /* EXTrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTrainingViewController.m; path = Expresso/Classes/EXTrainingViewController.m; sourceTree = "<group>"; };
 		CBB6338D16EDB0A3000555D3 /* EXDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawing.h; path = Classes/EXDrawing.h; sourceTree = "<group>"; };
 		CBB6338E16EDB0A3000555D3 /* EXDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXDrawing.m; path = Classes/EXDrawing.m; sourceTree = "<group>"; };
 		CBB6339016EDB0AF000555D3 /* EXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawingView.h; path = Classes/EXDrawingView.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */,
 				CB745C7E16EA821800ED87B8 /* EXDrawingViewController.h */,
 				CB745C7F16EA821800ED87B8 /* EXDrawingViewController.m */,
+				CBB323A116F7B90500B5CE42 /* EXTrainingViewController.h */,
+				CBB323A216F7B90500B5CE42 /* EXTrainingViewController.m */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -506,6 +511,7 @@
 				CBB1FB9716EF8E8F004440BF /* ASINetworkQueue.m in Sources */,
 				CBB1FB9816EF8E8F004440BF /* Reachability.m in Sources */,
 				CBB1FBA416EF8EA6004440BF /* UIButton+Glossy.m in Sources */,
+				CBB323A316F7B90500B5CE42 /* EXTrainingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

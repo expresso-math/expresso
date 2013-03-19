@@ -20,6 +20,9 @@
 
 /**
  *  Force landscape.
+ *
+ *  @param interfaceOrientation The interface orientation.
+ *  @return Whether or not we should autorotate to a given orientation.
  */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     switch (interfaceOrientation) {
@@ -41,6 +44,11 @@
 
 /**
  *  Stub for overriding.
+ *
+ *  @param  nibNameOrNil The NIB name (or nil).
+ *  @param  nibBundleOrNil  The NIB Bundle (or nil).
+ *
+ *  @return The object.
  */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -68,11 +76,7 @@
 
 # pragma mark - Session Request & Handling
 
-/**
- *  Respond to the "Connect" button by starting an API call for a session.
- * 
- *  @param  sender  The message sender.
- */
+// (Documented in header file)
 - (IBAction)connectToSession:(id)sender {
     
     // Disable the next button.
@@ -95,11 +99,7 @@
     
 }
 
-/**
- *  Method called by ASIHTTPRequest when the request for a session has successfully completed.
- *
- *  @param  request The request that has successfully completed.
- */
+// (Documented in header file)
 - (void)receiveSession:(ASIHTTPRequest *)request {
     
     // Read the response data into an NSDictionary.
@@ -121,11 +121,7 @@
 
 }
 
-/**
- *  Method called by ASIHTTPRequest when the request for a session has failed.
- *
- *  @param  request The request that has failed.
- */
+// (Documented in header file)
 - (void)sessionFailed:(ASIHTTPRequest *)request {
     
     // Make an alert view!
@@ -134,6 +130,12 @@
     // Show it!
     [alert show];
 
+}
+
+#pragma mark - Training Preparation
+
+-(IBAction)segueToTraining:(id)sender {
+    [self performSegueWithIdentifier:@"WelcomeToTraining" sender:self];
 }
 
 #pragma mark - Segue
@@ -145,8 +147,10 @@
  *  @param  sender  The message sender.
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    EXDrawingViewController *drawingViewController = (EXDrawingViewController *)[segue destinationViewController];
-    drawingViewController.session = self.session;
+    if( [segue.identifier isEqualToString:@"WelcomeToDrawing"] ) {
+        EXDrawingViewController *drawingViewController = (EXDrawingViewController *)[segue destinationViewController];
+        drawingViewController.session = self.session;
+    }
 }
 
 #pragma mark - Alert View Protocol

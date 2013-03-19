@@ -16,12 +16,7 @@
 
 #pragma mark - Advanced State Manipulation
 
-/**
- * Set the expression's symbols with an array of NSDictionaries,
- * containing the formerly-JSONified data.
- *
- * @param symbols An array of NSDictionaries containing symbol data.
- */
+// (Documented in header file)
 -(void)setSymbolsWithArrayOfDicts:(NSArray *)symbols {
     NSDictionary *symbol;
     NSMutableArray *newSymbolSet = [NSMutableArray arrayWithCapacity:20];

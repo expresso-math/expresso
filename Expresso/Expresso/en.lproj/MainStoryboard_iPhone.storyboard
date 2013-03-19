@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UcT-r7-XHD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UcT-r7-XHD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -54,6 +54,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="khf-aY-4mC"/>
+                        <barButtonItem title="Help Expresso Learn!" id="Ydu-6Q-dgo">
+                            <connections>
+                                <action selector="segueToTraining:" destination="ChU-sL-RXU" id="vsq-uX-4DC"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Welcome" id="OYQ-ks-zmU">
                         <barButtonItem key="rightBarButtonItem" title="Connect" id="gql-hF-aFZ">
                             <connections>
@@ -62,10 +70,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="nextButton" destination="gql-hF-aFZ" id="acC-h8-bMa"/>
                         <segue destination="l7U-Ht-9OR" kind="push" identifier="WelcomeToDrawing" id="mg1-EM-vYa"/>
+                        <segue destination="AWU-7c-ugd" kind="push" identifier="WelcomeToTraining" id="wPt-dn-tVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZu-Bz-w4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,6 +199,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBY-Ms-WAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1460" y="-319"/>
+        </scene>
+        <!--Training View Controller - Draw Training Set-->
+        <scene sceneID="RPw-sv-eMM">
+            <objects>
+                <viewController id="AWU-7c-ugd" customClass="EXTrainingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E70-20-RWT">
+                        <rect key="frame" x="0.0" y="44" width="568" height="232"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="557-LC-0GR" customClass="EXDrawingView">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="232"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Clear" id="4yc-zi-ZXc">
+                            <color key="tintColor" red="0.53179590450000003" green="0.0" blue="0.0033190879119999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="clearDrawing:" destination="AWU-7c-ugd" id="48w-eO-0Lt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Undo" id="WoA-BN-4ou">
+                            <connections>
+                                <action selector="undo:" destination="AWU-7c-ugd" id="ZTb-xv-0ai"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Redo" id="f5S-3K-zIL">
+                            <connections>
+                                <action selector="redo:" destination="AWU-7c-ugd" id="DGL-47-fHu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7p4-nh-cJ9"/>
+                        <barButtonItem title="Settings" id="EUY-40-wuU">
+                            <connections>
+                                <action selector="showSettings:" destination="AWU-7c-ugd" id="PdW-sV-XFs"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Draw Training Set" id="g3D-te-G3a">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="HuQ-gN-FlD">
+                            <color key="tintColor" red="0.00066680357849999996" green="0.55713800469999997" blue="0.0030451351850000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="sendTrainingSet:" destination="AWU-7c-ugd" id="s9Y-ah-kwA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="drawingView" destination="557-LC-0GR" id="V3c-my-Fft"/>
+                        <outlet property="nextButton" destination="HuQ-gN-FlD" id="TkO-XR-eGW"/>
+                        <outlet property="redoButton" destination="f5S-3K-zIL" id="tkT-ZF-D08"/>
+                        <outlet property="settingsButton" destination="EUY-40-wuU" id="eh2-ur-m2X"/>
+                        <outlet property="undoButton" destination="WoA-BN-4ou" id="Ulv-JS-FI0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LdJ-Pu-47h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="-787"/>
         </scene>
         <!--Verification View Controller - Recognition Verification View-->
         <scene sceneID="snT-Vs-VAq">

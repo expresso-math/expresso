@@ -25,12 +25,17 @@
 
 
 /**
- * Conect to a session with Barista.
+ *  Conect to a session with Barista.
  *
- * @param sender The sending object.
+ *  @param sender The sending object.
  */
 -(IBAction)connectToSession:(id)sender;
 
+/**
+ *
+ *  @param  sender  The sending object.
+ */
+-(IBAction)segueToTraining:(id)sender;
 
 /**
  * The ASIHTTPRequest from EXSession completed, let's do something 

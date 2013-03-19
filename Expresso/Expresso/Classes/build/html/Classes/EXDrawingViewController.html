@@ -1,0 +1,2106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>EXDrawingViewController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Expresso </a></h1>
+				<a id="developerHome" href="../index.html">Josef Lange &amp; Daniel Guilak</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">EXDrawingViewController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/drawing">&nbsp;&nbsp;&nbsp;&nbsp;drawing</option>
+	
+	<option value="//api/name/drawingView">&nbsp;&nbsp;&nbsp;&nbsp;drawingView</option>
+	
+	<option value="//api/name/hud">&nbsp;&nbsp;&nbsp;&nbsp;hud</option>
+	
+	<option value="//api/name/nextButton">&nbsp;&nbsp;&nbsp;&nbsp;nextButton</option>
+	
+	<option value="//api/name/popCon">&nbsp;&nbsp;&nbsp;&nbsp;popCon</option>
+	
+	<option value="//api/name/redoButton">&nbsp;&nbsp;&nbsp;&nbsp;redoButton</option>
+	
+	<option value="//api/name/session">&nbsp;&nbsp;&nbsp;&nbsp;session</option>
+	
+	<option value="//api/name/sessionLabel">&nbsp;&nbsp;&nbsp;&nbsp;sessionLabel</option>
+	
+	<option value="//api/name/settingsButton">&nbsp;&nbsp;&nbsp;&nbsp;settingsButton</option>
+	
+	<option value="//api/name/undoButton">&nbsp;&nbsp;&nbsp;&nbsp;undoButton</option>
+	
+	<option value="//api/name/undoManager">&nbsp;&nbsp;&nbsp;&nbsp;undoManager</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/alertView:didDismissWithButtonIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- alertView:didDismissWithButtonIndex:</option>
+	
+	<option value="//api/name/clearDrawing:">&nbsp;&nbsp;&nbsp;&nbsp;- clearDrawing:</option>
+	
+	<option value="//api/name/didReceiveMemoryWarning">&nbsp;&nbsp;&nbsp;&nbsp;- didReceiveMemoryWarning</option>
+	
+	<option value="//api/name/drawingDidEnd:">&nbsp;&nbsp;&nbsp;&nbsp;- drawingDidEnd:</option>
+	
+	<option value="//api/name/initWithNibName:bundle:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithNibName:bundle:</option>
+	
+	<option value="//api/name/newExpressionFailed:">&nbsp;&nbsp;&nbsp;&nbsp;- newExpressionFailed:</option>
+	
+	<option value="//api/name/popoverControllerDidDismissPopover:">&nbsp;&nbsp;&nbsp;&nbsp;- popoverControllerDidDismissPopover:</option>
+	
+	<option value="//api/name/receiveNewExpression:">&nbsp;&nbsp;&nbsp;&nbsp;- receiveNewExpression:</option>
+	
+	<option value="//api/name/receiveSymbols:">&nbsp;&nbsp;&nbsp;&nbsp;- receiveSymbols:</option>
+	
+	<option value="//api/name/recognizeDrawing:">&nbsp;&nbsp;&nbsp;&nbsp;- recognizeDrawing:</option>
+	
+	<option value="//api/name/redo:">&nbsp;&nbsp;&nbsp;&nbsp;- redo:</option>
+	
+	<option value="//api/name/removeMostRecentDraw">&nbsp;&nbsp;&nbsp;&nbsp;- removeMostRecentDraw</option>
+	
+	<option value="//api/name/shouldAutorotateToInterfaceOrientation:">&nbsp;&nbsp;&nbsp;&nbsp;- shouldAutorotateToInterfaceOrientation:</option>
+	
+	<option value="//api/name/showSettings:">&nbsp;&nbsp;&nbsp;&nbsp;- showSettings:</option>
+	
+	<option value="//api/name/symbolsFailed:">&nbsp;&nbsp;&nbsp;&nbsp;- symbolsFailed:</option>
+	
+	<option value="//api/name/undo:">&nbsp;&nbsp;&nbsp;&nbsp;- undo:</option>
+	
+	<option value="//api/name/undoManagerDidRedo:">&nbsp;&nbsp;&nbsp;&nbsp;- undoManagerDidRedo:</option>
+	
+	<option value="//api/name/undoManagerDidUndo:">&nbsp;&nbsp;&nbsp;&nbsp;- undoManagerDidUndo:</option>
+	
+	<option value="//api/name/updateUndoRedoButtons">&nbsp;&nbsp;&nbsp;&nbsp;- updateUndoRedoButtons</option>
+	
+	<option value="//api/name/viewDidLoad">&nbsp;&nbsp;&nbsp;&nbsp;- viewDidLoad</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Extension Methods">Extension Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/drawing">drawing</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/drawingView">drawingView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hud">hud</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/nextButton">nextButton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popCon">popCon</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/redoButton">redoButton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/session">session</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sessionLabel">sessionLabel</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/settingsButton">settingsButton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/undoButton">undoButton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/undoManager">undoManager</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/alertView:didDismissWithButtonIndex:">alertView:didDismissWithButtonIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearDrawing:">clearDrawing:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didReceiveMemoryWarning">didReceiveMemoryWarning</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/drawingDidEnd:">drawingDidEnd:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithNibName:bundle:">initWithNibName:bundle:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/newExpressionFailed:">newExpressionFailed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popoverControllerDidDismissPopover:">popoverControllerDidDismissPopover:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/receiveNewExpression:">receiveNewExpression:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/receiveSymbols:">receiveSymbols:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/recognizeDrawing:">recognizeDrawing:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/redo:">redo:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeMostRecentDraw">removeMostRecentDraw</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">shouldAutorotateToInterfaceOrientation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSettings:">showSettings:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/symbolsFailed:">symbolsFailed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/undo:">undo:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/undoManagerDidRedo:">undoManagerDidRedo:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/undoManagerDidUndo:">undoManagerDidUndo:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateUndoRedoButtons">updateUndoRedoButtons</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDidLoad">viewDidLoad</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="EXDrawingViewController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">EXDrawingViewController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/EXDrawingViewDelegate.html">EXDrawingViewDelegate</a><br />UIAlertViewDelegate<br />UIPopoverControllerDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">EXDrawingViewController.h<br />EXDrawingViewController.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The view controller for the drawing view. Manages the drawing undo stack, as well as
+the settings popover and uploading of the drawing to Barista.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popCon">&nbsp;&nbsp;popCon</a></code>
+		<span class="tooltip"><p>The popover controller for settings display on iPad.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/session">&nbsp;&nbsp;session</a></code>
+		<span class="tooltip"><p>The current <a href="../Classes/EXSession.html">EXSession</a> with Barista.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/nextButton">&nbsp;&nbsp;nextButton</a></code>
+		<span class="tooltip"><p>The button to start upload and segue.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/settingsButton">&nbsp;&nbsp;settingsButton</a></code>
+		<span class="tooltip"><p>The button that displays the settings dialog.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/drawingView">&nbsp;&nbsp;drawingView</a></code>
+		<span class="tooltip"><p>The <a href="#//api/name/drawing">drawing</a> view itself.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/undoButton">&nbsp;&nbsp;undoButton</a></code>
+		<span class="tooltip"><p>The undo button.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/redoButton">&nbsp;&nbsp;redoButton</a></code>
+		<span class="tooltip"><p>The redo button.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sessionLabel">&nbsp;&nbsp;sessionLabel</a></code>
+		<span class="tooltip"><p>The UILabel object to show our session_identifier.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/undoManager">&nbsp;&nbsp;undoManager</a></code>
+		<span class="tooltip"><p>The NSUndoManager that is going to manage the <a href="#//api/name/drawing">drawing</a> view&rsquo;s undo stack, lazily instantiated.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/undo:">&ndash;&nbsp;undo:</a></code>
+		<span class="tooltip"><p>Undo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/redo:">&ndash;&nbsp;redo:</a></code>
+		<span class="tooltip"><p>Redo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearDrawing:">&ndash;&nbsp;clearDrawing:</a></code>
+		<span class="tooltip"><p>Clear the <a href="#//api/name/drawing">drawing</a>. Removes paths from private <a href="../Classes/EXDrawing.html">EXDrawing</a> object,
+redraws from paths, and resets the <a href="#//api/name/undoManager">undoManager</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showSettings:">&ndash;&nbsp;showSettings:</a></code>
+		<span class="tooltip"><p>Display settings view. Modal (page curl) on iPhone, or popover on iPad.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/recognizeDrawing:">&ndash;&nbsp;recognizeDrawing:</a></code>
+		<span class="tooltip"><p>Start the recognition process. Really issues command to create a new
+expression on Barista&rsquo;s end, then calls <a href="#//api/name/receiveNewExpression:">receiveNewExpression:</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/receiveNewExpression:">&ndash;&nbsp;receiveNewExpression:</a></code>
+		<span class="tooltip"><p>Receive the request once it&rsquo;s successfully been made. Extract the expression
+from the response, and start the image upload.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/newExpressionFailed:">&ndash;&nbsp;newExpressionFailed:</a></code>
+		<span class="tooltip"><p>Expression request has failed. Handle its failure (notify user, halt current
+process of upload, etc.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/receiveSymbols:">&ndash;&nbsp;receiveSymbols:</a></code>
+		<span class="tooltip"><p>Receive the request for symbols once it&rsquo;s successfully been made. Extract the symbols
+from the response and move forward to show them.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/symbolsFailed:">&ndash;&nbsp;symbolsFailed:</a></code>
+		<span class="tooltip"><p>Symbol request has failed. Handle its failure (notify user, halt current
+process of moving forward, etc.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">&ndash;&nbsp;shouldAutorotateToInterfaceOrientation:</a></code>
+		<span class="tooltip"><p>Force landscape.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithNibName:bundle:">&ndash;&nbsp;initWithNibName:bundle:</a></code>
+		<span class="tooltip"><p>Stub for overriding.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDidLoad">&ndash;&nbsp;viewDidLoad</a></code>
+		<span class="tooltip"><p>Setup for when the view loads.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/didReceiveMemoryWarning">&ndash;&nbsp;didReceiveMemoryWarning</a></code>
+		<span class="tooltip"><p>Stub for overriding.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/drawingDidEnd:">&ndash;&nbsp;drawingDidEnd:</a></code>
+		<span class="tooltip"><p>Delegate method from <a href="../Classes/EXDrawingView.html">EXDrawingView</a> that allows us to put the most recent path
+in the <a href="../Classes/EXDrawing.html">EXDrawing</a> object and register undo/redo stuff.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/undoManagerDidUndo:">&ndash;&nbsp;undoManagerDidUndo:</a></code>
+		<span class="tooltip"><p>Undo Manager notification response to when we did undo.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/undoManagerDidRedo:">&ndash;&nbsp;undoManagerDidRedo:</a></code>
+		<span class="tooltip"><p>Undo Manager notification response to when we did redo.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeMostRecentDraw">&ndash;&nbsp;removeMostRecentDraw</a></code>
+		<span class="tooltip"><p>Pop off most recent path from self.drawing and register <strong>its</strong> undo as a <a href="#//api/name/drawingDidEnd:">drawingDidEnd:</a> call.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateUndoRedoButtons">&ndash;&nbsp;updateUndoRedoButtons</a></code>
+		<span class="tooltip"><p>Update undo and redo buttons based on information from the undo manager.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popoverControllerDidDismissPopover:">&ndash;&nbsp;popoverControllerDidDismissPopover:</a></code>
+		<span class="tooltip"><p>UIPopoverController delegate method. Respond to the popover going bye-bye.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/alertView:didDismissWithButtonIndex:">&ndash;&nbsp;alertView:didDismissWithButtonIndex:</a></code>
+		<span class="tooltip"><p>Respond to UIAlertView that gets called up in the event of any network errors.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Extension Methods" name="task_Extension Methods"></a>
+						<h3 class="subsubtitle task-title">Extension Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/drawing">&nbsp;&nbsp;drawing</a></code>
+		<span class="tooltip"><p>The drawing we&rsquo;re looking at, lazily instantiated.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hud">&nbsp;&nbsp;hud</a></code>
+		<span class="tooltip"><p>The progress HUD that displays when necessary.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/drawing" title="drawing"></a>
+	<h3 class="subsubtitle method-title">drawing</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The drawing we&rsquo;re looking at, lazily instantiated.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) EXDrawing *drawing</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The drawing we&rsquo;re looking at, lazily instantiated.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/drawingView" title="drawingView"></a>
+	<h3 class="subsubtitle method-title">drawingView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="#//api/name/drawing">drawing</a> view itself.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet EXDrawingView *drawingView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The <a href="#//api/name/drawing">drawing</a> view itself.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hud" title="hud"></a>
+	<h3 class="subsubtitle method-title">hud</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The progress HUD that displays when necessary.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readwrite, nonatomic) MBProgressHUD *hud</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The progress HUD that displays when necessary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/nextButton" title="nextButton"></a>
+	<h3 class="subsubtitle method-title">nextButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The button to start upload and segue.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The button to start upload and segue.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popCon" title="popCon"></a>
+	<h3 class="subsubtitle method-title">popCon</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The popover controller for settings display on iPad.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIPopoverController *popCon</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The popover controller for settings display on iPad.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/redoButton" title="redoButton"></a>
+	<h3 class="subsubtitle method-title">redoButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The redo button.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet UIBarButtonItem *redoButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The redo button.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/session" title="session"></a>
+	<h3 class="subsubtitle method-title">session</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The current <a href="../Classes/EXSession.html">EXSession</a> with Barista.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) EXSession *session</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The current <a href="../Classes/EXSession.html">EXSession</a> with Barista.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sessionLabel" title="sessionLabel"></a>
+	<h3 class="subsubtitle method-title">sessionLabel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The UILabel object to show our session_identifier.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet UILabel *sessionLabel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The UILabel object to show our session_identifier.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/settingsButton" title="settingsButton"></a>
+	<h3 class="subsubtitle method-title">settingsButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The button that displays the settings dialog.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The button that displays the settings dialog.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/undoButton" title="undoButton"></a>
+	<h3 class="subsubtitle method-title">undoButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The undo button.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The undo button.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/undoManager" title="undoManager"></a>
+	<h3 class="subsubtitle method-title">undoManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The NSUndoManager that is going to manage the <a href="#//api/name/drawing">drawing</a> view&rsquo;s undo stack, lazily instantiated.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) NSUndoManager *undoManager</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The NSUndoManager that is going to manage the <a href="#//api/name/drawing">drawing</a> view&rsquo;s undo stack, lazily instantiated.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/alertView:didDismissWithButtonIndex:" title="alertView:didDismissWithButtonIndex:"></a>
+	<h3 class="subsubtitle method-title">alertView:didDismissWithButtonIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Respond to UIAlertView that gets called up in the event of any network errors.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)alertView:(UIAlertView *)<em>alertView</em> didDismissWithButtonIndex:(NSInteger)<em>buttonIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>alertView</em></dt>
+			<dd><p>The alert view that was dismissed.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>buttonIndex</em></dt>
+			<dd><p>The index of the button pressed to dismiss the alert view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Respond to UIAlertView that gets called up in the event of any network errors.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearDrawing:" title="clearDrawing:"></a>
+	<h3 class="subsubtitle method-title">clearDrawing:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Clear the <a href="#//api/name/drawing">drawing</a>. Removes paths from private <a href="../Classes/EXDrawing.html">EXDrawing</a> object,
+redraws from paths, and resets the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)clearDrawing:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Clear the <a href="#//api/name/drawing">drawing</a>. Removes paths from private <a href="../Classes/EXDrawing.html">EXDrawing</a> object,
+redraws from paths, and resets the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/didReceiveMemoryWarning" title="didReceiveMemoryWarning"></a>
+	<h3 class="subsubtitle method-title">didReceiveMemoryWarning</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Stub for overriding.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)didReceiveMemoryWarning</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Stub for overriding.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/drawingDidEnd:" title="drawingDidEnd:"></a>
+	<h3 class="subsubtitle method-title">drawingDidEnd:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Delegate method from <a href="../Classes/EXDrawingView.html">EXDrawingView</a> that allows us to put the most recent path
+in the <a href="../Classes/EXDrawing.html">EXDrawing</a> object and register undo/redo stuff.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)drawingDidEnd:(UIBezierPath *)<em>path</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>path</em></dt>
+			<dd><p>The path that was just drawn.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Delegate method from <a href="../Classes/EXDrawingView.html">EXDrawingView</a> that allows us to put the most recent path
+in the <a href="../Classes/EXDrawing.html">EXDrawing</a> object and register undo/redo stuff.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithNibName:bundle:" title="initWithNibName:bundle:"></a>
+	<h3 class="subsubtitle method-title">initWithNibName:bundle:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Stub for overriding.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithNibName:(NSString *)<em>nibNameOrNil</em> bundle:(NSBundle *)<em>nibBundleOrNil</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nibNameOrNil</em></dt>
+			<dd><p>The NIB name (or nil).</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nibBundleOrNil</em></dt>
+			<dd><p>The NIB Bundle (or nil).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The object.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Stub for overriding.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/newExpressionFailed:" title="newExpressionFailed:"></a>
+	<h3 class="subsubtitle method-title">newExpressionFailed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Expression request has failed. Handle its failure (notify user, halt current
+process of upload, etc.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)newExpressionFailed:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The failed request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Expression request has failed. Handle its failure (notify user, halt current
+process of upload, etc.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popoverControllerDidDismissPopover:" title="popoverControllerDidDismissPopover:"></a>
+	<h3 class="subsubtitle method-title">popoverControllerDidDismissPopover:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>UIPopoverController delegate method. Respond to the popover going bye-bye.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)popoverControllerDidDismissPopover:(UIPopoverController *)<em>popoverController</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>popoverController</em></dt>
+			<dd><p>The PopoverController that dismissed the popover.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>UIPopoverController delegate method. Respond to the popover going bye-bye.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/receiveNewExpression:" title="receiveNewExpression:"></a>
+	<h3 class="subsubtitle method-title">receiveNewExpression:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Receive the request once it&rsquo;s successfully been made. Extract the expression
+from the response, and start the image upload.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)receiveNewExpression:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The completed request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Receive the request once it&rsquo;s successfully been made. Extract the expression
+from the response, and start the image upload.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/receiveSymbols:" title="receiveSymbols:"></a>
+	<h3 class="subsubtitle method-title">receiveSymbols:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Receive the request for symbols once it&rsquo;s successfully been made. Extract the symbols
+from the response and move forward to show them.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)receiveSymbols:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The completed request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Receive the request for symbols once it&rsquo;s successfully been made. Extract the symbols
+from the response and move forward to show them.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/recognizeDrawing:" title="recognizeDrawing:"></a>
+	<h3 class="subsubtitle method-title">recognizeDrawing:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Start the recognition process. Really issues command to create a new
+expression on Barista&rsquo;s end, then calls <a href="#//api/name/receiveNewExpression:">receiveNewExpression:</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)recognizeDrawing:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Start the recognition process. Really issues command to create a new
+expression on Barista&rsquo;s end, then calls <a href="#//api/name/receiveNewExpression:">receiveNewExpression:</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/redo:" title="redo:"></a>
+	<h3 class="subsubtitle method-title">redo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Redo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)redo:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Redo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeMostRecentDraw" title="removeMostRecentDraw"></a>
+	<h3 class="subsubtitle method-title">removeMostRecentDraw</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pop off most recent path from self.drawing and register <strong>its</strong> undo as a <a href="#//api/name/drawingDidEnd:">drawingDidEnd:</a> call.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeMostRecentDraw</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Pop off most recent path from self.drawing and register <strong>its</strong> undo as a <a href="#//api/name/drawingDidEnd:">drawingDidEnd:</a> call.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldAutorotateToInterfaceOrientation:" title="shouldAutorotateToInterfaceOrientation:"></a>
+	<h3 class="subsubtitle method-title">shouldAutorotateToInterfaceOrientation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Force landscape.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)<em>interfaceOrientation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>interfaceOrientation</em></dt>
+			<dd><p>The interface orientation.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Whether or not we should autorotate to a given orientation.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Force landscape.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showSettings:" title="showSettings:"></a>
+	<h3 class="subsubtitle method-title">showSettings:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Display settings view. Modal (page curl) on iPhone, or popover on iPad.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)showSettings:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Display settings view. Modal (page curl) on iPhone, or popover on iPad.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/symbolsFailed:" title="symbolsFailed:"></a>
+	<h3 class="subsubtitle method-title">symbolsFailed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Symbol request has failed. Handle its failure (notify user, halt current
+process of moving forward, etc.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)symbolsFailed:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The failed request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Symbol request has failed. Handle its failure (notify user, halt current
+process of moving forward, etc.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/undo:" title="undo:"></a>
+	<h3 class="subsubtitle method-title">undo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Undo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)undo:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>The sender.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Undo. Just forwards the command to the <a href="#//api/name/undoManager">undoManager</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/undoManagerDidRedo:" title="undoManagerDidRedo:"></a>
+	<h3 class="subsubtitle method-title">undoManagerDidRedo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Undo Manager notification response to when we did redo.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)undoManagerDidRedo:(NSUndoManager *)<em>undoManager</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>undoManager</em></dt>
+			<dd><p>The NSUndoManager that did redo.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Undo Manager notification response to when we did redo.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/undoManagerDidUndo:" title="undoManagerDidUndo:"></a>
+	<h3 class="subsubtitle method-title">undoManagerDidUndo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Undo Manager notification response to when we did undo.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)undoManagerDidUndo:(NSUndoManager *)<em>undoManager</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>undoManager</em></dt>
+			<dd><p>The NSUndoManager that did undo.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Undo Manager notification response to when we did undo.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateUndoRedoButtons" title="updateUndoRedoButtons"></a>
+	<h3 class="subsubtitle method-title">updateUndoRedoButtons</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Update undo and redo buttons based on information from the undo manager.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateUndoRedoButtons</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Update undo and redo buttons based on information from the undo manager.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDidLoad" title="viewDidLoad"></a>
+	<h3 class="subsubtitle method-title">viewDidLoad</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Setup for when the view loads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDidLoad</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Setup for when the view loads.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EXDrawingViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Josef Lange &amp; Daniel Guilak. All rights reserved. (Last updated: 2013-03-15)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

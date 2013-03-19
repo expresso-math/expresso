@@ -22,9 +22,6 @@
 
 #pragma mark - Property Instantiation
 
-/**
- *  Lazy instantiation for boundingBoxes.
- */
 - (NSArray *)boundingBoxes {
     if(!_boundingBoxes) {
         _boundingBoxes = [[NSArray alloc] init];
@@ -34,6 +31,9 @@
 
 /**
  *  Force landscape.
+ *
+ *  @param interfaceOrientation The interface orientation.
+ *  @return Whether or not we should autorotate to a given orientation.
  */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     switch (interfaceOrientation) {
@@ -54,7 +54,12 @@
 #pragma mark - View Lifecycle
 
 /**
- *  Override for setting up a simple BOOL flag on load.
+ *  Stub for overriding.
+ *
+ *  @param  nibNameOrNil The NIB name (or nil).
+ *  @param  nibBundleOrNil  The NIB Bundle (or nil).
+ *
+ *  @return The object.
  */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -111,11 +116,7 @@
 
 #pragma mark - IBActions
 
-/**
- *  Uh, toggle the bounding boxes.
- *
- *  @param  sender  The message sender.
- */
+// (Documented in header file)
 - (IBAction)toggleBoundingBoxes:(id)sender {
     if(self.boundingBoxesShowing) {
         [self hideBoundingBoxes];
@@ -124,11 +125,7 @@
     }
 }
 
-/**
- *  Rocket the user back to the Welcome View.
- *
- *  @param  sender  The message sender.
- */
+// (Documented in header file)
 - (IBAction)startOver:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -166,11 +163,7 @@
 
 #pragma mark - Handle Symbol Selection & Editing
 
-/**
- *  Target action for a symbol being selected by the user.
- *
- *  @param sender   The sender of the message.
- */
+// (Documented in header file)
 - (void)symbolSelected:(id)sender {
     if( [sender class] == [EXSymbolView class] ) {
         EXSymbolView *view = (EXSymbolView *)sender;

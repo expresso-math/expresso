@@ -25,11 +25,7 @@
 
 #pragma mark - Initializers
 
-/**
- *  Create new EXSession object with the given URL.
- *
- *  @param url The URL to attach to.
- */
+// (Documented in header file)
 -(id)initWithURL:(NSURL *)url {
     
     self = [super init];
@@ -44,11 +40,6 @@
 
 #pragma mark - Propery Instantiation
 
-/**
- *  Lazy instantiation for NSArray expressions
- *
- *  @return The expressions array, initialized.
- */
 -(NSArray *)expressions {
     if(!_expressions) {
         _expressions = [[NSArray alloc] init];
@@ -58,13 +49,7 @@
 
 #pragma mark - Advanced State Manipulation
 
-/**
- *  Add an expression to the local object.
- *
- *  Does not add to Barista's representation of the session.
- *
- *  @param expression The expression to add.
- */
+// (Documented in header file)
 -(void)addExpression:(EXExpression *)expression {
     self.expressions = [self.expressions arrayByAddingObject:expression];
     self.currentExpression = expression;
@@ -74,14 +59,7 @@
 
 #pragma mark >> Session Requests
 
-/**
- *  Message from a View Controller for the session to start (connect).
- *
- *  We need the sender so we can issue events to it when the asynchronous
- *  request completes or fails.
- *
- *  @param sender The sender of the method call.
- */
+// (Documented in header file)
 -(void)startSessionFrom:(id)sender {
         
     // Create request. Send request. Get response. Fill in sessionIdentifier.
@@ -94,14 +72,7 @@
     
 }
 
-/**
- *  Like startSessionFrom: but with a sender-specified identifier.
- *
- *  Good for recovering old sessions or for recovering sessions from other machines.
- *
- *  @param  identifier  The identifier to fetch.
- *  @param  sender  The sender of the method call.
- */
+// (Documented in header file)
 -(void)startSessionWithSessionIdentifier:(NSString *)identifier from:(id)sender {
     
     // Create request. Send request. Get response. Fill in sessionIdentifier.
@@ -116,11 +87,7 @@
 
 #pragma mark >> Expression Requests
 
-/**
- *  Get a new expression using this session.
- *
- *  @param sender The sender of the method call.
- */
+// (Documented in header file)
 -(void)getNewExpressionFrom:(id)sender {
     NSURL *requestURL = [[self.apiURL URLByAppendingPathComponent:self.sessionIdentifier] URLByAppendingPathComponent:@"expression"];
     
@@ -133,12 +100,7 @@
 
 #pragma mark >> Image Posts & Requests
 
-/**
- *  Upload the given image to Barista using this session and the current expression.
- *
- *  @param  image   The image to upload.
- *  @param  sender The sender of the method call.
- */
+// (Documented in header file)
 -(void)uploadImage:(UIImage *)image from:(id)sender {
     
     NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"image"];
@@ -156,11 +118,7 @@
 
 #pragma mark >> Symbol Requests
 
-/**
- *  Get the symbol set from the API for this session's currentExpression.
- *
- *  @param sender The sender of the method call.
- */
+// (Documented in header file)
 -(void)getSymbolsFrom:(id)sender {
     
     NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"symbolset"];
@@ -172,6 +130,32 @@
     
     [request startAsynchronous];
     
+}
+
+// (Documented in header file)
++(NSString *)getSymbolForTraining {
+    
+    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    
+    // Get Dictionary of the data.
+    NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error:nil];
+    return [responseData objectForKey:@"symbol"];
+}
+
++(void)uploadTrainingImage:(UIImage *)image forSymbol:(NSString *)symbol from:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [request setData:imageData withFileName:@"img.png" andContentType:@"image/png" forKey:@"image"];
+    [request addPostValue:symbol forKey:@"symbol"];
+    [request setUploadProgressDelegate:sender];
+    [request setDelegate:sender];
+    [request setDidFinishSelector:@selector(imageUploaded:)];
+    [request startAsynchronous];
 }
 
 @end

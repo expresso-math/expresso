@@ -19,7 +19,34 @@
 #pragma mark - View Lifecycle
 
 /**
+ *  Force landscape.
+ *
+ *  @param interfaceOrientation The interface orientation.
+ *  @return Whether or not we should autorotate to a given orientation.
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+/**
  *  Stub for overriding.
+ *
+ *  @param  nibNameOrNil The NIB name (or nil).
+ *  @param  nibBundleOrNil  The NIB Bundle (or nil).
+ *
+ *  @return The object.
  */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -76,11 +103,7 @@
 
 #pragma mark - IBActions
 
-/**
- * Change the stroke width in response to a UISegmentedControl.
- *
- * @param sender The message-sending object.
- */
+// (Documented in header file)
 - (IBAction)selectedStrokeWidth:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     switch ([segmentedControl selectedSegmentIndex]) {
@@ -105,24 +128,6 @@
 
 #pragma mark - Screen Orientation
 
-/**
- *  Force landscape.
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    switch (interfaceOrientation) {
-        case UIInterfaceOrientationLandscapeLeft:{
-            return YES;
-        } break;
-        case UIInterfaceOrientationLandscapeRight: {
-            return YES;
-        } break;
-        case UIInterfaceOrientationPortrait:
-        case UIInterfaceOrientationPortraitUpsideDown:
-        default: {
-            return NO;
-        } break;
-    }
-}
 
 
 

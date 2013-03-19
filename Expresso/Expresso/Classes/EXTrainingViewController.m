@@ -1,17 +1,18 @@
 //
-//  EXDrawingViewController.m
+//  EXTrainingViewController.m
 //  Expresso
 //
-//  Created by Josef Lange on 3/8/13.
+//  Created by Josef Lange on 3/18/13.
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
-#import "EXDrawingViewController.h"
-#import "EXVerificationViewController.h"
+#import "EXTrainingViewController.h"
+#import "EXDrawSettingsViewController.h"
 #import "EXDrawing.h"
+#import "EXSession.h"
 #import "MBProgressHUD.h"
 
-@interface EXDrawingViewController ()
+@interface EXTrainingViewController ()
 
 /** The drawing we're looking at, lazily instantiated. */
 @property (strong, nonatomic) EXDrawing *drawing;
@@ -19,16 +20,19 @@
 /** The progress HUD that displays when necessary. */
 @property (readwrite, nonatomic) MBProgressHUD *hud;
 
+/** The symbol we're training on currently. */
+@property (strong, nonatomic) NSString *symbol;
+
 @end
 
-@implementation EXDrawingViewController
+@implementation EXTrainingViewController
 
 @synthesize nextButton = _nextButton;
 @synthesize popCon = _popCon;
 @synthesize drawing = _drawing;
 @synthesize undoManager = _undoManager;
-@synthesize session = _session;
 @synthesize hud = _hud;
+@synthesize symbol = _symbol;
 
 #pragma mark - Property Instantiation
 
@@ -69,23 +73,6 @@
 #pragma mark - View Lifecycle
 
 /**
- *  Stub for overriding.
- *
- *  @param  nibNameOrNil The NIB name (or nil).
- *  @param  nibBundleOrNil  The NIB Bundle (or nil).
- *
- *  @return The object.
- */
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-/**
  *  Setup for when the view loads.
  */
 - (void)viewDidLoad {
@@ -97,9 +84,6 @@
     
     // Set up self as the delegate for the EXDrawingView.
     self.drawingView.drawingViewDelegate = self;
-    
-    // Set our session label as the session's actual label.
-    self.sessionLabel.text = self.session.sessionIdentifier;
     
     // Create the undo manager.
     [self.undoManager setLevelsOfUndo:10];
@@ -122,146 +106,63 @@
     // Update the undo and redo buttons.
     [self updateUndoRedoButtons];
     
+    self.hud = [MBProgressHUD showHUDAddedTo:self.drawingView animated:YES];
+    self.hud.animationType = MBProgressHUDAnimationZoom;
+    
+    [self getNewSymbol];
+    
 }
+
+// Documented in header file.
+- (void)startOver {
+    self.nextButton.enabled = YES;
+    [self clearDrawing:self];
+    [self getNewSymbol];
+}
+
+#pragma mark - Training Symbol Management
 
 /**
- *  Stub for overriding.
+ *  Get a new symbol from the API for training.
+ *
  */
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Expression / Image / Symbol Request & Handling
-
-// (Documented in header file)
-- (IBAction)recognizeDrawing:(id)sender {
-    
-    // Disable next button.
-    self.nextButton.enabled = NO;
-    
-    // Create, configure, and show HUD.
-    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+-(void)getNewSymbol {
     self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"Creating expression...";
+    self.hud.labelText = @"Retrieving Training Data";
     
-    // Start request for new expression from API.
-    [self.session getNewExpressionFrom:self];
+    [self.hud show:YES];
     
+    self.symbol = [EXSession getSymbolForTraining];
+    
+    [self.hud hide:YES];
+    
+    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Training" message:[NSString stringWithFormat:@"Please draw as many \"%@\" symbols as you can fit.", self.symbol] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [prompt show];
 }
 
-// (Documented in header file)
-- (void)receiveNewExpression:(ASIHTTPRequest *)request {
-    
-    // Make an empty expression object.
-    EXExpression *newExpression = [[EXExpression alloc] init];
-    
-    // Get response data.
-    NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
-                                                                 options:NSJSONReadingAllowFragments
-                                                                   error:nil];
-    // Fill in data from response to the object.
-    newExpression.expressionIdentifier = [responseData valueForKey:@"expression_identifier"];
-
-    // Add the expression to the session.
-    [self.session addExpression:newExpression];
-    
-    // Issue message to upload the image.
-    [self uploadImage];
-    
-}
-
-
-// (Documented in header file)
-- (void)newExpressionFailed:(ASIHTTPRequest *)request {
-    // Create a UIAlertView.
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Creation Failed" message:@"Could not create a new expression with Barista." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
-    // Show the alert view.
-    [alert show];
-}
-
-// (Documented in header file)
-- (void)uploadImage {
+#pragma mark - Handling Finished Drawing
+-(IBAction)sendTrainingSet:(id)sender {
     
     // Get rendered image.
     UIImage *renderedImage = [self.drawing renderedImage];
+    
+    self.nextButton.enabled = NO;
     
     // Change the HUD mode.
     self.hud.mode = MBProgressHUDModeAnnularDeterminate;
     self.hud.labelText = @"Uploading drawing...";
     
-    // Request POST to API the image.
-    [self.session uploadImage:renderedImage from:self];
-    
+    [self.hud show:YES];
+    [EXSession uploadTrainingImage:renderedImage forSymbol:self.symbol from:self];
 }
 
-// (Documented in header file)
-- (void)setProgress:(float)newProgress {
-    
-    // If newProgress is NaN or less than the currently-set progress, set to 1.0,
-    // otherwise pass through to the HUD.
-    if(newProgress != newProgress || newProgress<self.hud.progress) {
-        self.hud.progress = 1.0;
-    } else {
-        self.hud.progress = newProgress;
-    }
-    
+// Documented in header file.
+-(void)imageUploaded:(ASIHTTPRequest *)request {
+    [self.hud hide:YES];
+    [self startOver];
 }
 
-// (Documented in header file)
-- (void)imageUploadFinished:(ASIHTTPRequest *)request {
-    
-    // Change HUD mode.
-    self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"Recognizing Symbols...";
-    
-    // Get symbols!
-    [self.session getSymbolsFrom:self];
-    
-}
-
-// (Documented in header file)
-- (void)imageUploadFailed:(ASIHTTPRequest *)request {
-    
-    // Create a UIAlertView.
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Image Upload Failed" message:@"Barista didn't like your drawing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
-    // Show the UIAlertView.
-    [alertView show];
-    
-}
-
-// (Documented in header file)
-- (void)receiveSymbols:(ASIHTTPRequest *)request {
-    
-    // Get Dictionary of the data.
-    NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
-                                                                 options:NSJSONReadingAllowFragments
-                                                                   error:nil];
-    // Pull the symbols out of the data.
-    NSArray *symbols = [responseData valueForKey:@"symbols"];
-    
-    // Set the current expression's symbols array to the response symbols.
-    [self.session.currentExpression setSymbolsWithArrayOfDicts:symbols];
-    
-    // Hide all HUDs.
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-
-    // Perform the segue to go to the recognition view.
-    [self performSegueWithIdentifier:@"DrawingToRecognition" sender:self];
-    
-}
-
-// (Documented in header file)
-- (void)symbolsFailed:(ASIHTTPRequest *)request {
-    
-    // Create a UIAlertView.
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not receive symbols" message:@"Barista wasn't able to make sense of your drawing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
-    // Show the UIAlertView.
-    [alertView show];
-    
-}
-
-# pragma mark - Drawing View Delegate Protocol
+#pragma mark - Drawing View Delegate Protocol
 
 /**
  *  Delegate method from EXDrawingView that allows us to put the most recent path
@@ -347,8 +248,6 @@
     self.redoButton.enabled = [self.undoManager canRedo];
 }
 
-#pragma mark - IBActions
-
 // (Documented in header file)
 -(IBAction)clearDrawing:(id)sender {
     [self.drawing clearPaths];
@@ -378,19 +277,6 @@
     }
 }
 
-/**
- *  Pass the session forward.
- *
- *  @param  segue   The segue about to happen.
- *  @param  sender  The message sender.
- */
-
-#pragma mark - Segue Handling
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    EXVerificationViewController *destinationViewController = segue.destinationViewController;
-    destinationViewController.session = self.session;
-}
 
 #pragma mark - Popover Delegate Protocol
 
@@ -409,28 +295,20 @@
     
 }
 
-#pragma mark - Alert View Delegate Protocol
-
-/**
- *  Respond to UIAlertView that gets called up in the event of any network errors.
- *
- *  @param  alertView   The alert view that was dismissed.
- *  @param  buttonIndex The index of the button pressed to dismiss the alert view.
- */
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            // Do nothing.
-            self.nextButton.enabled = YES;
-            break;
-        case 1:
-            // Try again.
-            [self recognizeDrawing:self];
-        default:
-            // Do nothing.
-            break;
+#pragma mark - HUD Intercept
+-(void)setProgress:(float)newProgress {
+    // If newProgress is NaN or less than the currently-set progress, set to 1.0,
+    // otherwise pass through to the HUD.
+    if(newProgress != newProgress || newProgress<self.hud.progress) {
+        self.hud.progress = 1.0;
+    } else {
+        self.hud.progress = newProgress;
     }
 }
 
+#pragma mark - UIAlertView Delegate Protocol
+-(void)alertViewCancel:(UIAlertView *)alertView {
+    // Do nothing, probably.
+}
 
 @end

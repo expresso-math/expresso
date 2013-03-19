@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 /** The current EXSession. */
 @property (strong, nonatomic) EXSession *session;
-/** An array of bounding boxes (EXSymbolView objects). */
+/** An array of bounding boxes (EXSymbolView objects), lazily instantiated. */
 @property (strong, nonatomic) NSArray *boundingBoxes;
 /** The view holding our expression's image. */
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;

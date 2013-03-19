@@ -22,11 +22,6 @@
 
 #pragma mark - Property Instantiation
 
-/** 
- *  Lazy instantiation for drawnPaths.
- *
- *  @return property drawnPaths, an NSArray of UIBezierPath objects.
- */
 - (NSArray *)drawnPaths {
     if(!_drawnPaths) { _drawnPaths = [[NSArray alloc] init]; }
     return _drawnPaths;
@@ -34,21 +29,13 @@
 
 #pragma mark - Advanced State Manipulation
 
-/**
- *  Add a UIBezierPath object to our property drawnPaths.
- *
- *  @param  newPath The path object to add.
- */
+// (Documented in header file)
 - (void)addPath:(UIBezierPath *)newPath {
     NSArray *newArray = [self.drawnPaths arrayByAddingObject:newPath];
     self.drawnPaths = newArray;
 }
 
-/**
- *  Remove the parameter UIBezierPath from this object.
- *
- *  @param  path    The path to remove.
- */
+// (Documented in header file)
 - (void)removePath:(UIBezierPath *)path {
     if([self.drawnPaths containsObject:path]) {
         NSMutableArray *tempArray = [self.drawnPaths mutableCopy];
@@ -57,17 +44,6 @@
     }
 }
 
-/**
- *  Generating getter for property renderedImage.
- *
- *  Contacts the App Delegate to get a hold of the root navigation controller, which then
- *  gives us the view controller it's displaying, from which we can gather the size of the view
- *  in which the user was drawing, since that changes between form factor and Retina-ability. From
- *  there, it creates an image context to grab the image. Works a lot like the caching in
- *  EXDrawingView.
- *
- *  @return The image the paths represent, rendered.
- */
 - (UIImage *)renderedImage {
     
     // Make pointer.
@@ -110,13 +86,7 @@
 
 #pragma mark - Undo/Redo Utility Methods
 
-/**
- *  Utility method for undo and redo operability.
- *
- *  Pops the most recent path off the property drawnPaths.
- *
- *  @return The most recent path added to this object.
- */
+// (Documented in header file)
 - (UIBezierPath *)removeMostRecentPath {
     UIBezierPath *removedPath = self.drawnPaths.lastObject;
     [self removePath:removedPath];
@@ -125,9 +95,7 @@
 
 #pragma mark - Utility Methods
 
-/**
- *  Clear our drawnPaths property.
- */
+// (Documented in header file)
 - (void)clearPaths {
     self.drawnPaths = nil;
 }

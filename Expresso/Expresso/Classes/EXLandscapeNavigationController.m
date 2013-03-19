@@ -17,7 +17,34 @@
 #pragma mark - View Lifecycle
 
 /**
- *  Just in case we want to override...
+ *  Force landscape.
+ *
+ *  @param interfaceOrientation The interface orientation.
+ *  @return Whether or not we should autorotate to a given orientation.
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+/**
+ *  Stub for overriding.
+ *
+ *  @param  nibNameOrNil The NIB name (or nil).
+ *  @param  nibBundleOrNil  The NIB Bundle (or nil).
+ *
+ *  @return The object.
  */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,25 +67,6 @@
 }
 
 #pragma mark - Screen Orientation
-
-/**
- *  Force landscape.
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    switch (interfaceOrientation) {
-        case UIInterfaceOrientationLandscapeLeft:{ 
-            return YES;
-        } break;
-        case UIInterfaceOrientationLandscapeRight: {
-            return YES;
-        } break;
-        case UIInterfaceOrientationPortrait:
-        case UIInterfaceOrientationPortraitUpsideDown:
-        default: {
-            return NO;
-        } break;
-    }
-}
 
 
 @end

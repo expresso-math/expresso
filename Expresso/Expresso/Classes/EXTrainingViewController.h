@@ -1,28 +1,24 @@
 //
-//  EXDrawingViewController.h
+//  EXTrainingViewController.h
 //  Expresso
 //
-//  Created by Josef Lange on 3/8/13.
+//  Created by Josef Lange on 3/18/13.
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "EXSession.h"
-#import "EXDrawSettingsViewController.h"
 #import "EXDrawingView.h"
+#import "ASIHTTPRequest.h"
+
 
 /**
- *  The view controller for the drawing view. Manages the drawing undo stack, as well as
- *  the settings popover and uploading of the drawing to Barista.
+ *  The view controller used for training.
+ *
  */
-
-@interface EXDrawingViewController : UIViewController <UIPopoverControllerDelegate, EXDrawingViewDelegate, UIAlertViewDelegate>
+@interface EXTrainingViewController : UIViewController <UIPopoverControllerDelegate, EXDrawingViewDelegate, UIAlertViewDelegate>
 
 /** The popover controller for settings display on iPad. */
 @property (strong, nonatomic) UIPopoverController *popCon;
-
-/** The current EXSession with Barista. */
-@property (strong, nonatomic) EXSession *session;
 
 /** The button to start upload and segue. */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
@@ -38,9 +34,6 @@
 
 /** The redo button. */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *redoButton;
-
-/** The UILabel object to show our session_identifier. */
-@property (weak, nonatomic) IBOutlet UILabel *sessionLabel;
 
 /** The NSUndoManager that is going to manage the drawing view's undo stack, lazily instantiated. */
 @property (strong, nonatomic) NSUndoManager *undoManager;
@@ -80,39 +73,27 @@
  *
  *  @param sender The sender.
  */
-- (IBAction)recognizeDrawing:(id)sender;
+- (IBAction)sendTrainingSet:(id)sender;
 
 /**
- *  Receive the request once it's successfully been made. Extract the expression
- *  from the response, and start the image upload.
+ *  Delegate method fired off when the image has been successfully uploaded
+ *  to Barista.
  *
- *  @param request The completed request.
+ *  @param  request The request that was submitted.
  */
-- (void)receiveNewExpression:(ASIHTTPRequest *)request;
+- (void)imageUploaded:(ASIHTTPRequest *)request;
 
 /**
- *  Expression request has failed. Handle its failure (notify user, halt current
- *  process of upload, etc.
+ *  Protocol for intercepting HUD setProgress.
  *
- *  @param request The failed request.
  */
-- (void)newExpressionFailed:(ASIHTTPRequest *)request;
-
-/**
- *  Receive the request for symbols once it's successfully been made. Extract the symbols
- *  from the response and move forward to show them.
- *
- *  @param request The completed request.
- */
-- (void)receiveSymbols:(ASIHTTPRequest *)request;
+- (void)setProgress:(float)newProgress;
 
 
 /**
- *  Symbol request has failed. Handle its failure (notify user, halt current
- *  process of moving forward, etc.
+ *  Start a new training event.
  *
- *  @param request The failed request.
  */
-- (void)symbolsFailed:(ASIHTTPRequest *)request;
+- (void)startOver;
 
 @end

@@ -12,7 +12,9 @@
 
 /**
  *  Model-like class that holds onto basic session information (and 
- *  communicates with Barista to change/update it RESTfully.
+ *  communicates with Barista to change/update it RESTfully. Also does a
+ *  couple tasks not dependent on an active session, particularly submitting
+ *  training sets.
  */
 
 @interface EXSession : NSObject
@@ -23,12 +25,11 @@
 /** The URL of the API being called. */
 @property (strong, nonatomic) NSURL     *apiURL;
 
-/** An array of expressions associated with this session. */
+/** An array of expressions associated with this session, lazily instantiated. */
 @property (readonly, nonatomic) NSArray   *expressions;
 
 /** The current working expression (or a pointer to it, at least and not a copy). */
 @property (readonly, nonatomic) EXExpression *currentExpression;
-
 
 /**
  *  Create new EXSession object with the given URL.
@@ -88,5 +89,20 @@
  */
 -(void)addExpression:(EXExpression *)expression;
 
+/**
+ *  Get a symbol that Barista wants the user to generate a training set for.
+ *
+ *  @return The symbol, as a string.
+ */
++(NSString *)getSymbolForTraining;
+
+/**
+ *  Upload an image for training, for the given symbol, from the given ViewController.
+ *
+ *  @param  image   The UIImage of the training image.
+ *  @param  symbol  The symbol we're training.
+ *  @param  sender  The ViewController who sent the message.
+ */
++(void)uploadTrainingImage:(UIImage *)image forSymbol:(NSString *)symbol from:(id)sender;
 
 @end
