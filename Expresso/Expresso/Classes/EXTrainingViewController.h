@@ -86,6 +86,7 @@
 /**
  *  Protocol for intercepting HUD setProgress.
  *
+ *  @param  newProgress The new value of progress to set.
  */
 - (void)setProgress:(float)newProgress;
 
