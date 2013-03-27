@@ -105,18 +105,29 @@
     
     // Update the undo and redo buttons.
     [self updateUndoRedoButtons];
-    
+        
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     self.hud = [MBProgressHUD showHUDAddedTo:self.drawingView animated:YES];
-    self.hud.animationType = MBProgressHUDAnimationZoom;
-    
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.labelText = @"Retrieving Training Data";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self getNewSymbol];
-    
 }
 
 // Documented in header file.
 - (void)startOver {
     self.nextButton.enabled = YES;
     [self clearDrawing:self];
+    
+    [self.hud show:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.labelText = @"Retrieving Training Data";
+    
+    
     [self getNewSymbol];
 }
 
@@ -127,13 +138,8 @@
  *
  */
 -(void)getNewSymbol {
-    self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"Retrieving Training Data";
-    
-    [self.hud show:YES];
-    
+
     self.symbol = [EXSession getSymbolForTraining];
-    
     [self.hud hide:YES];
     
     UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Training" message:[NSString stringWithFormat:@"Please draw as many \"%@\" symbols as you can fit.", self.symbol] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
@@ -159,7 +165,16 @@
 // Documented in header file.
 -(void)imageUploaded:(ASIHTTPRequest *)request {
     [self.hud hide:YES];
-    [self startOver];
+    [self promptStartOver];
+}
+
+/**
+ *  Prompt the user whether or not they want to start over, or go back.
+ *
+ */
+-(void)promptStartOver {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Continue?" message:@"Would you like to continue training Expresso?" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Okay", nil];
+    [alertView show];
 }
 
 #pragma mark - Drawing View Delegate Protocol
@@ -309,6 +324,27 @@
 #pragma mark - UIAlertView Delegate Protocol
 -(void)alertViewCancel:(UIAlertView *)alertView {
     // Do nothing, probably.
+}
+
+// When the alert view is _going to_ dismiss, if it's the "Continue?" prompt, either pop back or start over.
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if([alertView.title isEqualToString:@"Continue?"]) {
+        switch (buttonIndex) {
+            case 0: {
+                // No thanks.
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                break;
+            }
+            case 1: {
+                // Okay.
+                [self startOver];
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }
 }
 
 @end
