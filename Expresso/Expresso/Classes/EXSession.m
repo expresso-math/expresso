@@ -124,6 +124,8 @@
     NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"symbolset"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
+    [request setTimeOutSeconds:30];
+    
     [request setDelegate:sender];
     [request setDidFinishSelector:@selector(receiveSymbols:)];
     [request setDidFailSelector:@selector(symbolsFailed:)];
