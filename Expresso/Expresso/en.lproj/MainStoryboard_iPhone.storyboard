@@ -316,7 +316,143 @@
             </objects>
             <point key="canvasLocation" x="2201" y="-319"/>
         </scene>
+        <!--Server Settings View Controller-->
+        <scene sceneID="sMi-HN-wTi">
+            <objects>
+                <viewController storyboardIdentifier="serverSettings" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalTransitionStyle="flipHorizontal" modalPresentationStyle="formSheet" id="EnU-0Q-kdQ" customClass="EXServerSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0UF-Xj-I1z">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="l0N-wz-cBK">
+                                <rect key="frame" x="20" y="140" width="528" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="Heroku"/>
+                                    <segment title="Localhost"/>
+                                    <segment title="Manual"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectionChanged:" destination="EnU-0Q-kdQ" eventType="valueChanged" id="t9i-Rr-SEe"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fwl-gx-o2q">
+                                <rect key="frame" x="20" y="249" width="528" height="52"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSettings:" destination="EnU-0Q-kdQ" eventType="touchUpInside" id="BHF-PK-dIa"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsVerticalScrollIndicator="NO" text="http://localhost:5000/" textAlignment="center" id="5n3-Sf-k72">
+                                <rect key="frame" x="20" y="198" width="528" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="500" height="200"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="serverAddressTextView" destination="5n3-Sf-k72" id="1Dc-Xf-De9"/>
+                        <outlet property="serverSelector" destination="l0N-wz-cBK" id="U4V-2S-CCb"/>
+                        <outlet property="settingsSaver" destination="Fwl-gx-o2q" id="cna-4n-IxR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ys-sD-DA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="-754"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="EXDrawSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectedStrokeWidth:"/>
+                <relationship kind="outlet" name="strokeWidthSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EXDrawingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawingView.h"/>
+        </class>
+        <class className="EXDrawingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXDrawingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearDrawing:"/>
+                <relationship kind="action" name="recognizeDrawing:"/>
+                <relationship kind="action" name="redo:"/>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="action" name="undo:"/>
+                <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="redoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="sessionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="undoButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="EXLandscapeNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXLandscapeNavigationController.h"/>
+        </class>
+        <class className="EXServerSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXServerSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveSettings:"/>
+                <relationship kind="action" name="selectionChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="serverAddressTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="serverSelector" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="settingsSaver" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EXTrainingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXTrainingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearDrawing:"/>
+                <relationship kind="action" name="redo:"/>
+                <relationship kind="action" name="sendTrainingSet:"/>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="action" name="undo:"/>
+                <relationship kind="outlet" name="drawingView" candidateClass="EXDrawingView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="redoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="undoButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="EXVerificationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXVerificationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startOver:"/>
+                <relationship kind="action" name="toggleBoundingBoxes:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="EXWelcomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EXWelcomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connectToSession:"/>
+                <relationship kind="action" name="segueToTraining:"/>
+                <relationship kind="action" name="showServerSettings:"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

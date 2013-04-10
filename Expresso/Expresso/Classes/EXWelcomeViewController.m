@@ -152,19 +152,29 @@
 -(IBAction)showServerSettings:(id)sender {
 
     EXServerSettingsViewController *sC = (EXServerSettingsViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"serverSettings"];
-    sC.modalPresentationStyle = UIModalPresentationPageSheet;
-    sC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:sC animated:YES];
-    sC.view.superview.autoresizingMask =
-    UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleBottomMargin;
-    sC.view.superview.frame = CGRectMake(
-                                                     sC.view.superview.frame.origin.x,
-                                                     sC.view.superview.frame.origin.y,
-                                                     500.0f,
-                                                     200.0f
-                                                     );
-    sC.view.superview.center = self.view.center;
+    if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
+        
+        [sC setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+        [self presentModalViewController:sC animated:YES];
+        
+    } else {
+            
+        sC.modalPresentationStyle = UIModalPresentationPageSheet;
+        sC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentModalViewController:sC animated:YES];
+        sC.view.superview.autoresizingMask =
+        UIViewAutoresizingFlexibleTopMargin |
+        UIViewAutoresizingFlexibleBottomMargin;
+        sC.view.superview.frame = CGRectMake(
+                                                         sC.view.superview.frame.origin.x,
+                                                         sC.view.superview.frame.origin.y,
+                                                         500.0f,
+                                                         200.0f
+                                                         );
+        sC.view.superview.center = self.view.center;
+    
+    }
+    
 }
 
 
