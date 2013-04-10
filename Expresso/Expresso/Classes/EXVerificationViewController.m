@@ -95,7 +95,9 @@
     EXSymbol *symbol;
 	// Do any additional setup after loading the view.
     for (symbol in self.session.currentExpression.symbols) {
-        EXSymbolView *newView = [[EXSymbolView alloc] initWithFrame:symbol.boundingBox];
+        CGRect innerFrame = symbol.boundingBox;
+        CGRect containingFrame = CGRectMake(innerFrame.origin.x-10, innerFrame.origin.y-10, innerFrame.size.width+20, innerFrame.size.height+20);
+        EXSymbolView *newView = [[EXSymbolView alloc] initWithFrame:containingFrame];
         newView.delegate = self;
         newView.symbol = symbol;
         self.boundingBoxes = [self.boundingBoxes arrayByAddingObject:newView];

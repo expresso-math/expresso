@@ -68,7 +68,7 @@
         [self addSubview:self.symbolLabel];
         
         // Set up target action with delegate for responding to touches.
-        [self addTarget:self.delegate action:@selector(symbolSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [self addTarget:self.delegate action:@selector(symbolSelected:) forControlEvents:UIControlEventTouchDown];
     }
     return self;
 }

@@ -124,6 +124,10 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.nextButton.enabled = YES;
+}
+
 /**
  *  Stub for overriding.
  */
@@ -153,29 +157,36 @@
 // (Documented in header file)
 - (void)receiveNewExpression:(ASIHTTPRequest *)request {
     
-    // Make an empty expression object.
-    EXExpression *newExpression = [[EXExpression alloc] init];
+    if(request.responseStatusCode==500 || request.responseStatusCode==404) {
+        
+        [self newExpressionFailed:request];
+        
+    } else {
     
-    // Get response data.
-    NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
-                                                                 options:NSJSONReadingAllowFragments
-                                                                   error:nil];
-    // Fill in data from response to the object.
-    newExpression.expressionIdentifier = [responseData valueForKey:@"expression_identifier"];
+        // Make an empty expression object.
+        EXExpression *newExpression = [[EXExpression alloc] init];
+        
+        // Get response data.
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
+                                                                     options:NSJSONReadingAllowFragments
+                                                                       error:nil];
+        // Fill in data from response to the object.
+        newExpression.expressionIdentifier = [responseData valueForKey:@"expression_identifier"];
 
-    // Add the expression to the session.
-    [self.session addExpression:newExpression];
-    
-    // Issue message to upload the image.
-    [self uploadImage];
-    
+        // Add the expression to the session.
+        [self.session addExpression:newExpression];
+        
+        // Issue message to upload the image.
+        [self uploadImage];
+        
+    }
 }
 
 
 // (Documented in header file)
 - (void)newExpressionFailed:(ASIHTTPRequest *)request {
     // Create a UIAlertView.
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Creation Failed" message:@"Could not create a new expression with Barista." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Expression Creation Failure" message:@"Could not create a new expression with Barista." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
     // Show the alert view.
     [alert show];
 }
@@ -211,12 +222,20 @@
 // (Documented in header file)
 - (void)imageUploadFinished:(ASIHTTPRequest *)request {
     
-    // Change HUD mode.
-    self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"Recognizing Symbols...";
+    if(request.responseStatusCode==404 || request.responseStatusCode==500) {
+        
+        [self imageUploadFailed:request];
+        
+    } else {
     
-    // Get symbols!
-    [self.session getSymbolsFrom:self];
+        // Change HUD mode.
+        self.hud.mode = MBProgressHUDModeIndeterminate;
+        self.hud.labelText = @"Recognizing Symbols...";
+        
+        // Get symbols!
+        [self.session getSymbolsFrom:self];
+        
+    }
     
 }
 
@@ -224,7 +243,7 @@
 - (void)imageUploadFailed:(ASIHTTPRequest *)request {
     
     // Create a UIAlertView.
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Image Upload Failed" message:@"Barista didn't like your drawing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Image Upload Failed" message:@"Your drawing failed to upload to Barista." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
     // Show the UIAlertView.
     [alertView show];
     
@@ -233,29 +252,36 @@
 // (Documented in header file)
 - (void)receiveSymbols:(ASIHTTPRequest *)request {
     
-    // Get Dictionary of the data.
-    NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
-                                                                 options:NSJSONReadingAllowFragments
-                                                                   error:nil];
-    // Pull the symbols out of the data.
-    NSArray *symbols = [responseData valueForKey:@"symbols"];
-    
-    // Set the current expression's symbols array to the response symbols.
-    [self.session.currentExpression setSymbolsWithArrayOfDicts:symbols];
-    
-    // Hide all HUDs.
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    if(request.responseStatusCode==404 || request.responseStatusCode==500) {
+        
+        [self symbolsFailed:request];
+        
+    } else {
+        
+        // Get Dictionary of the data.
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
+                                                                     options:NSJSONReadingAllowFragments
+                                                                       error:nil];
+        // Pull the symbols out of the data.
+        NSArray *symbols = [responseData valueForKey:@"symbols"];
+        
+        // Set the current expression's symbols array to the response symbols.
+        [self.session.currentExpression setSymbolsWithArrayOfDicts:symbols];
+        
+        // Hide all HUDs.
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
-    // Perform the segue to go to the recognition view.
-    [self performSegueWithIdentifier:@"DrawingToRecognition" sender:self];
-    
+        // Perform the segue to go to the recognition view.
+        [self performSegueWithIdentifier:@"DrawingToRecognition" sender:self];
+        
+    }
 }
 
 // (Documented in header file)
 - (void)symbolsFailed:(ASIHTTPRequest *)request {
     
     // Create a UIAlertView.
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not receive symbols" message:@"Barista wasn't able to make sense of your drawing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Symbols Not Returned" message:@"Barista wasn't able to make sense of your drawing, for some reason or another." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
     // Show the UIAlertView.
     [alertView show];
     
@@ -422,9 +448,11 @@
         case 0:
             // Do nothing.
             self.nextButton.enabled = YES;
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             break;
         case 1:
             // Try again.
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [self recognizeDrawing:self];
         default:
             // Do nothing.
