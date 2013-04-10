@@ -137,7 +137,8 @@
 // (Documented in header file)
 +(NSString *)getSymbolForTraining {
     
-    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    //NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:5000/trainer"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
     
@@ -149,7 +150,8 @@
 }
 
 +(void)uploadTrainingImage:(UIImage *)image forSymbol:(NSString *)symbol from:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    //NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:5000/trainer"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     NSData *imageData = UIImagePNGRepresentation(image);
     [request setData:imageData withFileName:@"img.png" andContentType:@"image/png" forKey:@"image"];

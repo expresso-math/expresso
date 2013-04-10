@@ -22,7 +22,7 @@
     NSMutableArray *newSymbolSet = [NSMutableArray arrayWithCapacity:20];
     for (symbol in symbols) {
         NSArray *box = [symbol valueForKey:@"box"];
-        NSDictionary *symbols = [symbol valueForKey:@"characters"];
+        NSDictionary *symbols = [symbol valueForKey:@"symbols"];
         CGFloat x = [[box objectAtIndex:0] doubleValue];
         CGFloat y = [[box objectAtIndex:1] doubleValue];
         CGFloat w = [[box objectAtIndex:2] doubleValue];

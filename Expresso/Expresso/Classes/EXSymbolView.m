@@ -1,5 +1,5 @@
 //
-//  EXRecognizedCharacterView.m
+//  EXSymbolView.m
 //  Expresso
 //
 //  Created by Josef Lange on 3/7/13.
