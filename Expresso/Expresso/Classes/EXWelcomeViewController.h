@@ -32,10 +32,18 @@
 -(IBAction)connectToSession:(id)sender;
 
 /**
+ *  Start the segue to training mode.
  *
  *  @param  sender  The sending object.
  */
 -(IBAction)segueToTraining:(id)sender;
+
+/**
+ *  Show us our server settings GUI so we can select localhost, Heroku, or manual.
+ *
+ *  @param  sender  The sending object.
+ */
+-(IBAction)showServerSettings:(id)sender;
 
 /**
  * The ASIHTTPRequest from EXSession completed, let's do something 

@@ -55,6 +55,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem title="Server Settings" id="lSi-cS-LEn">
+                            <connections>
+                                <action selector="showServerSettings:" destination="ChU-sL-RXU" id="5Lr-8d-jqx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="khf-aY-4mC"/>
                         <barButtonItem title="Help Expresso Learn!" id="Ydu-6Q-dgo">
                             <connections>

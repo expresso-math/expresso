@@ -64,6 +64,7 @@
 		CBE8387316E9B78A00397E14 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE8387216E9B78A00397E14 /* EXAppDelegate.m */; };
 		CBE8387C16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387A16E9B78A00397E14 /* MainStoryboard_iPhone.storyboard */; };
 		CBE8387F16E9B78A00397E14 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE8387D16E9B78A00397E14 /* MainStoryboard_iPad.storyboard */; };
+		CBF6DE501715E7EF00B5F388 /* EXServerSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF6DE4F1715E7EF00B5F388 /* EXServerSettingsViewController.m */; };
 		CBF7965816EEA454001844D7 /* EXSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7965716EEA454001844D7 /* EXSymbol.m */; };
 		CBF7965B16EEA7AD001844D7 /* EXSymbolView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF7965A16EEA7AD001844D7 /* EXSymbolView.m */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,8 @@
 		CBE8387216E9B78A00397E14 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EXAppDelegate.m; path = Classes/EXAppDelegate.m; sourceTree = "<group>"; };
 		CBE8387B16E9B78A00397E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CBE8387E16E9B78A00397E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		CBF6DE4E1715E7EF00B5F388 /* EXServerSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXServerSettingsViewController.h; path = Expresso/Classes/EXServerSettingsViewController.h; sourceTree = "<group>"; };
+		CBF6DE4F1715E7EF00B5F388 /* EXServerSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXServerSettingsViewController.m; path = Expresso/Classes/EXServerSettingsViewController.m; sourceTree = "<group>"; };
 		CBF7965616EEA454001844D7 /* EXSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXSymbol.h; path = Classes/EXSymbol.h; sourceTree = "<group>"; };
 		CBF7965716EEA454001844D7 /* EXSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXSymbol.m; path = Classes/EXSymbol.m; sourceTree = "<group>"; };
 		CBF7965916EEA7AD001844D7 /* EXSymbolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXSymbolView.h; path = /Users/josefdlange/Projects/Expresso/expresso/Expresso/Expresso/Classes/EXSymbolView.h; sourceTree = "<absolute>"; };
@@ -183,6 +186,8 @@
 		CB745C7D16EA80F800ED87B8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBF6DE4E1715E7EF00B5F388 /* EXServerSettingsViewController.h */,
+				CBF6DE4F1715E7EF00B5F388 /* EXServerSettingsViewController.m */,
 				CB745C9216EAAC5E00ED87B8 /* EXDrawSettingsViewController.h */,
 				CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */,
 				CB745C8F16EAA9D000ED87B8 /* EXVerificationViewController.h */,
@@ -512,6 +517,7 @@
 				CBB1FB9816EF8E8F004440BF /* Reachability.m in Sources */,
 				CBB1FBA416EF8EA6004440BF /* UIButton+Glossy.m in Sources */,
 				CBB323A316F7B90500B5CE42 /* EXTrainingViewController.m in Sources */,
+				CBF6DE501715E7EF00B5F388 /* EXServerSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,9 @@
         [application setStatusBarHidden:YES];
     }
     
-    NSDictionary *defaultSettings = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:3] forKey:@"strokeWidth"];
+    NSMutableDictionary *defaultSettings = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:3] forKey:@"strokeWidth"];
+    [defaultSettings setObject:@"http://expresso-api.herokuapp.com/" forKey:@"serverHost"];
+    [defaultSettings setObject:[NSNumber numberWithInt:0] forKey:@"selectedServerIndex"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultSettings];
     
     return YES;

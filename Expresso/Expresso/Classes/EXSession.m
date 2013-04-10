@@ -136,8 +136,9 @@
 
 // (Documented in header file)
 +(NSString *)getSymbolForTraining {
-    
-    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
+    NSString *serverHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverHost"];
+    NSString *stringURL = [serverHost stringByAppendingString:@"trainer"];
+    NSURL *url = [NSURL URLWithString:stringURL];
     //NSURL *url = [NSURL URLWithString:@"http://localhost:5000/trainer"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
@@ -146,16 +147,19 @@
     NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
                                                                  options:NSJSONReadingAllowFragments
                                                                    error:nil];
-    return [responseData objectForKey:@"symbol"];
+    int ascii = [[responseData objectForKey:@"symbol"] intValue];
+    return [NSString stringWithFormat:@"%c", ascii];
 }
 
 +(void)uploadTrainingImage:(UIImage *)image forSymbol:(NSString *)symbol from:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"http://expresso-api.herokuapp.com/trainer"];
-    //NSURL *url = [NSURL URLWithString:@"http://localhost:5000/trainer"];
+    NSString *serverHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverHost"];
+    NSString *stringURL = [serverHost stringByAppendingString:@"trainer"];
+    NSURL *url = [NSURL URLWithString:stringURL];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     NSData *imageData = UIImagePNGRepresentation(image);
+    unichar ascii = [symbol characterAtIndex:0];
     [request setData:imageData withFileName:@"img.png" andContentType:@"image/png" forKey:@"image"];
-    [request addPostValue:symbol forKey:@"symbol"];
+    [request addPostValue:[NSNumber numberWithInt:ascii] forKey:@"symbol"];
     [request setUploadProgressDelegate:sender];
     [request setDelegate:sender];
     [request setDidFinishSelector:@selector(imageUploaded:)];

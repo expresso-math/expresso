@@ -7,6 +7,7 @@
 //
 
 #import "EXWelcomeViewController.h"
+#import "EXServerSettingsViewController.h"
 
 @interface EXWelcomeViewController ()
 
@@ -91,8 +92,10 @@
     hud.labelText = @"Starting Session";
     
     // Make a new session with the URL.
-    EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://expresso-api.herokuapp.com/"]];
-    //EXSession *newSession = [[EXSession alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/"]];
+    
+    NSString *serverHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverHost"];
+    NSURL *url = [NSURL URLWithString:serverHost];
+    EXSession *newSession = [[EXSession alloc] initWithURL:url];
     self.session = newSession;
     
     // Tell the new session to start, and pass in self as the sender.
@@ -106,20 +109,25 @@
     // Read the response data into an NSDictionary.
     NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
                                                                  options:NSJSONReadingAllowFragments
-                                                                   error:nil];
-    
-    // Set the session identifier out of the response data.
-    self.session.sessionIdentifier = [responseData valueForKey:@"session_identifier"];
-    
-    // Hide the HUDs.
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
-    // Re-enable the next button.
-    self.nextButton.enabled = YES;
-    
-    // Perform the segues.
-    [self performSegueWithIdentifier:@"WelcomeToDrawing" sender:self];
+                                                                   error:nil];    
 
+    if([responseData valueForKey:@"session_identifier"]) {
+        // Set the session identifier out of the response data.
+        self.session.sessionIdentifier = [responseData valueForKey:@"session_identifier"];
+        
+        // Hide the HUDs.
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        // Re-enable the next button.
+        self.nextButton.enabled = YES;
+        
+        // Perform the segues.
+        [self performSegueWithIdentifier:@"WelcomeToDrawing" sender:self];
+    } else {
+        
+        [self sessionFailed:request];
+        
+    }
 }
 
 // (Documented in header file)
@@ -138,6 +146,27 @@
 -(IBAction)segueToTraining:(id)sender {
     [self performSegueWithIdentifier:@"WelcomeToTraining" sender:self];
 }
+
+#pragma mark - Server Settings
+
+-(IBAction)showServerSettings:(id)sender {
+
+    EXServerSettingsViewController *sC = (EXServerSettingsViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"serverSettings"];
+    sC.modalPresentationStyle = UIModalPresentationPageSheet;
+    sC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:sC animated:YES];
+    sC.view.superview.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleBottomMargin;
+    sC.view.superview.frame = CGRectMake(
+                                                     sC.view.superview.frame.origin.x,
+                                                     sC.view.superview.frame.origin.y,
+                                                     500.0f,
+                                                     200.0f
+                                                     );
+    sC.view.superview.center = self.view.center;
+}
+
 
 #pragma mark - Segue
 
