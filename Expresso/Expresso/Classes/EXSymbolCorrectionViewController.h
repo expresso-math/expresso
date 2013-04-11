@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EXSymbol.h"
 
 @interface EXSymbolCorrectionViewController : UIViewController
+
+@property (strong, nonatomic) EXSymbol *symbol;
 
 @end
