@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB04FB031717673D00AACE0A /* EXSymbolCorrectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB04FB021717673D00AACE0A /* EXSymbolCorrectionViewController.m */; };
+		CB04FB061717676300AACE0A /* EXSymbolCorrectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB04FB051717676300AACE0A /* EXSymbolCorrectionView.m */; };
 		CB745C7C16EA80F300ED87B8 /* EXWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */; };
 		CB745C8016EA821800ED87B8 /* EXDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C7F16EA821800ED87B8 /* EXDrawingViewController.m */; };
 		CB745C8316EA82CD00ED87B8 /* EXSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CB745C8216EA82CD00ED87B8 /* EXSession.m */; };
@@ -70,6 +72,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB04FB011717673D00AACE0A /* EXSymbolCorrectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXSymbolCorrectionViewController.h; path = Expresso/Classes/EXSymbolCorrectionViewController.h; sourceTree = "<group>"; };
+		CB04FB021717673D00AACE0A /* EXSymbolCorrectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXSymbolCorrectionViewController.m; path = Expresso/Classes/EXSymbolCorrectionViewController.m; sourceTree = "<group>"; };
+		CB04FB041717676300AACE0A /* EXSymbolCorrectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXSymbolCorrectionView.h; path = Classes/EXSymbolCorrectionView.h; sourceTree = "<group>"; };
+		CB04FB051717676300AACE0A /* EXSymbolCorrectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXSymbolCorrectionView.m; path = Classes/EXSymbolCorrectionView.m; sourceTree = "<group>"; };
 		CB745C7A16EA80F300ED87B8 /* EXWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXWelcomeViewController.h; path = Expresso/Classes/EXWelcomeViewController.h; sourceTree = "<group>"; };
 		CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXWelcomeViewController.m; path = Expresso/Classes/EXWelcomeViewController.m; sourceTree = "<group>"; };
 		CB745C7E16EA821800ED87B8 /* EXDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXDrawingViewController.h; path = Expresso/Classes/EXDrawingViewController.h; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 		CB745C7D16EA80F800ED87B8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB04FB011717673D00AACE0A /* EXSymbolCorrectionViewController.h */,
+				CB04FB021717673D00AACE0A /* EXSymbolCorrectionViewController.m */,
 				CBF6DE4E1715E7EF00B5F388 /* EXServerSettingsViewController.h */,
 				CBF6DE4F1715E7EF00B5F388 /* EXServerSettingsViewController.m */,
 				CB745C9216EAAC5E00ED87B8 /* EXDrawSettingsViewController.h */,
@@ -326,6 +334,8 @@
 			children = (
 				CBF7965916EEA7AD001844D7 /* EXSymbolView.h */,
 				CBF7965A16EEA7AD001844D7 /* EXSymbolView.m */,
+				CB04FB041717676300AACE0A /* EXSymbolCorrectionView.h */,
+				CB04FB051717676300AACE0A /* EXSymbolCorrectionView.m */,
 				CBB6339016EDB0AF000555D3 /* EXDrawingView.h */,
 				CBB6339116EDB0AF000555D3 /* EXDrawingView.m */,
 			);
@@ -518,6 +528,8 @@
 				CBB1FBA416EF8EA6004440BF /* UIButton+Glossy.m in Sources */,
 				CBB323A316F7B90500B5CE42 /* EXTrainingViewController.m in Sources */,
 				CBF6DE501715E7EF00B5F388 /* EXServerSettingsViewController.m in Sources */,
+				CB04FB031717673D00AACE0A /* EXSymbolCorrectionViewController.m in Sources */,
+				CB04FB061717676300AACE0A /* EXSymbolCorrectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
