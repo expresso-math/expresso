@@ -13,4 +13,14 @@
 @synthesize boundingBox = _boundingBox;
 @synthesize symbolsWithCertainty = _symbolsWithCertainty;
 
+- (NSString *)mostCertainSymbol {
+    NSString *returner = @"a";
+    
+    NSArray *descending = [self.symbolsWithCertainty keysSortedByValueUsingSelector:@selector(localizedStandardCompare:)];
+    
+    NSLog(@"%@", descending);
+    
+    return returner;
+}
+
 @end

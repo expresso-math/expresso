@@ -27,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 /** Are our bounding boxes showing? */
 @property (readwrite, nonatomic) BOOL boundingBoxesShowing;
+/** Session ID label */
+@property (weak, nonatomic) IBOutlet UILabel *sessionLabel;
 
 /**
  * Toggle the bounding boxes.

@@ -26,5 +26,7 @@
  */
 @property (strong, nonatomic) NSDictionary *symbolsWithCertainty;
 
+- (NSString *)mostCertainSymbol;
+
 @end
 

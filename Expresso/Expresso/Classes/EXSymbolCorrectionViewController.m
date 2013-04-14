@@ -14,6 +14,32 @@
 
 @implementation EXSymbolCorrectionViewController
 
+@synthesize symbol = _symbol;
+@synthesize image = _image;
+
+/**
+ *  Force landscape.
+ *
+ *  @param interfaceOrientation The interface orientation.
+ *  @return Whether or not we should autorotate to a given orientation.
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:{
+            return YES;
+        } break;
+        case UIInterfaceOrientationLandscapeRight: {
+            return YES;
+        } break;
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        default: {
+            return NO;
+        } break;
+    }
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,10 +49,17 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.imageView.image = self.image;
+    self.symbolLabel.text = [NSString stringWithFormat:@"Symbol: %@", [self.symbol mostCertainSymbol]];
+    self.symbolText.text = [self.symbol mostCertainSymbol];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)didReceiveMemoryWarning

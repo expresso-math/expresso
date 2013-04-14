@@ -7,6 +7,7 @@
 //
 
 #import "EXVerificationViewController.h"
+#import "EXSymbolCorrectionViewController.h"
 #import "EXSymbolView.h"
 
 @interface EXVerificationViewController ()
@@ -19,6 +20,7 @@
 @synthesize session = _session;
 @synthesize boundingBoxes = _boundingBoxes;
 @synthesize imageView = _imageView;
+@synthesize sessionLabel = _sessionLabel;
 
 #pragma mark - Property Instantiation
 
@@ -87,6 +89,9 @@
  *  @param animated Whether or not we should animate.
  */
 - (void)viewWillAppear:(BOOL)animated {
+    
+    // Fill in session label.
+    self.sessionLabel.text = self.session.sessionIdentifier;
     
     // Get the size of the image, fit to the view.
     self.imageView.image = self.session.currentExpression.image;
@@ -180,9 +185,40 @@
  *
  *  @param  view    The view whose symbol we should modify with this dialog.
  */
-- (void)displayEditingDialogWithSymbolView:(EXSymbolView *)view {
-    // Do something here to display the editing dialog. Have to decide what that's going to look like...
-    NSLog(@"SymbolView %@ wants to be edited.", view);
+- (void)displayEditingDialogWithSymbolView:(EXSymbolView *)symbolView {
+    // Do something here to display the editing dialog.
+    CGRect cropBox = symbolView.symbol.boundingBox;
+    CGImageRef ref = CGImageCreateWithImageInRect([self.imageView.image CGImage], cropBox);
+    UIImage *croppedImage = [UIImage imageWithCGImage:ref];
+    EXSymbolCorrectionViewController *cVC = (EXSymbolCorrectionViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"symbolCorrection"];
+    cVC.image = croppedImage;
+    cVC.symbol = symbolView.symbol;
+    
+    NSLog(@"SymbolView %@ wants to be edited.", symbolView);
+    
+    if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
+        
+        [cVC setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+        [self presentModalViewController:cVC animated:YES];
+        
+    } else {
+        
+        cVC.modalPresentationStyle = UIModalPresentationPageSheet;
+        cVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentModalViewController:cVC animated:YES];
+        cVC.view.superview.autoresizingMask =
+        UIViewAutoresizingFlexibleTopMargin |
+        UIViewAutoresizingFlexibleBottomMargin;
+        cVC.view.superview.frame = CGRectMake(
+                                             cVC.view.superview.frame.origin.x,
+                                             cVC.view.superview.frame.origin.y,
+                                             480.0f,
+                                             348.0f
+                                             );
+        cVC.view.superview.center = self.view.center;
+        
+    }
+    
 }
 
 

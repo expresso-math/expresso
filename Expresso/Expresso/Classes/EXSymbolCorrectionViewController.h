@@ -12,5 +12,10 @@
 @interface EXSymbolCorrectionViewController : UIViewController
 
 @property (strong, nonatomic) EXSymbol *symbol;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
+@property (weak, nonatomic) IBOutlet UITextView *symbolText;
+@property (strong, nonatomic) NSString *setSymbol;
+@property (strong, nonatomic) UIImage *image;
 
 @end
