@@ -182,9 +182,9 @@
 }
 
 /**
- *  Stub for displaying the edit window for a given symbolView and its symbol.
+ *  Stub for displaying the edit view for a given symbolView and its symbol.
  *
- *  @param  view    The view whose symbol we should modify with this dialog.
+ *  @param  symbolView    The view whose symbol we should modify with this dialog.
  */
 - (void)displayEditingDialogWithSymbolView:(EXSymbolView *)symbolView {
     // Do something here to display the editing dialog.
