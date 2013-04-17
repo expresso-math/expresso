@@ -21,6 +21,7 @@
 @synthesize boundingBoxes = _boundingBoxes;
 @synthesize imageView = _imageView;
 @synthesize sessionLabel = _sessionLabel;
+@synthesize pop = _pop;
 
 #pragma mark - Property Instantiation
 
@@ -202,21 +203,13 @@
         [self presentModalViewController:cVC animated:YES];
         
     } else {
-        
-        cVC.modalPresentationStyle = UIModalPresentationPageSheet;
-        cVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:cVC animated:YES];
-        cVC.view.superview.autoresizingMask =
-        UIViewAutoresizingFlexibleTopMargin |
-        UIViewAutoresizingFlexibleBottomMargin;
-        cVC.view.superview.frame = CGRectMake(
-                                             cVC.view.superview.frame.origin.x,
-                                             cVC.view.superview.frame.origin.y,
-                                             480.0f,
-                                             348.0f
-                                             );
-        cVC.view.superview.center = self.view.center;
-        
+        if(!self.pop) {
+            self.pop = [[UIPopoverController alloc] initWithContentViewController:cVC];
+            self.pop.delegate = self;
+            cVC.modalInPopover = YES;
+            cVC.pop = self.pop;
+            [self.pop presentPopoverFromRect:symbolView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
     }
     
 }

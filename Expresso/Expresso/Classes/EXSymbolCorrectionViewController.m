@@ -7,6 +7,7 @@
 //
 
 #import "EXSymbolCorrectionViewController.h"
+#import "EXVerificationViewController.h"
 
 @interface EXSymbolCorrectionViewController ()
 
@@ -16,6 +17,7 @@
 
 @synthesize symbol = _symbol;
 @synthesize image = _image;
+@synthesize pop = _pop;
 
 /**
  *  Force landscape.
@@ -66,6 +68,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)saveSymbol:(id)sender {
+    // Do stuff.
+    [self.pop dismissPopoverAnimated:YES];
+    [(EXVerificationViewController *)self.pop.delegate setPop:nil];
 }
 
 @end

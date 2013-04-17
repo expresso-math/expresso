@@ -17,5 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *symbolText;
 @property (strong, nonatomic) NSString *setSymbol;
 @property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) UIPopoverController *pop;
+
+-(IBAction)saveSymbol:(id)sender;
 
 @end

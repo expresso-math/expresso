@@ -260,6 +260,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSymbol:" destination="oyI-b1-Mby" eventType="touchUpInside" id="u5h-nz-7uv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -323,6 +326,7 @@
                     <connections>
                         <outlet property="imageView" destination="JVX-gA-bWC" id="00f-GB-AyG"/>
                         <outlet property="nextButton" destination="i1J-sD-wgM" id="uzD-qE-gP8"/>
+                        <outlet property="sessionLabel" destination="YCH-hv-AVg" id="zUd-0F-z5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zru-5O-360" userLabel="First Responder" sceneMemberID="firstResponder"/>

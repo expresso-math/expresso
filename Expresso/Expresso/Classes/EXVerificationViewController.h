@@ -15,7 +15,7 @@
  *  them all.
  */
 
-@interface EXVerificationViewController : UIViewController
+@interface EXVerificationViewController : UIViewController <UIPopoverControllerDelegate>
 
 /** The UIBarButtonItem that moves us forward. */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
@@ -29,6 +29,8 @@
 @property (readwrite, nonatomic) BOOL boundingBoxesShowing;
 /** Session ID label */
 @property (weak, nonatomic) IBOutlet UILabel *sessionLabel;
+/** Popover, if we need it. */
+@property (strong, nonatomic) UIPopoverController *pop;
 
 /**
  * Toggle the bounding boxes.

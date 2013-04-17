@@ -7,6 +7,7 @@
 //
 
 #import "EXServerSettingsViewController.h"
+#import "EXWelcomeViewController.h"
 
 @interface EXServerSettingsViewController ()
 
@@ -17,6 +18,7 @@
 @synthesize serverSelector = _serverSelector;
 @synthesize serverAddressTextView = _serverAddressTextView;
 @synthesize settingsSaver = _settingsSaver;
+@synthesize pop = _pop;
 
 #pragma mark - Screen Orientation
 
@@ -42,6 +44,21 @@
     }
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
+    
+        UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"Custom Server" message:@"Enter Custom Server" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        a.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [a show];
+        
+        return NO;
+        
+    }
+    
+    return YES;
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,8 +76,13 @@
     [super viewDidLoad];
     [self.serverSelector setSelectedSegmentIndex:[selectedIndex intValue]];
     [self.serverAddressTextView setText:serverHost];
+    self.serverAddressTextView.delegate = self;
     
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self save];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,11 +111,25 @@
     
 }
 
--(IBAction)saveSettings:(id)sender {
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"%d", buttonIndex);
+    if(buttonIndex==1) {
+        NSString *newServer = [[alertView textFieldAtIndex:0] text];
+        self.serverAddressTextView.text = newServer;
+        [self.serverAddressTextView endEditing:YES];
+    }
+}
+
+-(void)save {
     NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
     [d setObject:self.serverAddressTextView.text forKey:@"serverHost"];
     [d setObject:[NSNumber numberWithInt:self.serverSelector.selectedSegmentIndex] forKey:@"selectedServerIndex"];
+}
+
+-(IBAction)saveSettings:(id)sender {
     [self.presentingViewController dismissModalViewControllerAnimated:YES];
+    [self.pop dismissPopoverAnimated:YES];
+    [(EXWelcomeViewController *)self.pop.delegate setPop:nil];
 }
 
 

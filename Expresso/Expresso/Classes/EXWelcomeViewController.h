@@ -16,12 +16,14 @@
  *  Gets session. Voila.
  */
 
-@interface EXWelcomeViewController : UIViewController <UIAlertViewDelegate>
+@interface EXWelcomeViewController : UIViewController <UIAlertViewDelegate, UIPopoverControllerDelegate>
 
 /** The current EXSession. */
 @property (strong, nonatomic) EXSession *session;
 /** The button on the UINavigationBar that will send us to the next stage. */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
+/** Popover controller, if we use it... */
+@property (strong, nonatomic) UIPopoverController *pop;
 
 
 /**

@@ -16,6 +16,7 @@
 @implementation EXWelcomeViewController
 
 @synthesize nextButton = _nextButton;
+@synthesize pop = _pop;
 
 #pragma mark - Screen Orientation
 
@@ -158,25 +159,21 @@
         [self presentModalViewController:sC animated:YES];
         
     } else {
-            
-        sC.modalPresentationStyle = UIModalPresentationPageSheet;
-        sC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:sC animated:YES];
-        sC.view.superview.autoresizingMask =
-        UIViewAutoresizingFlexibleTopMargin |
-        UIViewAutoresizingFlexibleBottomMargin;
-        sC.view.superview.frame = CGRectMake(
-                                                         sC.view.superview.frame.origin.x,
-                                                         sC.view.superview.frame.origin.y,
-                                                         500.0f,
-                                                         200.0f
-                                                         );
-        sC.view.superview.center = self.view.center;
-    
+        if(!self.pop) {
+            self.pop = [[UIPopoverController alloc] initWithContentViewController:sC];
+            self.pop.delegate = self;
+            sC.modalInPopover = YES;
+            sC.pop = self.pop;
+            [self.pop presentPopoverFromBarButtonItem:(UIBarButtonItem *)sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
     }
     
 }
 
+-(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    NSLog(@"DISMISSED!");
+    self.pop = nil;
+}
 
 #pragma mark - Segue
 
