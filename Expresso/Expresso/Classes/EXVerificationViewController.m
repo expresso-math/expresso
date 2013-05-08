@@ -5,12 +5,18 @@
 //  Created by Josef Lange on 3/8/13.
 //  Copyright (c) 2013 Josef Lange & Daniel Guilak. All rights reserved.
 //
-
 #import "EXVerificationViewController.h"
 #import "EXSymbolCorrectionViewController.h"
 #import "EXSymbolView.h"
+#import "EXEquation.h"
+#import "EXEquationViewController.h"
+#import "MBProgressHUD.h"
 
 @interface EXVerificationViewController ()
+
+/** The progress HUD that displays when necessary. */
+@property (readwrite, nonatomic) MBProgressHUD *hud;
+
 
 @end
 
@@ -22,6 +28,7 @@
 @synthesize imageView = _imageView;
 @synthesize sessionLabel = _sessionLabel;
 @synthesize pop = _pop;
+@synthesize hud = _hud;
 
 #pragma mark - Property Instantiation
 
@@ -80,6 +87,13 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    EXSymbolView *view;
+    for (view in self.boundingBoxes) {
+        [[NSNotificationCenter defaultCenter] removeObserver:view];
+    }
+}
+
 /**
  *  Override to do some stuff when the view's about to appear.
  *
@@ -105,7 +119,7 @@
         CGRect containingFrame = CGRectMake(innerFrame.origin.x-10, innerFrame.origin.y-10, innerFrame.size.width+20, innerFrame.size.height+20);
         EXSymbolView *newView = [[EXSymbolView alloc] initWithFrame:containingFrame];
         newView.delegate = self;
-        newView.symbol = symbol;
+        [newView setNewSymbol:symbol];
         self.boundingBoxes = [self.boundingBoxes arrayByAddingObject:newView];
     }
     
@@ -136,6 +150,26 @@
 // (Documented in header file)
 - (IBAction)startOver:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+// (Documented in header file)
+- (IBAction)processChanges:(id)sender {
+    
+    // Disable next button.
+    self.nextButton.enabled = NO;
+    
+    NSArray *allSymbols = [[NSArray alloc] init];
+    EXSymbolView *symbolView;
+    for(symbolView in self.boundingBoxes) {
+        allSymbols = [allSymbols arrayByAddingObject:symbolView.symbol];
+    }
+    
+    // Create, configure, and show HUD.
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.labelText = @"Sending changes...";
+    
+    [self.session updateSymbolsWithArray:allSymbols from:self];
 }
 
 #pragma mark - Manipulate Bounding Boxes
@@ -194,9 +228,7 @@
     EXSymbolCorrectionViewController *cVC = (EXSymbolCorrectionViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"symbolCorrection"];
     cVC.image = croppedImage;
     cVC.symbol = symbolView.symbol;
-    
-    NSLog(@"SymbolView %@ wants to be edited.", symbolView);
-    
+        
     if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
         
         [cVC setModalTransitionStyle:UIModalTransitionStylePartialCurl];
@@ -214,5 +246,105 @@
     
 }
 
+// Already documented.
+- (void)symbolsReceived:(ASIHTTPRequest *)request {
+    if(request.responseStatusCode==500 || request.responseStatusCode==404) {
+        
+        [self symbolsNotReceived:request];
+        
+    } else {
+        
+        // Change HUD mode.
+        self.hud.mode = MBProgressHUDModeIndeterminate;
+        self.hud.labelText = @"Making up some math...";
+        
+        // Get symbols!
+        [self.session getEquationsFrom:self];
+        
+    }
+}
+
+// Already documented.
+- (void)symbolsNotReceived:(ASIHTTPRequest *)request {
+    // Reenable next button.
+    self.nextButton.enabled = YES;
+    UIAlertView *aV = [[UIAlertView alloc] initWithTitle:@"Update Failed" message:@"Barista couldn't process your changes." delegate:self cancelButtonTitle:@"Back" otherButtonTitles:@"Try Again", nil];
+    [aV show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            // Do nothing.
+            self.nextButton.enabled = YES;
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            break;
+        case 1:
+            // Try again.
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if([alertView.title isEqualToString:@"Update Failed"]) {
+                [self processChanges:self];
+            } else {
+                //[self showEquation];
+            }
+        default:
+            // Do nothing.
+            break;
+    }
+
+}
+
+// Already documented.
+- (void)receiveEquations:(ASIHTTPRequest *)request {
+    if(request.responseStatusCode==500 || request.responseStatusCode==404) {
+        
+        [self equationsFailed:request];
+        
+    } else {
+        
+        // Do stuff.
+        // Get Dictionary of the data.
+        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:request.responseData
+                                                                     options:NSJSONReadingAllowFragments
+                                                                       error:nil];
+        // Pull the symbols out of the data.
+        NSString *code = [responseData valueForKey:@"tex"];
+        
+        EXEquation *equation = [[EXEquation alloc] init];
+        equation.latexEncoding = code;        
+        equation.equationImage = [self.session getEquationImageForIdentifier:@"silly"];
+        
+        // Change HUD mode.
+        self.hud.mode = MBProgressHUDModeIndeterminate;
+        self.hud.labelText = @"Math received!";
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.nextButton.enabled = YES;
+        
+        NSArray *newEquations = [NSArray arrayWithObject:equation];
+        self.session.currentExpression.equations = newEquations;
+        
+        [self performSegueWithIdentifier:@"VerificationToMath" sender:self];
+        
+    }
+}
+
+// Already documented.
+- (void)equationsFailed:(ASIHTTPRequest *)request {
+    
+    self.nextButton.enabled = YES;
+    UIAlertView *aV = [[UIAlertView alloc] initWithTitle:@"Equation Retrieval Failed" message:@"Barista had some trouble composing equations from your written math." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try Again", nil];
+    [aV show];
+    
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    EXEquationViewController *vC = (EXEquationViewController *)[segue destinationViewController];
+    vC.session = self.session;
+    
+}
 
 @end

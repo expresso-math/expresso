@@ -23,6 +23,8 @@
 @property (strong, nonatomic) NSArray *symbols;
 /** The UIImage representation of the drawing. */
 @property (strong, nonatomic) UIImage *image;
+/** An NSArray containing likely equations. */
+@property (strong, nonatomic) NSArray *equations;
 
 
 /**

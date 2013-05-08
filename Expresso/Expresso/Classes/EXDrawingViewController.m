@@ -264,7 +264,7 @@
                                                                        error:nil];
         // Pull the symbols out of the data.
         NSArray *symbols = [responseData valueForKey:@"symbols"];
-        
+                
         // Set the current expression's symbols array to the response symbols.
         [self.session.currentExpression setSymbolsWithArrayOfDicts:symbols];
         

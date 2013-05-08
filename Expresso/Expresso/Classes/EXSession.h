@@ -81,6 +81,28 @@
 -(void)getSymbolsFrom:(id)sender;
 
 /**
+ *  Take the array of symbols and use their data to update Barista.
+ *
+ *  @param  array   The array of symbols.
+ *  @param  sender  The sender of the message.
+ */
+-(void)updateSymbolsWithArray:(NSArray *)array from:(id)sender;
+
+/**
+ *  Get estimate equations from Barista.
+ *
+ *  @param  sender  The sender of the message.
+ */
+-(void)getEquationsFrom:(id)sender;
+
+/**
+ *  Get equation image for a given identifier. Right now a fake ID.
+ *
+ *
+ **/
+-(UIImage *)getEquationImageForIdentifier:(NSString *)identifier;
+
+/**
  *  Add an expression to the local object. 
  *
  *  Does not add to Barista's representation of the session.

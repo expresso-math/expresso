@@ -13,6 +13,7 @@
 @synthesize expressionIdentifier = _expressionIdentifier;
 @synthesize symbols = _symbols;
 @synthesize image = _image;
+@synthesize equations = _equations;
 
 #pragma mark - Advanced State Manipulation
 
@@ -21,6 +22,7 @@
     NSDictionary *symbol;
     NSMutableArray *newSymbolSet = [NSMutableArray arrayWithCapacity:20];
     for (symbol in symbols) {
+        NSNumber *identifier = [symbol valueForKey:@"identifier"];
         NSArray *box = [symbol valueForKey:@"box"];
         NSDictionary *symbols = [symbol valueForKey:@"symbols"];
         CGFloat x = [[box objectAtIndex:0] doubleValue];
@@ -29,6 +31,7 @@
         CGFloat h = [[box objectAtIndex:3] doubleValue];
         CGRect boundingBox = CGRectMake(x,y,w,h);
         EXSymbol *newSymbol = [[EXSymbol alloc] init];
+        [newSymbol setSymbolIdentifier:identifier];
         [newSymbol setSymbolsWithCertainty:symbols];
         [newSymbol setBoundingBox:boundingBox];
         [newSymbolSet addObject:newSymbol];

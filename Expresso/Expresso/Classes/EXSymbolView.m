@@ -20,6 +20,7 @@
 
 @synthesize labelBackground = _labelBackground;
 @synthesize symbolLabel = _symbolLabel;
+@synthesize symbol = _symbol;
 
 
 #pragma mark - UIView
@@ -31,6 +32,9 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
+        [dnc addObserver:self selector:@selector(updateLabel) name:@"valueDidChange" object:self.symbol];
         
         // Make a nice brownish color. This is subject to change; I'm not sure if I like it. I might just
         // go for a transparent black.
@@ -55,7 +59,7 @@
         self.symbolLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, 25, 40)];
         self.symbolLabel.backgroundColor = [UIColor clearColor];
         self.symbolLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
-        self.symbolLabel.text = @"A";
+        self.symbolLabel.text = @"";
         self.symbolLabel.textAlignment = NSTextAlignmentCenter;
         self.symbolLabel.textColor = [UIColor whiteColor];
         
@@ -71,6 +75,15 @@
         [self addTarget:self.delegate action:@selector(symbolSelected:) forControlEvents:UIControlEventTouchDown];
     }
     return self;
+}
+
+-(void)setNewSymbol:(EXSymbol *)symbol {
+    self.symbol = symbol;
+    self.symbolLabel.text = [self.symbol mostCertainSymbol];
+}
+
+-(void)updateLabel {
+    self.symbolLabel.text = [self.symbol mostCertainSymbol];
 }
 
 @end

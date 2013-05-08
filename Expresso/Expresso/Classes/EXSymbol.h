@@ -17,16 +17,20 @@
  */
 @interface EXSymbol : NSObject
 
+/** The symbol's identifier. */
+@property (strong, nonatomic) NSNumber *symbolIdentifier;
+
 /** The box that bounds the identified symbol. */
 @property (readwrite, nonatomic) CGRect boundingBox;
 /** 
  *  A dictionary of symbols and their certainty scores.
- *      - Symbols are encoded with specific values, most of which are the actual letters or numbers
- *      - Scores are floating-point numbers, 0.0-1.0.
+ *      - Symbols are keys, encoded and most of which are the actual letters or numbers
+ *      - Scores are values, floating-point numbers, 0.0-1.0.
  */
 @property (strong, nonatomic) NSDictionary *symbolsWithCertainty;
 
 - (NSString *)mostCertainSymbol;
+- (void)correctToValue:(NSString *)newValue;
 
 @end
 

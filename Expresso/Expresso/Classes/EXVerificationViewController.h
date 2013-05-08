@@ -15,7 +15,7 @@
  *  them all.
  */
 
-@interface EXVerificationViewController : UIViewController <UIPopoverControllerDelegate>
+@interface EXVerificationViewController : UIViewController <UIPopoverControllerDelegate, UIAlertViewDelegate>
 
 /** The UIBarButtonItem that moves us forward. */
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
@@ -52,5 +52,46 @@
  *  @param sender The sending object.
  */
 - (void)symbolSelected:(id)sender;
+
+/**
+ *  Process the changes.
+ *
+ *  @param  sender  The sending object.
+ */
+- (IBAction)processChanges:(id)sender;
+
+/**
+ *  Barista got updated symbols.
+ *
+ *  @param  request The request that POST'd them.
+ */
+- (void)symbolsReceived:(ASIHTTPRequest *)request;
+
+/**
+ *  Barista did not receive symbols.
+ *
+ *  @param  request The request that POST'd them.
+ */
+-(void)symbolsNotReceived:(ASIHTTPRequest *)request;
+
+/**
+ *  Receive the equations given by the server.
+ *
+ *  @param  request The request sent to get the equations.
+ */
+-(void)receiveEquations:(ASIHTTPRequest *)request;
+
+/**
+ *  Equations getting failed.
+ *
+ *  @param  request The request sent to get the equations.
+ */
+-(void)equationsFailed:(ASIHTTPRequest *)request;
+
+/**
+ *  Move on to the equation view mode.
+ *
+ */
+-(void)showEquation;
 
 @end

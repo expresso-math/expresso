@@ -22,4 +22,6 @@
 /** Pointer (strong) to our delegate that will receive programmatically-assigned target actions. */
 @property (assign, nonatomic) id delegate;
 
+-(void)setNewSymbol:(EXSymbol *)symbol;
+
 @end

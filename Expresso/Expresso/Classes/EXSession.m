@@ -134,12 +134,47 @@
     
 }
 
+-(void)updateSymbolsWithArray:(NSArray *)array from:(id)sender {
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"symbolset"];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+
+    [request setDelegate:sender];
+    [request setDidFinishSelector:@selector(symbolsReceived:)];
+    [request setDidFailSelector:@selector(symbolsNotReceived:)];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    EXSymbol *symbol;
+    for(symbol in array) {
+        [dict setObject:symbol.mostCertainSymbol forKey:symbol.symbolIdentifier];
+    }
+    
+    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+
+    [request appendPostData:json];
+    [request startAsynchronous];
+    
+    
+}
+
+-(void)getEquationsFrom:(id)sender {
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:[self.currentExpression.expressionIdentifier stringValue]] URLByAppendingPathComponent:@"equationset"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setDelegate:sender];
+    [request setDidFinishSelector:@selector(receiveEquations:)];
+    [request setDidFailSelector:@selector(equationsFailed:)];
+    
+    [request startAsynchronous];
+
+}
+
 // (Documented in header file)
 +(NSString *)getSymbolForTraining {
     NSString *serverHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverHost"];
     NSString *stringURL = [serverHost stringByAppendingString:@"trainer"];
     NSURL *url = [NSURL URLWithString:stringURL];
-    //NSURL *url = [NSURL URLWithString:@"http://localhost:5000/trainer"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
     
@@ -164,6 +199,22 @@
     [request setDelegate:sender];
     [request setDidFinishSelector:@selector(imageUploaded:)];
     [request startAsynchronous];
+}
+
+- (UIImage *)getEquationImageForIdentifier:(NSString *)identifier {
+    UIImage *image = nil;
+    
+    NSURL *url = [[[self.apiURL URLByAppendingPathComponent:@"expression"] URLByAppendingPathComponent:identifier] URLByAppendingPathComponent:@"equationimage"];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    
+    NSLog(@"%d", request.responseStatusCode);
+    NSLog(@"%@", request.responseData);
+    NSData *imageData = [request responseData];
+    image = [UIImage imageWithData:imageData];
+    
+    return image;
 }
 
 @end

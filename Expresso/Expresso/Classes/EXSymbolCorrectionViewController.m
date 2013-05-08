@@ -72,6 +72,7 @@
 
 - (IBAction)saveSymbol:(id)sender {
     // Do stuff.
+    [self.symbol correctToValue:self.symbolText.text];
     [self.pop dismissPopoverAnimated:YES];
     [(EXVerificationViewController *)self.pop.delegate setPop:nil];
 }

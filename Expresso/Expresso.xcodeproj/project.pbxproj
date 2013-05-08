@@ -18,6 +18,9 @@
 		CB87870D16F12C200007584B /* pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = CB87870C16F12C200007584B /* pattern.png */; };
 		CB937EA216EE8C1400F9D4F1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */; };
 		CB9B0DA916EAEFEB004FED12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */; };
+		CB9F5F4A173439BE00AB4EA7 /* EXEquation.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F5F49173439BE00AB4EA7 /* EXEquation.m */; };
+		CBA36B1D173A0A0700B19412 /* EXEquationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA36B1C173A0A0700B19412 /* EXEquationViewController.m */; };
+		CBA36B1F173A137600B19412 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA36B1E173A137600B19412 /* MessageUI.framework */; };
 		CBB1FB9016EF8E8F004440BF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB1FB7A16EF8E8F004440BF /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CBB1FB9116EF8E8F004440BF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB1FB7D16EF8E8F004440BF /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CBB1FB9216EF8E8F004440BF /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB1FB7F16EF8E8F004440BF /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -91,6 +94,11 @@
 		CB937EA016EE8C1400F9D4F1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Classes/MBProgressHUD.h; sourceTree = "<group>"; };
 		CB937EA116EE8C1400F9D4F1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Classes/MBProgressHUD.m; sourceTree = "<group>"; };
 		CB9B0DA816EAEFEB004FED12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB9F5F48173439BE00AB4EA7 /* EXEquation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXEquation.h; path = Classes/EXEquation.h; sourceTree = "<group>"; };
+		CB9F5F49173439BE00AB4EA7 /* EXEquation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXEquation.m; path = Classes/EXEquation.m; sourceTree = "<group>"; };
+		CBA36B1B173A0A0700B19412 /* EXEquationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXEquationViewController.h; path = Expresso/EXEquationViewController.h; sourceTree = "<group>"; };
+		CBA36B1C173A0A0700B19412 /* EXEquationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXEquationViewController.m; path = Expresso/EXEquationViewController.m; sourceTree = "<group>"; };
+		CBA36B1E173A137600B19412 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CBB1FB7916EF8E8F004440BF /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		CBB1FB7A16EF8E8F004440BF /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		CBB1FB7B16EF8E8F004440BF /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA36B1F173A137600B19412 /* MessageUI.framework in Frameworks */,
 				CBB633B816EE3D87000555D3 /* libz.dylib in Frameworks */,
 				CBB633B616EE3D7E000555D3 /* MobileCoreServices.framework in Frameworks */,
 				CBB633B416EE3D77000555D3 /* SystemConfiguration.framework in Frameworks */,
@@ -197,6 +206,8 @@
 				CB745C9316EAAC5E00ED87B8 /* EXDrawSettingsViewController.m */,
 				CB745C8F16EAA9D000ED87B8 /* EXVerificationViewController.h */,
 				CB745C9016EAA9D000ED87B8 /* EXVerificationViewController.m */,
+				CBA36B1B173A0A0700B19412 /* EXEquationViewController.h */,
+				CBA36B1C173A0A0700B19412 /* EXEquationViewController.m */,
 				CB745C7A16EA80F300ED87B8 /* EXWelcomeViewController.h */,
 				CB745C7B16EA80F300ED87B8 /* EXWelcomeViewController.m */,
 				CB745C7E16EA821800ED87B8 /* EXDrawingViewController.h */,
@@ -223,6 +234,8 @@
 		CB745C8816EA84A300ED87B8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB9F5F48173439BE00AB4EA7 /* EXEquation.h */,
+				CB9F5F49173439BE00AB4EA7 /* EXEquation.m */,
 				CBB6338D16EDB0A3000555D3 /* EXDrawing.h */,
 				CBB6338E16EDB0A3000555D3 /* EXDrawing.m */,
 				CB745C8516EA84A000ED87B8 /* EXExpression.h */,
@@ -340,6 +353,7 @@
 		CBE8385616E9B78A00397E14 = {
 			isa = PBXGroup;
 			children = (
+				CBA36B1E173A137600B19412 /* MessageUI.framework */,
 				CBE8386816E9B78A00397E14 /* Expresso */,
 				CBE8386116E9B78A00397E14 /* Frameworks */,
 				CBE8386016E9B78A00397E14 /* Products */,
@@ -524,6 +538,8 @@
 				CBB323A316F7B90500B5CE42 /* EXTrainingViewController.m in Sources */,
 				CBF6DE501715E7EF00B5F388 /* EXServerSettingsViewController.m in Sources */,
 				CB04FB031717673D00AACE0A /* EXSymbolCorrectionViewController.m in Sources */,
+				CB9F5F4A173439BE00AB4EA7 /* EXEquation.m in Sources */,
+				CBA36B1D173A0A0700B19412 /* EXEquationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

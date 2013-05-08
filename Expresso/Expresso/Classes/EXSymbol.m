@@ -12,15 +12,24 @@
 
 @synthesize boundingBox = _boundingBox;
 @synthesize symbolsWithCertainty = _symbolsWithCertainty;
+@synthesize symbolIdentifier = _symbolIdentifier;
 
 - (NSString *)mostCertainSymbol {
     NSString *returner = @"a";
     
     NSArray *descending = [self.symbolsWithCertainty keysSortedByValueUsingSelector:@selector(localizedStandardCompare:)];
     
-    NSLog(@"%@", descending);
+    if ([descending objectAtIndex:0]) {
+        returner = [descending objectAtIndex:0];
+    }
     
     return returner;
+    
+}
+
+- (void)correctToValue:(NSString *)newValue {
+    self.symbolsWithCertainty = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0] forKey:newValue];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"valueDidChange" object:self];
 }
 
 @end
